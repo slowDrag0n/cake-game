@@ -3,6 +3,8 @@ using System;
 using UnityEngine;
 using DG.Tweening;
 using ScratchCardAsset;
+using Lean.Touch;
+using Lean.Common;
 public class CakeSequence : LevelSequence
 {
     [Serializable]
@@ -36,9 +38,10 @@ public class CakeSequence : LevelSequence
     [SerializeField] Animator Toppings;
     [SerializeField] Animator FirstToppingCanvasAnimator;
     [SerializeField] Animator ThirdToppingCanvasAnimator;
-    [SerializeField] DragObjectWithinBounds SpectulaObj;
+    [SerializeField] SpriteRenderer IcingToolRenderer;
     [SerializeField] DragObjectWithinBounds IcingTool;
     [SerializeField] ScratchCardManager FinalCakeScratchCard;
+    [SerializeField] EraseProgress CakePaintProgress;
     [SerializeField] SpriteRevealFromTop BorderOfCake;
 
     [Header("SpriteRenderer")]
@@ -49,23 +52,36 @@ public class CakeSequence : LevelSequence
     public SpriteRenderer UpperLayerImage;
     public SpriteRenderer SideLayerImage;
 
+    [Header("Cake Icing Refs")]
+    public LeanDragTranslate IcingToolTranslator;
+    public LeanFingerDown IcingToolFingerDown;
+    public LeanFingerUp IcingToolFingerUp;
+    public Transform IcingDragPoint;
+    public float IcingToolDragDistanceThreshold = 1f;
+
     public Vector3 sideborderpos;
     public Vector3 sideborderpos1;
 
     void Start()
     {
         StartSequence();
-        SpectulaObj.OnDraggingAction += OnSpectulaDrag;
+        //SpectulaObj.OnDraggingAction += OnSpectulaDrag;
     }
 
     public void StartSequence()
     {
         CakeTray.gameObject.SetActive(true);
+
+        IcingToolFingerDown.gameObject.SetActive(false);
+        IcingToolFingerUp.gameObject.SetActive(false);
+        IcingToolTranslator.GetComponent<LeanConstrainLocalPosition>().enabled = false;
     }
 
     public void OnCakeTrayTweenComplete()
     {
         CakeBowl.gameObject.SetActive(true);
+        CakeBowl.GetComponent<DOTweenController>().enabled = true;
+        FinalCakeScratchCard.gameObject.SetActive(false);
 
     }
     public void OnCakeBowlTweenComplete()
@@ -104,10 +120,20 @@ public class CakeSequence : LevelSequence
 
     void AssignCakeProperties(CakeType type)
     {
-        cakeData[(int)type].CakeSprite.SetActive(true);
+        //cakeData[(int)type].CakeSprite.SetActive(true);
         SpatulaImage.sprite = cakeData[(int)type].SpatulaSpritee;
         BowlFillingImage.sprite = cakeData[(int)type].BowlFillingSprite;
+        SetupCakeToPaint(cakeData[(int)type].CakeSprite);
+    }
 
+    private void SetupCakeToPaint(Sprite cakeSprite)
+    {
+        FinalCakeScratchCard.gameObject.SetActive(true);
+
+        FinalCakeScratchCard.SpriteCard.GetComponent<SpriteRenderer>().sprite = cakeSprite;
+        FinalCakeScratchCard.Card.SetScratchTexture(cakeSprite.texture);
+        FinalCakeScratchCard.Card.Mode = ScratchCard.ScratchMode.Restore;
+        FinalCakeScratchCard.Card.FillInstantly();
     }
 
     void assignSpreaderProperties(CakeType type)
@@ -128,23 +154,31 @@ public class CakeSequence : LevelSequence
     public void OnCakeButtonClick(int type)
     {
         AssignCakeProperties((CakeType)type);
+
         //CakeCanvasAnimator.SetTrigger("out");
+
         BowlWithChoco.gameObject.SetActive(true);
         BowlWithChoco.SetTrigger("moveinspread");
+
         //StartCoroutine(ExecuteAfterDelay(1f, () => { CakeCanvasAnimator.gameObject.SetActive(false); }));
         StartCoroutine(ExecuteAfterDelay(1f, () =>
         {
             BowlWithChoco.SetTrigger("getchoco");
+
             StartCoroutine(ExecuteAfterDelay(3.1f, () =>
             {
                 BowlWithChoco.enabled = false;
-                SpectulaObj.enabled = true;
                 TutHand.gameObject.SetActive(true);
                 TutHand.SetTrigger("spectulatocake");
-                SpectulaObj.GetComponent<SpriteRenderer>().sortingOrder = 5;
-                FinalCake.SetActive(true);
-                Cake.gameObject.SetActive(false);
+                IcingToolRenderer.sortingOrder = 11;
+
                 FinalCakeScratchCard.gameObject.SetActive(true);
+                CakePaintProgress.OnProgress += OnSpectulaDrag;
+
+                IcingToolFingerDown.gameObject.SetActive(true);
+                IcingToolFingerUp.gameObject.SetActive(true);
+                icingToolStartingPos = IcingToolTranslator.transform.position;
+                startedPaintingIcing = false;
             }));
         }));
     }
@@ -160,22 +194,13 @@ public class CakeSequence : LevelSequence
         yield return null;
     }
 
-    public void OnSpectulaDrag()
+    public void OnSpectulaDrag(float progress)
     {
-        TutHand.gameObject.SetActive(false);
-        if(SpectulaObj.isDragging)
+        if(FinalCakeScratchCard.Progress.currentProgress < .008f)
         {
-            FinalCakeScratchCard.Card.InputEnabled = true;
-        }
-        else
-        {
-            FinalCakeScratchCard.Card.InputEnabled = false;
-        }
-
-        if(FinalCakeScratchCard.Progress.currentProgress == 1)
-        {
-            FinalCakeScratchCard.gameObject.SetActive(false);
-            SpectulaObj.gameObject.SetActive(false);
+            CakePaintProgress.OnProgress -= OnSpectulaDrag;
+            //FinalCakeScratchCard.gameObject.SetActive(false);
+            IcingToolRenderer.gameObject.SetActive(false);
             IcingCanvasAnimator.gameObject.SetActive(true);
             IcingCanvasAnimator.SetTrigger("in");
         }
@@ -190,6 +215,7 @@ public class CakeSequence : LevelSequence
         StartCoroutine(ExecuteAfterDelay(1f, () => { IcingCanvasAnimator.gameObject.SetActive(false); }));
         IcingTool.OnDraggingAction += OnDraggingIcingTool;
     }
+
     float epsilon = 0.001f;
     public void OnDraggingIcingTool()
     {
@@ -227,6 +253,45 @@ public class CakeSequence : LevelSequence
     }
 
 
+
+    #region ICING
+
+    bool startedPaintingIcing = false;
+    Vector2 icingToolStartingPos = Vector2.zero;
+    Tween moveBackIcingToolTween;
+    public void IcingFingerDownHandler(LeanFinger finger)
+    {
+        var fingerPos = Camera.main.ScreenToWorldPoint(finger.ScreenPosition);
+        var icingToolPos = IcingDragPoint.position;
+        var fingerDistance = Vector2.Distance(fingerPos, icingToolPos);
+        Debug.Log("Finger Distance: " + fingerDistance);
+
+        startedPaintingIcing = true;
+        IcingToolTranslator.GetComponent<LeanConstrainLocalPosition>().enabled = true;
+
+        if(fingerDistance < IcingToolDragDistanceThreshold)
+        {
+            IcingToolTranslator.enabled = FinalCakeScratchCard.Card.InputEnabled = true;
+            if(moveBackIcingToolTween != null)
+                moveBackIcingToolTween.Kill();
+        }
+
+    }
+
+    public void IcingFingerUpHandler(LeanFinger finger)
+    {
+        IcingToolTranslator.enabled = FinalCakeScratchCard.Card.InputEnabled = false;
+
+        if(startedPaintingIcing)
+        {
+            moveBackIcingToolTween = IcingToolTranslator.transform.DOMove(icingToolStartingPos, .5f);
+        }
+    }
+
+    #endregion
+
+
+
     #region TOPPINGS
 
     public void OnClickStawberryButton()
@@ -256,7 +321,7 @@ public class CakeSequence : LevelSequence
 [Serializable]
 public class CakeData
 {
-    public GameObject CakeSprite;
+    public Sprite CakeSprite;
     public Sprite SpatulaSpritee;
     public Sprite BowlFillingSprite;
     public Sprite SpreaderSprite;
