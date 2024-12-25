@@ -44,6 +44,9 @@ TagManager:
   - name: New Layer 1
     uniqueID: 3536064877
     locked: 0
+  - name: Topping
+    uniqueID: 610610383
+    locked: 0
   - name: Foreground
     uniqueID: 4203251983
     locked: 0

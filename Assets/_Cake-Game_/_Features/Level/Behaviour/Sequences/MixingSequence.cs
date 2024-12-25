@@ -33,9 +33,9 @@ public class MixingSequence : LevelSequence
     public float MixtureTipFrameInterval = .1f;
     public float MixtureRequiredDuration = 3f;
 
-    public float mixerTimeCounter = 0f;
-    public float mixerFrameIntervalCounter = 0f;
-    public float mixerTipIntervalCounter = 0f;
+    float mixerTimeCounter = 0f;
+    float mixerFrameIntervalCounter = 0f;
+    float mixerTipIntervalCounter = 0f;
     bool isCurrentlyMixing;
     bool isDoneMixing;
     int imageCounter=0;

@@ -5,6 +5,7 @@ using DG.Tweening;
 using ScratchCardAsset;
 using Lean.Touch;
 using Lean.Common;
+
 public class CakeSequence : LevelSequence
 {
     [Serializable]
@@ -14,8 +15,6 @@ public class CakeSequence : LevelSequence
         PlaneCake=1,
         StawberryCake=2
     }
-
-
 
     [SerializeField] CakeType cakeType = CakeType.ChocoCake;
     [SerializeField] CakeData[] cakeData;
@@ -28,21 +27,15 @@ public class CakeSequence : LevelSequence
     [SerializeField] GameObject Arrow;
     [SerializeField] GameObject[] LineFInger;
     [SerializeField] Animator CakeCanvasAnimator;
-    [SerializeField] Animator IcingCanvasAnimator;
 
     [SerializeField] Animator ToppingCanvasAnimator;
 
-
     [SerializeField] Animator BowlWithChoco;
     [SerializeField] Animator TutHand;
-    [SerializeField] Animator Toppings;
-    [SerializeField] Animator FirstToppingCanvasAnimator;
-    [SerializeField] Animator ThirdToppingCanvasAnimator;
     [SerializeField] SpriteRenderer IcingToolRenderer;
     [SerializeField] DragObjectWithinBounds IcingTool;
     [SerializeField] ScratchCardManager FinalCakeScratchCard;
     [SerializeField] EraseProgress CakePaintProgress;
-    [SerializeField] SpriteRevealFromTop BorderOfCake;
 
     [Header("SpriteRenderer")]
     public SpriteRenderer CakeImage;
@@ -59,8 +52,15 @@ public class CakeSequence : LevelSequence
     public Transform IcingDragPoint;
     public float IcingToolDragDistanceThreshold = 1f;
 
-    public Vector3 sideborderpos;
-    public Vector3 sideborderpos1;
+    [Header("Cake Icing Cone Refs")]
+    [SerializeField] DOTweenController IcingConeCanvas;
+    public IcingCreamConeBehaviour IcingCone;
+
+    [Header("Cake Topping Items Refs")]
+    [SerializeField] DOTweenController ToppingSelectionCanvas;
+    public ToppingAnimationController[] CakeToppings;
+
+
 
     void Start()
     {
@@ -68,13 +68,21 @@ public class CakeSequence : LevelSequence
         //SpectulaObj.OnDraggingAction += OnSpectulaDrag;
     }
 
+
+
     public void StartSequence()
     {
         CakeTray.gameObject.SetActive(true);
 
+        FinalCakeScratchCard.Card.InputEnabled = false;
         IcingToolFingerDown.gameObject.SetActive(false);
         IcingToolFingerUp.gameObject.SetActive(false);
         IcingToolTranslator.GetComponent<LeanConstrainLocalPosition>().enabled = false;
+
+        IcingCone.gameObject.SetActive(false);
+
+        foreach(var item in CakeToppings)
+            item.gameObject.SetActive(false);
     }
 
     public void OnCakeTrayTweenComplete()
@@ -136,21 +144,6 @@ public class CakeSequence : LevelSequence
         FinalCakeScratchCard.Card.FillInstantly();
     }
 
-    void assignSpreaderProperties(CakeType type)
-    {
-        SpreaderImage.sprite = cakeData[(int)type].SpreaderSprite;
-        UpperLayerImage.sprite = cakeData[(int)type].UpperLayerSprite;
-        SideLayerImage.sprite = cakeData[(int)type].SideLayerSprite;
-        if(type == CakeType.PlaneCake)
-        {
-            SideLayerImage.transform.position = sideborderpos;
-        }
-        else if(type == CakeType.StawberryCake)
-        {
-            SideLayerImage.transform.position = sideborderpos1;
-        }
-    }
-
     public void OnCakeButtonClick(int type)
     {
         AssignCakeProperties((CakeType)type);
@@ -178,6 +171,7 @@ public class CakeSequence : LevelSequence
                 IcingToolFingerDown.gameObject.SetActive(true);
                 IcingToolFingerUp.gameObject.SetActive(true);
                 icingToolStartingPos = IcingToolTranslator.transform.position;
+                FinalCakeScratchCard.Card.InputEnabled = true;
                 startedPaintingIcing = false;
             }));
         }));
@@ -196,53 +190,25 @@ public class CakeSequence : LevelSequence
 
     public void OnSpectulaDrag(float progress)
     {
-        if(FinalCakeScratchCard.Progress.currentProgress < .008f)
+        if(FinalCakeScratchCard.Progress.currentProgress < .002f)
         {
             CakePaintProgress.OnProgress -= OnSpectulaDrag;
-            //FinalCakeScratchCard.gameObject.SetActive(false);
+
+            IcingToolTranslator.enabled = FinalCakeScratchCard.Card.InputEnabled = false;
+            IcingToolFingerDown.gameObject.SetActive(false);
+            IcingToolFingerUp.gameObject.SetActive(false);
+
             IcingToolRenderer.gameObject.SetActive(false);
-            IcingCanvasAnimator.gameObject.SetActive(true);
-            IcingCanvasAnimator.SetTrigger("in");
+            IcingConeCanvas.gameObject.SetActive(true);
         }
     }
 
     public void OnIcingButtonClick(int type)
     {
-        assignSpreaderProperties((CakeType)type);
-        IcingCanvasAnimator.SetTrigger("out");
-        IcingTool.gameObject.SetActive(true);
-        CakeTopIcing.gameObject.SetActive(true);
-        StartCoroutine(ExecuteAfterDelay(1f, () => { IcingCanvasAnimator.gameObject.SetActive(false); }));
-        IcingTool.OnDraggingAction += OnDraggingIcingTool;
-    }
+        var cakeType = (CakeType)type;
+        IcingCone.Init(cakeData[(int)type].SpreaderSprite, cakeData[(int)type].UpperLayerSprite, cakeData[(int)type].SideLayerSprite, OnIcingConeComplete);
 
-    float epsilon = 0.001f;
-    public void OnDraggingIcingTool()
-    {
-        // Define an epsilon to account for floating-point precision issues
-
-
-        // Check if the scale is approximately 1 on all axes
-        if(Mathf.Abs(CakeTopIcing.localScale.x - 1f) < epsilon &&
-            Mathf.Abs(CakeTopIcing.localScale.y - 1f) < epsilon &&
-            Mathf.Abs(CakeTopIcing.localScale.z - 1f) < epsilon)
-        {
-            BorderOfCake.gameObject.SetActive(true);
-            BorderOfCake.enabled = true;
-            StartCoroutine(ExecuteAfterDelay(2f, () =>
-            {
-
-                IcingTool.GetComponent<DOTweenController>().TriggerNextTween();
-            }));
-            IcingTool.enabled = false;
-            return;
-        }
-
-        // Incrementally increase the scale if it's not yet 1
-        CakeTopIcing.localScale = new Vector3(
-            CakeTopIcing.localScale.x + 0.01f,
-            CakeTopIcing.localScale.y + 0.01f,
-            CakeTopIcing.localScale.z + 0.01f);
+        IcingCone.gameObject.SetActive(true);
     }
 
     public void Topping_Canvas()
@@ -292,30 +258,26 @@ public class CakeSequence : LevelSequence
 
 
 
-    #region TOPPINGS
-
-    public void OnClickStawberryButton()
+    #region ICING CONE
+    void OnIcingConeComplete()
     {
-        ToppingCanvasAnimator.SetTrigger("out");
-        Toppings.gameObject.SetActive(true);
-        StartCoroutine(ExecuteAfterDelay(1f, () => { ToppingCanvasAnimator.gameObject.SetActive(false); }));
+        ToppingSelectionCanvas.gameObject.SetActive(true);
     }
 
-    public void OnClickFirstToppingButton()
+    public void OnClick_ToppingSelectionButton(int id)
     {
-        ToppingCanvasAnimator.SetTrigger("out");
-        FirstToppingCanvasAnimator.gameObject.SetActive(true);
-        StartCoroutine(ExecuteAfterDelay(1f, () => { ToppingCanvasAnimator.gameObject.SetActive(false); }));
-    }
-
-    public void OnClickThirdToppingButton()
-    {
-        ToppingCanvasAnimator.SetTrigger("out");
-        ThirdToppingCanvasAnimator.gameObject.SetActive(true);
-        StartCoroutine(ExecuteAfterDelay(1f, () => { ToppingCanvasAnimator.gameObject.SetActive(false); }));
+        CakeToppings[id].gameObject.SetActive(true);
+        CakeToppings[id].Animate();
     }
 
     #endregion
+
+
+
+    #region TOPPINGS
+
+    #endregion
+
 }
 
 [Serializable]
