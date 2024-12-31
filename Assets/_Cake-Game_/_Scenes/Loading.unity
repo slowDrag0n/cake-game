@@ -360,6 +360,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6433103010185364483, guid: 6a51de2fa93c0e241921d024096f9a2f, type: 3}
+      propertyPath: UiPanels.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433103010185364483, guid: 6a51de2fa93c0e241921d024096f9a2f, type: 3}
+      propertyPath: UiPanels.Array.data[7].Type
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433103010185364483, guid: 6a51de2fa93c0e241921d024096f9a2f, type: 3}
+      propertyPath: UiPanels.Array.data[7].UiPrefab
+      value: 
+      objectReference: {fileID: 2422083358141646410, guid: 123d8fa1110c78543a2c666ed8b874bf, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
