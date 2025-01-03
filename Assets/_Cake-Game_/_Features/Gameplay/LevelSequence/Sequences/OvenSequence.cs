@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class OvenSequence : LevelSequence
 {
+    [SerializeField] GameObject CompletionVfx;
     [SerializeField] GameObject OpenOvenDoor;
     [SerializeField] GameObject ClosedOvenDoor;
     [SerializeField] Sprite BakeCake;
@@ -105,5 +106,10 @@ public class OvenSequence : LevelSequence
         yield return new WaitForSeconds(1);
         //    OpenOvenDoor_(true);
         BigBowl.TriggerNextTween();
+    }
+
+    public void SpawnCompletionVfx()
+    {
+        Instantiate(CompletionVfx, transform);
     }
 }

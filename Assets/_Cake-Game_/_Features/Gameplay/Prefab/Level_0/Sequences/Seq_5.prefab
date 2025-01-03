@@ -5710,7 +5710,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 119075589
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 25188c8002b3de14797cf8849f5b1b4c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6147,17 +6147,14 @@ MonoBehaviour:
   LineFInger:
   - {fileID: 4602003762096373196}
   CakeCanvasAnimator: {fileID: 0}
-  IcingConeCanvas: {fileID: 6549529626815855754}
   ToppingCanvasAnimator: {fileID: 4089529656847699063}
   BowlWithChoco: {fileID: 228661999409010042}
   TutHand: {fileID: 1955019305222549966}
-  Toppings: {fileID: 5888748552306842178}
-  FirstToppingCanvasAnimator: {fileID: 2812051411618778122}
-  ThirdToppingCanvasAnimator: {fileID: 5980788982854886766}
   IcingToolRenderer: {fileID: 3968258604312184520}
   IcingTool: {fileID: 0}
   FinalCakeScratchCard: {fileID: 9036954250765740077}
   CakePaintProgress: {fileID: 9003142123605133837}
+  CompletionVfx: {fileID: 5371240853745892848, guid: 5db762f99b9af164eb5b8e344ba7c973, type: 3}
   CakeImage: {fileID: 3267680958213364832}
   SpatulaImage: {fileID: 7084822178451721114}
   BowlFillingImage: {fileID: 2062526831550108610}
@@ -6169,9 +6166,10 @@ MonoBehaviour:
   IcingToolFingerUp: {fileID: 7830295602882046085}
   IcingDragPoint: {fileID: 4792468766460642925}
   IcingToolDragDistanceThreshold: 1
+  IcingConeCanvas: {fileID: 6549529626815855754}
   IcingCone: {fileID: 6446407235128020690}
-  sideborderpos: {x: 0.0511, y: -1.96, z: 0}
-  sideborderpos1: {x: 0.0511, y: -2.18, z: 0}
+  ToppingSelectionCanvas: {fileID: 0}
+  CakeToppings: []
 --- !u!1 &6531905931128688392
 GameObject:
   m_ObjectHideFlags: 0
@@ -8341,7 +8339,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 119075589
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 6bf0877d42ba1b040a1f83e1fdbe04d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

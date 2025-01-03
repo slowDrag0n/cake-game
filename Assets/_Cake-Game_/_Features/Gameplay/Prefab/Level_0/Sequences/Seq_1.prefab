@@ -62,6 +62,7 @@ MonoBehaviour:
   DropperHand: {fileID: 5746538758228577552}
   MilkAnimator: {fileID: 250277751494760893}
   SugarAnimator: {fileID: 6954733790256968392}
+  CompletionVfx: {fileID: 0}
 --- !u!1 &149088888909857927
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,6 +792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3779869221270863990}
   - component: {fileID: 6954733790256968392}
+  - component: {fileID: 8547930042663329153}
   m_Layer: 0
   m_Name: Sugar
   m_TagString: Untagged
@@ -836,6 +838,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8547930042663329153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3845046003939498056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbf2cfe18fb6f64f85d93eae9bcfbc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDoneMoveIn:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDonePouring:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDoneMoveOut:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4689082057981969645
 GameObject:
   m_ObjectHideFlags: 0

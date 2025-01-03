@@ -36,6 +36,7 @@ public class CakeSequence : LevelSequence
     [SerializeField] DragObjectWithinBounds IcingTool;
     [SerializeField] ScratchCardManager FinalCakeScratchCard;
     [SerializeField] EraseProgress CakePaintProgress;
+    [SerializeField] GameObject CompletionVfx;
 
     [Header("SpriteRenderer")]
     public SpriteRenderer CakeImage;
@@ -200,7 +201,14 @@ public class CakeSequence : LevelSequence
 
             IcingToolRenderer.gameObject.SetActive(false);
             IcingConeCanvas.gameObject.SetActive(true);
+
+            DOVirtual.DelayedCall(1f, delegate { SpawnCompletionVfx(); });
         }
+    }
+
+    public void SpawnCompletionVfx()
+    {
+        Instantiate(CompletionVfx, transform);
     }
 
     public void OnIcingButtonClick(int type)

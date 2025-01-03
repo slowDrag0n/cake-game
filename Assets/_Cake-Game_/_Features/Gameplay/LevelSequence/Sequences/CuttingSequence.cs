@@ -14,6 +14,7 @@ public class CuttingSequence : LevelSequence
     public Transform KnifeSlicePoint;
     public float SliceAnimDuration = .3f;
     public int RequiredSteps = 3;
+    public GameObject CompletionVfx;
 
     int _stepsCompleted;
 
@@ -46,7 +47,9 @@ public class CuttingSequence : LevelSequence
 
     void SequenceClosing()
     {
-        Board.DOMoveX(13f, 1.3f).SetEase(Ease.InBack)
+        Instantiate(CompletionVfx, transform);
+
+        Board.DOMoveX(13f, 1.3f).SetEase(Ease.InBack).SetDelay(1f)
             .OnComplete(delegate
             {
                 Knife.DOMoveX(-10f, .8f).SetEase(Ease.InBack)

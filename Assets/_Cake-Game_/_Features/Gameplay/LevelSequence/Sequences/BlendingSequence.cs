@@ -17,6 +17,7 @@ public class BlendingSequence : LevelSequence
     public SliceDropper DropperHand;
     public Animator MilkAnimator;
     public Animator SugarAnimator;
+    public GameObject CompletionVfx;
 
 
 
@@ -105,7 +106,11 @@ public class BlendingSequence : LevelSequence
         ResetFingerActions();
         DropperHand.Mover.enabled = false;
 
-        DropperHand.transform.DOMoveY(20f, 1f).SetEase(Ease.InBack)
+        DropperHand.transform.DOMoveY(20f, 1f).SetEase(Ease.InBack).SetDelay(1f)
+            .OnStart(delegate
+            {
+                Instantiate(CompletionVfx, transform);
+            })
             .OnComplete(delegate
             {
                 DropperHand.gameObject.SetActive(false);
@@ -121,6 +126,13 @@ public class BlendingSequence : LevelSequence
         DropperHand.RemoveDroppedSlices();
 
         JuicerAnimator.SetTrigger("Mixing");
+
+        DOVirtual.DelayedCall(3.28f, delegate
+        {
+            Instantiate(CompletionVfx, transform);
+
+            OnSequenceDone?.Invoke();
+        });
     }
 
     #endregion
@@ -157,6 +169,7 @@ public class BlendingSequence : LevelSequence
         {
             MilkAnimator.gameObject.SetActive(false);
 
+            Instantiate(CompletionVfx, transform);
             StartSugar();
         });
     }
@@ -187,6 +200,8 @@ public class BlendingSequence : LevelSequence
     void OnDonePouringSugar()
     {
         ResetFingerActions();
+
+        Instantiate(CompletionVfx, transform);
 
         JuicerAnimator.SetTrigger("CloseLid");
 

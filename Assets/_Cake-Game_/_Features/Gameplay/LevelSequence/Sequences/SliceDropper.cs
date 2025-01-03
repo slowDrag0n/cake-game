@@ -45,6 +45,7 @@ public class SliceDropper : MonoBehaviour
         // initial check before start dropping
         if(Slices.Count == 0) return;
 
+        Debug.Log("Slices Left: " + _slicesLeft);
         var sliceSpawn = Slices[_slicesLeft];
         _slicesLeft--;
 
@@ -57,8 +58,9 @@ public class SliceDropper : MonoBehaviour
         sliceSpawnSprite.sortingLayerName = "New Layer 1";
         sliceSpawnSprite.sortingOrder = -1;
 
-        if(_slicesLeft == 0)
+        if(_slicesLeft == -1)
         {
+            IsDropping = false;
             OnAllSlicesDropped?.Invoke();
         }
     }

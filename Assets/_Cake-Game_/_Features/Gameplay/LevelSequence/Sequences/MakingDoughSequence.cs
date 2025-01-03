@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MakingDoughSequence : LevelSequence
@@ -11,6 +12,7 @@ public class MakingDoughSequence : LevelSequence
     [SerializeField] GameObject SugarSpreadInBowl;
     [SerializeField] GameObject LeanFingerHandler;
     [SerializeField] GameObject SugarParticles;
+    [SerializeField] GameObject CompletionVfx;
 
     Action _fingerDownCurrentAction;
 
@@ -48,5 +50,10 @@ public class MakingDoughSequence : LevelSequence
     public void HandleFingerDown()
     {
         _fingerDownCurrentAction?.Invoke();
+    }
+
+    public void SpawnCompletionVfx()
+    {
+        Instantiate(CompletionVfx, transform);
     }
 }

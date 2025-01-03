@@ -23,6 +23,7 @@ public class MixingSequence : LevelSequence
     [SerializeField] Sprite Stirrer1, Stirrer2;
     [SerializeField] Sprite StirrerTip1, StirrerTip2;
     [SerializeField] SpriteRenderer StirrerTipRend;
+    [SerializeField] GameObject CompletionVfx;
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -111,9 +112,15 @@ public class MixingSequence : LevelSequence
             item.SetActive(false);
         FlourStirringImages[^1].gameObject.SetActive(true);
 
+        SpawnCompletionVfx();
 
         StirrerParent.TriggerNextTween();
         StartCoroutine(PlayAnimWithDelay(2f));
+    }
+
+    public void SpawnCompletionVfx()
+    {
+        Instantiate(CompletionVfx, transform);
     }
 
     #endregion
@@ -228,7 +235,7 @@ public class MixingSequence : LevelSequence
         yield return new WaitForSeconds(delay);
         BlueBallAnimator.SetTrigger("moveout");
 
-        yield return new WaitForSeconds(delay*.5f);
+        yield return new WaitForSeconds(delay * .5f);
         BigBowl.SetActive(true);
 
         yield return new WaitForSeconds(1f);
