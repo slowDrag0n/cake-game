@@ -13,4 +13,6 @@ public enum UiType
     Mission,
     Setting,
     LevelSelection,
+    InGameLoading,
+
 }

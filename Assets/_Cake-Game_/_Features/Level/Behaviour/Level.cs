@@ -11,6 +11,17 @@ public class Level : MonoBehaviour
     public GameObject SequenceCompletionVfx;
     public GameObject LevelWinVfx;
 
+    private void Start()
+    {
+        foreach(Canvas canvas in GetComponentsInChildren<Canvas>(true))
+        {
+            if(canvas.renderMode != RenderMode.WorldSpace)
+            {
+                canvas.worldCamera = Camera.main;
+            }
+        }
+    }
+
     public void SpawnCompletionVfx()
     {
         Destroy(Instantiate(SequenceCompletionVfx, transform), 2f);
