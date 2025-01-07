@@ -6,9 +6,9 @@ public static partial class EventManager
 
     #region LEVEL EVENTS
 
-    public delegate void StartGame(int lv, bool showMainmenu);
+    public delegate void StartGame(int lv);
     public static StartGame OnStartGame;
-    public static void DoFireStartGame(int lv, bool showMainmenu) => OnStartGame?.Invoke(lv, showMainmenu);
+    public static void DoFireStartGame(int lv) => OnStartGame?.Invoke(lv);
 
     public delegate void StartGameLevel();
     public static StartGameLevel OnStartGameLevel;

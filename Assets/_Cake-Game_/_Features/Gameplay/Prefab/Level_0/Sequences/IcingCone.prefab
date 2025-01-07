@@ -177,7 +177,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1917314765585319353}
   - component: {fileID: 4627827310999081441}
+  - component: {fileID: 1821717502009544425}
   - component: {fileID: 4727392562635336550}
+  - component: {fileID: 4409606287448090684}
   m_Layer: 0
   m_Name: IcingCone
   m_TagString: Untagged
@@ -226,6 +228,55 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1821717502009544425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527404953518659327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281228a29da2bd243b6890dc0a1856ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTransform: {fileID: 0}
+  tweenActions:
+  - tweenType: 0
+    duration: 0
+    delay: 0
+    targetPosition: {x: 0, y: 0, z: 0}
+    targetRotation: {x: 0, y: 0, z: 0}
+    targetScale: {x: 0, y: 0, z: 0}
+    easeType: 0
+    loopType: 0
+    loops: 0
+    tweenEvents:
+      onStart:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 4627827310999081441}
+            m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+            m_MethodName: SetTrigger
+            m_Mode: 5
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: ConeMoveIn
+              m_BoolArgument: 0
+            m_CallState: 2
+      onComplete:
+        m_PersistentCalls:
+          m_Calls: []
+      onKill:
+        m_PersistentCalls:
+          m_Calls: []
+      onUpdate:
+        m_PersistentCalls:
+          m_Calls: []
+  currentTweenIndex: 0
 --- !u!114 &4727392562635336550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +298,51 @@ MonoBehaviour:
   ConeFingerDown: {fileID: 1992106769483417794}
   ConeFingerUp: {fileID: 5985615906464477369}
   TutHand: {fileID: 4607034836348997540}
+--- !u!114 &4409606287448090684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2527404953518659327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbf2cfe18fb6f64f85d93eae9bcfbc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDoneMoveIn:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDonePouring:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CakeSequence, Assembly-CSharp
+        m_MethodName: SpawnCompletionVfx
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDoneMoveOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3218695344296143085}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2588301204228133141
 GameObject:
   m_ObjectHideFlags: 0

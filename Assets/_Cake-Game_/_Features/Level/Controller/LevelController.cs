@@ -34,12 +34,12 @@ public class LevelController : MonoBehaviour
     {
         int levelToLoad = Profile.Level;
 
-        LoadLevel(levelToLoad, true);
+        LoadLevel(levelToLoad);
 
         SoundController.Instance.PlayBgm();
     }
 
-    void LoadLevel(int levelIndex, bool showMainmenu)
+    void LoadLevel(int levelIndex)
     {
         _currentLevelIndex = levelIndex;
 
@@ -56,16 +56,12 @@ public class LevelController : MonoBehaviour
         }
 
         _currentLevel = Instantiate(GameLevels[_currentLevelIndex]);
-        _currentLevel.gameObject.SetActive(!showMainmenu);
 
         _gameOver = false;
 
         //_currentLevel.SetPlayState();
 
-        if(showMainmenu)
-            EventManager.DoFireShowUiEvent(UiType.MainMenu);
-        else
-            StartLevel();
+        StartLevel();
 
         //AnalyticsManager.Instance.LogLevelStart(levelIndex);
     }
@@ -75,8 +71,8 @@ public class LevelController : MonoBehaviour
         if(_currentLevel == null)
             return;
 
-        EventManager.DoFireHideAllUi();
-        EventManager.DoFireShowUiEvent(UiType.Hud, Profile.Level);
+        //EventManager.DoFireHideAllUi();
+        //EventManager.DoFireShowUiEvent(UiType.Hud, Profile.Level);
 
         _currentLevel.gameObject.SetActive(true);
     }
@@ -95,19 +91,6 @@ public class LevelController : MonoBehaviour
             return;
 
         _gameOver = true;
-
-        EventManager.DoFireHideUiEvent(UiType.Hud);
-
-        //_currentLevel.SetWinState();
-        DOVirtual.DelayedCall(1.15f, delegate
-        {
-            EventManager.DoFireShowUiEvent(UiType.LevelWin);
-
-            //AnalyticsManager.Instance.LogLevelEnd(Profile.Level, true);
-            //AdsManager.Ins.ShowInterstitialAd();
-        });
-
-        Profile.LevelsFinishedCounter++;
     }
 
     void OnLevelFail()

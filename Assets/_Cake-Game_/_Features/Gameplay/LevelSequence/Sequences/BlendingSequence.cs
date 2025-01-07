@@ -130,7 +130,9 @@ public class BlendingSequence : LevelSequence
         DOVirtual.DelayedCall(3.28f, delegate
         {
             Instantiate(CompletionVfx, transform);
-
+        });
+        DOVirtual.DelayedCall(5.28f, delegate
+        {
             OnSequenceDone?.Invoke();
         });
     }

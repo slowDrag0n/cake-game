@@ -57,7 +57,7 @@ public class LevelWinPanel : UiPanel
         // update level and close ui
         int lv = Profile.Level + 1;
         Profile.Level = lv;
-        EventManager.DoFireStartGame(lv, false);
+        EventManager.DoFireStartGame(lv);
 
         EventManager.DoFireHideUiEvent(UiType.LevelWin);
 
@@ -78,7 +78,7 @@ public class LevelWinPanel : UiPanel
         // update level and close ui
         int lv = Profile.Level;
         Profile.Level = lv;
-        EventManager.DoFireStartGame(lv, false);
+        EventManager.DoFireStartGame(lv);
 
         EventManager.DoFireHideUiEvent(UiType.LevelWin);
 

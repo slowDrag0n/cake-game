@@ -65,7 +65,7 @@ public class Hud : UiPanel
         //update level and close ui
         int lv = Profile.Level + 1;
         Profile.Level = lv;
-        EventManager.DoFireStartGame(lv, false);
+        EventManager.DoFireStartGame(lv);
 
         EventManager.DoFireHideUiEvent(UiType.LevelFail);
         //});
@@ -75,7 +75,7 @@ public class Hud : UiPanel
     {
         SoundController.Instance.PlaySound(SoundType.Click);
 
-        EventManager.DoFireStartGame(Profile.Level, false);
+        EventManager.DoFireStartGame(Profile.Level);
 
         //AnalyticsManager.Instance.LogEvent("level_retry", "hud_retry", Profile.Level.ToString());
         //AdsManager.Ins.ShowInterstitialAd();

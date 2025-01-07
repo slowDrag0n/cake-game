@@ -11,7 +11,6 @@ public class MixingSequence : LevelSequence
     [SerializeField] GameObject ButtonsCanvas;
     [SerializeField] GameObject Leanfinger;
     [SerializeField] GameObject LeanfingerPouring;
-    [SerializeField] DragObjectWithinBounds DragStirrer;
     [SerializeField] DOTweenController  StirrerParent;
     [SerializeField] DOTweenController  smallbowlFlour;
     [SerializeField] DOTweenController  BigBowlFlour;
@@ -156,65 +155,6 @@ public class MixingSequence : LevelSequence
 
     private int previousIndex = -1;
     private int tempcounter =0;
-    public void ChangeImages()
-    {
-        StartingImage.SetActive(false);
-        if(imageCounter < 15 && DragStirrer.enabled == false)
-        {
-            int randomIndex = RandomizeMixtureImage();
-            PlayStirrerAnimation("still");
-            // Store the current index as previous for the next iteration
-            previousIndex = randomIndex;
-
-            // Increment the counter
-            imageCounter++;
-            if(imageCounter > 0)
-            {
-                imageCounter = 0;
-                DragStirrer.enabled = true;
-                Leanfinger.SetActive(false);
-                DragStirrer.OnDraggingAction += ChangeImages;
-            }
-        }
-        else if(imageCounter < 10 && DragStirrer.enabled == true)
-        {
-            if(imageCounter >= 0)
-            {
-                StirrerParent.TriggerNextTween();
-            }
-            StartCoroutine(ExecuteAfterDelay(0.3f, () =>
-            {
-                Debug.Log("Here");
-                int randomIndex = UnityEngine.Random.Range(0, FlourStirringImages.Length - 1);
-
-                if(previousIndex != -1)
-                {
-                    FlourStirringImages[previousIndex].gameObject.SetActive(false);
-                }
-
-                FlourStirringImages[randomIndex].gameObject.SetActive(true);
-                PlayStirrerAnimation("move");
-                // Store the current index sas previous for the next iteration
-                previousIndex = randomIndex;
-
-                if(tempcounter >= 20)
-                {
-                    tempcounter = 0;
-                    imageCounter++;
-                }
-                tempcounter++;
-                if(imageCounter == 10)
-                {
-                    StirrerParent.gameObject.SetActive(false);
-                    DragStirrer.OnDraggingAction -= ChangeImages;
-                    DragStirrer.enabled = false;
-                    FlourStirringImages[^1].gameObject.SetActive(true);
-                    FlourStirringImages[previousIndex].gameObject.SetActive(false);
-                    StartCoroutine(PlayAnimWithDelay(1f));
-                }
-            }));
-        }
-    }
 
     private int RandomizeMixtureImage()
     {

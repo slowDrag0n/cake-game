@@ -33,7 +33,6 @@ public class CakeSequence : LevelSequence
     [SerializeField] Animator BowlWithChoco;
     [SerializeField] Animator TutHand;
     [SerializeField] SpriteRenderer IcingToolRenderer;
-    [SerializeField] DragObjectWithinBounds IcingTool;
     [SerializeField] ScratchCardManager FinalCakeScratchCard;
     [SerializeField] EraseProgress CakePaintProgress;
     [SerializeField] GameObject CompletionVfx;

@@ -23,8 +23,6 @@ public class CuttingSequence : LevelSequence
         _stepsCompleted = 0;
 
         SequenceOpening();
-
-        OnSequenceDone += delegate { Debug.Log("CUTTING COMPLETED!"); };
     }
 
     void SequenceOpening()

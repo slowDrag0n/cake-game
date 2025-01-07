@@ -27,7 +27,7 @@ public class LoadingController : MonoBehaviour
         //    return;
         //}
 
-        StartCoroutine(ShowAppopenAdCo());
+        //StartCoroutine(ShowAppopenAdCo());
     }
 
     IEnumerator LoadGameCo()
