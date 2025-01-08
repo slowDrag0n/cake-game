@@ -4884,7 +4884,7 @@ GameObject:
   - component: {fileID: 7459629639722091772}
   - component: {fileID: 8527469848013026018}
   - component: {fileID: 4290709747377480161}
-  - component: {fileID: 9071433906560345327}
+  - component: {fileID: 6514039763857330282}
   m_Layer: 0
   m_Name: CompletionVfx
   m_TagString: Untagged
@@ -9721,7 +9721,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!82 &9071433906560345327
+--- !u!82 &6514039763857330282
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9731,9 +9731,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b643d06695630c84788b82669a46b8a7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 507ccc89878629541b9826660e4bc592, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.148
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9786,7 +9786,7 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -9801,7 +9801,7 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -9816,4 +9816,4 @@ AudioSource:
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4

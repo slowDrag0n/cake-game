@@ -36,7 +36,7 @@ public class LevelWinPanel : UiPanel
     {
         base.Show(uiData);
 
-        SoundController.Instance.PlaySound(SoundType.Win);
+        //SoundController.Instance.PlaySound(SoundType.Win);
 
         LevelText.text = "Level " + (Profile.Level + 1).ToString();
 

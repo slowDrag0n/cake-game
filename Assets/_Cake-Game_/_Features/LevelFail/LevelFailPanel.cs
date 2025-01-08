@@ -34,7 +34,7 @@ public class LevelFailPanel : UiPanel
     {
         base.Show(uiData);
 
-        SoundController.Instance.PlaySound(SoundType.Fail);
+        //SoundController.Instance.PlaySound(SoundType.Fail);
 
         _failSrpite = (Sprite)uiData;
         LevelFailImage.sprite = _failSrpite;

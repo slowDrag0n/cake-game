@@ -19,6 +19,10 @@ public class Level : MonoBehaviour
     public GameObject SequenceCompletionVfx;
     public GameObject LevelWinVfx;
 
+    [Header("Level Sfx")]
+    [Range(0.000f, 1.000f)]
+    public float SfxVolume = 1f;
+
     int _sequenceIndex = -1;
 
     private void Start()
@@ -64,5 +68,10 @@ public class Level : MonoBehaviour
     public void SpawnLevelWinVfx()
     {
         Instantiate(LevelWinVfx, transform);
+    }
+
+    public void PlaySound(int soundIndex)
+    {
+        SoundController.Instance.PlaySound((SoundType)soundIndex);
     }
 }

@@ -38,6 +38,8 @@ public class SliceDropper : MonoBehaviour
     {
         OnAllSlicesDropped = OnDone;
         _slicesLeft = Slices.Count - 1;
+
+        SoundController.Instance.PlaySound(SoundType.ItemComing);
     }
 
     public void DropSlice()
@@ -57,6 +59,8 @@ public class SliceDropper : MonoBehaviour
         sliceSpawnSprite.color = Color.white;
         sliceSpawnSprite.sortingLayerName = "New Layer 1";
         sliceSpawnSprite.sortingOrder = -1;
+
+        SoundController.Instance.PlaySound(SoundType.ItemClicked);
 
         if(_slicesLeft == -1)
         {

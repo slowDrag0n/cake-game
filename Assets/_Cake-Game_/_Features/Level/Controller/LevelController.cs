@@ -91,6 +91,9 @@ public class LevelController : MonoBehaviour
             return;
 
         _gameOver = true;
+
+        Profile.Level += 1;
+        LoadLevel(Profile.Level);
     }
 
     void OnLevelFail()

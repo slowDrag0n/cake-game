@@ -117,6 +117,37 @@ public class SoundController : MonoBehaviour
         Destroy(src, clip.length);
     }
 
+    public void PlaySound(AudioClip clipToPlay, float volume = 1f, float pitch = 1f, bool oneShot = false)
+    {
+        if(Profile.HapticsEnabled)
+            HapticPatterns.PlayEmphasis(1.0f, 0.0f);
+
+        if(clipToPlay == null)
+            return;
+
+        AudioClip clip = clipToPlay;
+
+        if(oneShot)
+        {
+            if(_oneShotSrc == null) _oneShotSrc = gameObject.AddComponent<AudioSource>();
+            _oneShotSrc.clip = clip;
+            _oneShotSrc.volume = volume;
+            _oneShotSrc.pitch = pitch;
+            _oneShotSrc.mute = !Profile.SoundEnabled;
+            if(_oneShotSrc.isPlaying == false) _oneShotSrc.Play();
+
+            return;
+        }
+
+        var src = gameObject.AddComponent<AudioSource>();
+        src.clip = clip;
+        src.volume = volume;
+        src.pitch = pitch;
+        src.mute = !Profile.SoundEnabled;
+        src.Play();
+        Destroy(src, clip.length);
+    }
+
     //public void PlayPopSound()
     //{
     //    // If the timer has reached timeout, reset the pitch and timer
@@ -148,6 +179,6 @@ public class Sound
 {
     public SoundType Type;
     public AudioClip Clip;
-    [Range(0f, 1f)] public float Volume;
+    [Range(0f, 1f)] public float Volume = .6f;
 }
 

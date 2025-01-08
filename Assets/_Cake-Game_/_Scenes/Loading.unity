@@ -209,30 +209,96 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 98f181c4a72a98140b39e394449df665, type: 3}
     Volume: 0.5
   Sounds:
+  - Type: 0
+    Clip: {fileID: 8300000, guid: 0d4027f7f0bb55e4ebe43414d06bcb1e, type: 3}
+    Volume: 1
   - Type: 1
     Clip: {fileID: 8300000, guid: 0d4027f7f0bb55e4ebe43414d06bcb1e, type: 3}
     Volume: 1
   - Type: 2
-    Clip: {fileID: 8300000, guid: f049ec5089ca0a14097e4436c33aa4ca, type: 3}
-    Volume: 0.8
+    Clip: {fileID: 8300000, guid: e2ed021b11387454d8ed9bab100d6cf1, type: 3}
+    Volume: 0.5
   - Type: 3
-    Clip: {fileID: 8300000, guid: 0e9ae36674c01b049bf4685fffbb1ed1, type: 3}
-    Volume: 0.7
+    Clip: {fileID: 8300000, guid: 8ae7f107cd542d64abf7c7ca3940e610, type: 3}
+    Volume: 0.5
   - Type: 4
-    Clip: {fileID: 8300000, guid: 8c75aa57805f5b54e95f4e12ef7c230b, type: 3}
-    Volume: 0.9
+    Clip: {fileID: 8300000, guid: abad29a041106474a8cc5b487c40ac75, type: 3}
+    Volume: 0.264
   - Type: 5
-    Clip: {fileID: 8300000, guid: c7b5b198e8957424597d9e329fef5216, type: 3}
-    Volume: 0.8
+    Clip: {fileID: 8300000, guid: 9ce964193b1e1f84e978d5a06c335145, type: 3}
+    Volume: 0.5
   - Type: 6
-    Clip: {fileID: 0}
-    Volume: 0
+    Clip: {fileID: 8300000, guid: fa3c90de982e11746ae9b4f9af9ab011, type: 3}
+    Volume: 0.5
   - Type: 7
-    Clip: {fileID: 8300000, guid: 4b7a3c62c70972049aab85665ad757f3, type: 3}
-    Volume: 0.7
+    Clip: {fileID: 8300000, guid: 492f368f8a1e4e34b88c058e3309c071, type: 3}
+    Volume: 0.5
   - Type: 8
-    Clip: {fileID: 8300000, guid: f6745e2cb793fcf4a9593b4884cbd3a9, type: 3}
-    Volume: 0.8
+    Clip: {fileID: 8300000, guid: fa574572bc646ab4d9e7651c7ee4d133, type: 3}
+    Volume: 0.5
+  - Type: 9
+    Clip: {fileID: 8300000, guid: 5d0d00e1c3158ad4d8a6e8962f71bbce, type: 3}
+    Volume: 0.36
+  - Type: 10
+    Clip: {fileID: 8300000, guid: f8d00105897c44346a78250322f6234a, type: 3}
+    Volume: 0.5
+  - Type: 11
+    Clip: {fileID: 8300000, guid: 24805d02f0b8ad04ba3663da82ea6120, type: 3}
+    Volume: 0.302
+  - Type: 12
+    Clip: {fileID: 8300000, guid: 33231033a20c4ef47888bd0e356b02b2, type: 3}
+    Volume: 0.5
+  - Type: 13
+    Clip: {fileID: 8300000, guid: 7b1572cd945511e40bbe9c3e43bf575e, type: 3}
+    Volume: 0.5
+  - Type: 14
+    Clip: {fileID: 8300000, guid: 4461c00eb54951645ac9fc95b31700f3, type: 3}
+    Volume: 0.5
+  - Type: 15
+    Clip: {fileID: 8300000, guid: db82d8cfbe3859b4aa2e614323e76eb9, type: 3}
+    Volume: 0.5
+  - Type: 16
+    Clip: {fileID: 8300000, guid: 6fe23dc94f397ce458a51af629e7c178, type: 3}
+    Volume: 0.198
+  - Type: 17
+    Clip: {fileID: 8300000, guid: 62c789120f264fe43a970729f4117761, type: 3}
+    Volume: 0.227
+  - Type: 18
+    Clip: {fileID: 8300000, guid: 40c3d8f50ab991740b6dc62cb0d2f127, type: 3}
+    Volume: 0.5
+  - Type: 19
+    Clip: {fileID: 8300000, guid: c0b25900fd3436c4fa04a05d696946ed, type: 3}
+    Volume: 0.5
+  - Type: 20
+    Clip: {fileID: 8300000, guid: f5b45368647db6d4eac7e82b0729a5d6, type: 3}
+    Volume: 0.5
+  - Type: 21
+    Clip: {fileID: 8300000, guid: 6b249489f77cf4743a3de7b2da1ddc92, type: 3}
+    Volume: 0.5
+  - Type: 22
+    Clip: {fileID: 8300000, guid: 0eafb850e4bcc8e4fb0341ccf097d802, type: 3}
+    Volume: 0.5
+  - Type: 23
+    Clip: {fileID: 8300000, guid: fa5d58e3191097a4f9dfa8228d23fd13, type: 3}
+    Volume: 0.149
+  - Type: 24
+    Clip: {fileID: 8300000, guid: 9a317e9742316234da726c95f96a1d02, type: 3}
+    Volume: 0.5
+  - Type: 25
+    Clip: {fileID: 8300000, guid: 68dcfaf48efba0446b03c75f644266a0, type: 3}
+    Volume: 0.5
+  - Type: 26
+    Clip: {fileID: 8300000, guid: 772605703fe088945b258e49032e52af, type: 3}
+    Volume: 0.5
+  - Type: 27
+    Clip: {fileID: 8300000, guid: 5878df46dc020d1448fc94fe0d6d1067, type: 3}
+    Volume: 0.5
+  - Type: 28
+    Clip: {fileID: 8300000, guid: 507ccc89878629541b9826660e4bc592, type: 3}
+    Volume: 0.5
+  - Type: 29
+    Clip: {fileID: 8300000, guid: 7a4b4aa5dab478646a7415243a963240, type: 3}
+    Volume: 0.194
 --- !u!1 &1166807626
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1166807627
 Transform:
   m_ObjectHideFlags: 0

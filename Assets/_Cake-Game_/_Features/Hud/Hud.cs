@@ -87,7 +87,7 @@ public class Hud : UiPanel
 
         //AdsManager.Ins.ShowRewardAd(() =>
         //{
-        SoundController.Instance.PlaySound(SoundType.Hint);
+        //SoundController.Instance.PlaySound(SoundType.Hint);
         EventManager.DoFireShowLevelTutorial();
         //});
     }

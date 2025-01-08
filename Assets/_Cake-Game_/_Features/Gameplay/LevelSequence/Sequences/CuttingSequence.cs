@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CuttingSequence : LevelSequence
 {
@@ -14,7 +15,6 @@ public class CuttingSequence : LevelSequence
     public Transform KnifeSlicePoint;
     public float SliceAnimDuration = .3f;
     public int RequiredSteps = 3;
-    public GameObject CompletionVfx;
 
     int _stepsCompleted;
 
@@ -33,24 +33,26 @@ public class CuttingSequence : LevelSequence
         Knife.position += -10f * Vector3.right;
 
         Board.DOMoveX(0f, 1.3f).SetEase(Ease.OutBack)
+            .OnStart(delegate { SoundController.Instance.PlaySound(SoundType.ItemComing); })
             .OnComplete(delegate
             {
                 Knife.DOMoveX(0f, .8f).SetEase(Ease.OutBack)
-                .OnComplete(delegate
-                {
-                    PlaceNextItemForCut(_stepsCompleted);
-                });
+                    .OnStart(delegate { SoundController.Instance.PlaySound(SoundType.ItemComing); })
+                    .OnComplete(delegate
+                    {
+                        PlaceNextItemForCut(_stepsCompleted);
+                    });
             });
     }
 
     void SequenceClosing()
     {
-        Instantiate(CompletionVfx, transform);
 
         Board.DOMoveX(13f, 1.3f).SetEase(Ease.InBack).SetDelay(1f)
             .OnComplete(delegate
             {
                 Knife.DOMoveX(-10f, .8f).SetEase(Ease.InBack)
+                .OnStart(delegate { SoundController.Instance.PlaySound(SoundType.ItemComing); })
                 .OnComplete(delegate
                 {
                     OnSequenceDone?.Invoke();
