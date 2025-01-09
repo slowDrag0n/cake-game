@@ -83,7 +83,7 @@ public class OvenSequence : LevelSequence
     public void OnTimerCompletedToBake()
     {
         BakeCakeImage.sprite = BakeCake;
-        TurnOnLeanFinger(2, true);
+        //TurnOnLeanFinger(2, true);
         //TutHandAnim.gameObject.SetActive(true);
         Clock.SetTrigger("exit");
         DOVirtual.DelayedCall(1f, delegate { ClickOnLineSequenceThree(); });

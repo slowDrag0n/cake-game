@@ -200,14 +200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bgms:
   - Type: 0
-    Clip: {fileID: 8300000, guid: 522447ec3c6c70543b09e428705d21c6, type: 3}
-    Volume: 0.5
-  - Type: 0
-    Clip: {fileID: 8300000, guid: f5be1b3e49bc2c4499975f7d918dc2e8, type: 3}
-    Volume: 0.5
-  - Type: 0
-    Clip: {fileID: 8300000, guid: 98f181c4a72a98140b39e394449df665, type: 3}
-    Volume: 0.5
+    Clip: {fileID: 8300000, guid: 912af5bc1f68bed4d81db21a1b455688, type: 3}
+    Volume: 0.176
   Sounds:
   - Type: 0
     Clip: {fileID: 8300000, guid: 0d4027f7f0bb55e4ebe43414d06bcb1e, type: 3}
@@ -232,7 +226,7 @@ MonoBehaviour:
     Volume: 0.5
   - Type: 7
     Clip: {fileID: 8300000, guid: 492f368f8a1e4e34b88c058e3309c071, type: 3}
-    Volume: 0.5
+    Volume: 0.218
   - Type: 8
     Clip: {fileID: 8300000, guid: fa574572bc646ab4d9e7651c7ee4d133, type: 3}
     Volume: 0.5
@@ -247,7 +241,7 @@ MonoBehaviour:
     Volume: 0.302
   - Type: 12
     Clip: {fileID: 8300000, guid: 33231033a20c4ef47888bd0e356b02b2, type: 3}
-    Volume: 0.5
+    Volume: 0.322
   - Type: 13
     Clip: {fileID: 8300000, guid: 7b1572cd945511e40bbe9c3e43bf575e, type: 3}
     Volume: 0.5
@@ -265,13 +259,13 @@ MonoBehaviour:
     Volume: 0.227
   - Type: 18
     Clip: {fileID: 8300000, guid: 40c3d8f50ab991740b6dc62cb0d2f127, type: 3}
-    Volume: 0.5
+    Volume: 0.101
   - Type: 19
     Clip: {fileID: 8300000, guid: c0b25900fd3436c4fa04a05d696946ed, type: 3}
     Volume: 0.5
   - Type: 20
     Clip: {fileID: 8300000, guid: f5b45368647db6d4eac7e82b0729a5d6, type: 3}
-    Volume: 0.5
+    Volume: 0.101
   - Type: 21
     Clip: {fileID: 8300000, guid: 6b249489f77cf4743a3de7b2da1ddc92, type: 3}
     Volume: 0.5
@@ -315,7 +309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1166807627
 Transform:
   m_ObjectHideFlags: 0
