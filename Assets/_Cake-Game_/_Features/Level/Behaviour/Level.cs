@@ -74,4 +74,14 @@ public class Level : MonoBehaviour
     {
         SoundController.Instance.PlaySound((SoundType)soundIndex);
     }
+
+    public void ShowBlankScreen()
+    {
+        BlankScreen.FadeIn();
+    }
+
+    public void HideBlankScreen()
+    {
+        BlankScreen.FadeOut();
+    }
 }

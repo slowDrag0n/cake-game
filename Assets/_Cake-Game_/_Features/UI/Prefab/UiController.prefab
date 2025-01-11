@@ -130,8 +130,6 @@ MonoBehaviour:
     UiPrefab: {fileID: 1639516573801595087, guid: 833f9835009cf6f44b71ef6e5128b02e, type: 3}
   - Type: 1
     UiPrefab: {fileID: 8106229238469379802, guid: 203276a6890326a4bb94da769236a030, type: 3}
-  - Type: 10
-    UiPrefab: {fileID: 7022750577763997910, guid: 3f4808bce16be324fa5aa70da279ba15, type: 3}
 --- !u!1001 &1171892159395549940
 PrefabInstance:
   m_ObjectHideFlags: 0
