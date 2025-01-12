@@ -84,4 +84,9 @@ public class Level : MonoBehaviour
     {
         BlankScreen.FadeOut();
     }
+
+    public void RunQuickAd()
+    {
+        AdsManager.Ins.QuickAd.RunQuickAd();
+    }
 }

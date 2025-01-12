@@ -17,6 +17,7 @@ public class OvenSequence : LevelSequence
     // Start is called before the first frame update
     void Start()
     {
+        OnSequenceStart?.Invoke();
         StartSequence();
     }
 

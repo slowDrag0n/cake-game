@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class LoadingController : MonoBehaviour
 {
+    public bool WaitForConsent = false;
+    public float LoadDelay = 3f;
+    [Header("Appopen Ad Options")]
+    public bool AppopenAdEnabled = false;
+    public float AppopenDelay = 7f;
+
     private void Awake()
     {
         Application.targetFrameRate = 59;
@@ -13,28 +19,34 @@ public class LoadingController : MonoBehaviour
 
     private void Start()
     {
-        StartLoading();
+        if(WaitForConsent == false)
+            StartLoading();
     }
 
     public void StartLoading()
     {
         StartCoroutine(LoadGameCo());
 
-        //if(Profile.FirstTimeFlag)
-        //{
-        //    StartCoroutine(ShowBigBannerCo());
-        //    Profile.FirstTimeFlag = false;
-        //    return;
-        //}
+        if(AppopenAdEnabled == false)
+            return;
 
-        //StartCoroutine(ShowAppopenAdCo());
+        if(Profile.FirstTimeFlag)
+        {
+            StartCoroutine(ShowBigBannerCo());
+            Profile.FirstTimeFlag = false;
+            return;
+        }
+
+        StartCoroutine(ShowAppopenAdCo());
     }
+
+
 
     IEnumerator LoadGameCo()
     {
         EventManager.DoFireShowUiEvent(UiType.Loading);
 
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSecondsRealtime(LoadDelay);
 
         SceneManager.LoadScene("Gameplay");
 
@@ -44,13 +56,13 @@ public class LoadingController : MonoBehaviour
 
     IEnumerator ShowAppopenAdCo()
     {
-        yield return new WaitForSecondsRealtime(7f);
+        yield return new WaitForSecondsRealtime(AppopenDelay);
         //AdsManager.Ins.ShowAppOpenAd();
     }
 
     IEnumerator ShowBigBannerCo()
     {
-        yield return new WaitForSecondsRealtime(6f);
+        yield return new WaitForSecondsRealtime(AppopenDelay - 1f);
         //AdsManager.Ins.ShowBigBannerAd();
     }
 }

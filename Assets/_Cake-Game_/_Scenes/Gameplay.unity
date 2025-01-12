@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39389113eeaba234b82b92960559e1c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestMode: 0
+  TestMode: 1
   TestLevel: 1
   GameLevels:
   - {fileID: 7879479668241147240, guid: 1b410706c94b981438ce9d342a4c5237, type: 3}

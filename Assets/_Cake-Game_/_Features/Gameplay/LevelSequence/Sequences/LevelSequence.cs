@@ -6,5 +6,11 @@ using UnityEngine.Events;
 
 public class LevelSequence : MonoBehaviour
 {
+    public UnityEvent OnSequenceStart;
     public UnityEvent OnSequenceDone;
+
+    public virtual void Start()
+    {
+        OnSequenceStart?.Invoke();
+    }
 }
