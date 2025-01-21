@@ -8,6 +8,7 @@ public class BlendingSequence : LevelSequence
 {
     [Header("Hint Hand")]
     public GameObject TutHand;
+    public GameObject SliceDropTut;
     public Transform TutPosForOpenLid;
     public Transform TutPosForGreen;
     [Space]
@@ -93,6 +94,8 @@ public class BlendingSequence : LevelSequence
                 _fingerUpCurrentBoolAction = SwitchSliceDroppingFlag;
 
                 DropperHand.Mover.enabled = true;
+
+                SliceDropTut.gameObject.SetActive(true);
             });
     }
 
@@ -109,7 +112,8 @@ public class BlendingSequence : LevelSequence
         DropperHand.transform.DOMoveY(20f, 1f).SetEase(Ease.InBack).SetDelay(1f)
             .OnStart(delegate
             {
-                Instantiate(CompletionVfx, transform);
+                //Instantiate(CompletionVfx, transform);
+                GetComponentInParent<Level>().SpawnCompletionVfx();
             })
             .OnComplete(delegate
             {
@@ -129,7 +133,8 @@ public class BlendingSequence : LevelSequence
 
         DOVirtual.DelayedCall(3.28f, delegate
         {
-            Instantiate(CompletionVfx, transform);
+            //Instantiate(CompletionVfx, transform);
+            GetComponentInParent<Level>().SpawnCompletionVfx();
         });
         DOVirtual.DelayedCall(5.28f, delegate
         {
@@ -171,7 +176,8 @@ public class BlendingSequence : LevelSequence
         {
             MilkAnimator.gameObject.SetActive(false);
 
-            Instantiate(CompletionVfx, transform);
+            //Instantiate(CompletionVfx, transform);
+            GetComponentInParent<Level>().SpawnCompletionVfx();
             StartSugar();
         });
     }
@@ -203,7 +209,8 @@ public class BlendingSequence : LevelSequence
     {
         ResetFingerActions();
 
-        Instantiate(CompletionVfx, transform);
+        //Instantiate(CompletionVfx, transform);
+        GetComponentInParent<Level>().SpawnCompletionVfx();
 
         JuicerAnimator.SetTrigger("CloseLid");
 
@@ -236,4 +243,5 @@ public class BlendingSequence : LevelSequence
         else if(_fingerUpCurrentBoolAction != null)
             _fingerUpCurrentBoolAction.Invoke(false);
     }
+
 }

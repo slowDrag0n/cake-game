@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class CuttingSequence : LevelSequence
 {
     public GameObject FingerController;
+    public GameObject HintArrow;
     public Transform Knife;
     public Transform Board;
     public Transform[] CuttingItems;
@@ -40,6 +41,7 @@ public class CuttingSequence : LevelSequence
                     .OnStart(delegate { SoundController.Instance.PlaySound(SoundType.ItemComing); })
                     .OnComplete(delegate
                     {
+                        HintArrow.gameObject.SetActive(true);
                         PlaceNextItemForCut(_stepsCompleted);
                     });
             });

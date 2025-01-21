@@ -41,8 +41,10 @@ public class MixingSequence : LevelSequence
     int imageCounter=0;
     bool mixerTipSpriteFlag;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         ButtonsCanvas.SetActive(true);
         //Leanfinger.SetActive(true);
         //DragStirrer.enabled = false;
@@ -119,7 +121,8 @@ public class MixingSequence : LevelSequence
 
     public void SpawnCompletionVfx()
     {
-        Instantiate(CompletionVfx, transform);
+        //Instantiate(CompletionVfx, transform);
+        GetComponentInParent<Level>().SpawnCompletionVfx();
     }
 
     #endregion

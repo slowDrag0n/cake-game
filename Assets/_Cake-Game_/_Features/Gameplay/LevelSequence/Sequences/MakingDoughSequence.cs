@@ -54,6 +54,7 @@ public class MakingDoughSequence : LevelSequence
 
     public void SpawnCompletionVfx()
     {
-        Instantiate(CompletionVfx, transform);
+        //Instantiate(CompletionVfx, transform);
+        GetComponentInParent<Level>().SpawnCompletionVfx();
     }
 }

@@ -9,7 +9,7 @@ public class LevelSequence : MonoBehaviour
     public UnityEvent OnSequenceStart;
     public UnityEvent OnSequenceDone;
 
-    public virtual void Start()
+    protected virtual void Start()
     {
         OnSequenceStart?.Invoke();
     }

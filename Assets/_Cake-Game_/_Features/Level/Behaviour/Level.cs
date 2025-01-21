@@ -62,17 +62,31 @@ public class Level : MonoBehaviour
 
     public void SpawnCompletionVfx()
     {
-        Destroy(Instantiate(SequenceCompletionVfx, transform), 2f);
+        var vfx = Instantiate(SequenceCompletionVfx, transform);
+        var vfxSrc = vfx.GetComponent<AudioSource>();
+        vfxSrc.mute = !Profile.SoundEnabled;
+        Destroy(vfx, 2f);
     }
 
     public void SpawnLevelWinVfx()
     {
-        Instantiate(LevelWinVfx, transform);
+        var vfx = Instantiate(LevelWinVfx, transform);
+        var vfxSrc = vfx.GetComponent<AudioSource>();
+        vfxSrc.mute = !Profile.SoundEnabled;
     }
 
     public void PlaySound(int soundIndex)
     {
         SoundController.Instance.PlaySound((SoundType)soundIndex);
+    }
+
+    public void UpdateAudioMuteStatus()
+    {
+        foreach(AudioSource src in GetComponentsInChildren<AudioSource>(true))
+        {
+            src.mute = !Profile.SoundEnabled;
+            Debug.Log(src.gameObject.name + " MUTE = " + src.mute);
+        }
     }
 
     public void ShowBlankScreen()

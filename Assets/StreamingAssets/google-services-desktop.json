@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "713801147126",
+    "project_id": "cake-making-games",
+    "storage_bucket": "cake-making-games.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713801147126:android:8c03c4ae6b24e26bac82d7",
+        "android_client_info": {
+          "package_name": "com.zc.cake.making.games"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFxIJ4erkRCHPergLCXgIxWBef1BREd2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
