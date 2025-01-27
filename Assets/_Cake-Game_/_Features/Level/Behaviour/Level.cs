@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,9 @@ public class Level : MonoBehaviour
     [Range(0.000f, 1.000f)]
     public float SfxVolume = 1f;
 
+    [Header("Level UI")]
+    public TextMeshProUGUI StartBtnText;
+
     int _sequenceIndex = -1;
 
     private void Start()
@@ -39,6 +43,8 @@ public class Level : MonoBehaviour
 
         if(TestMode)
             _sequenceIndex = Test_StartIndex;
+
+        StartBtnText.text = "Day " + (Profile.Level + 1).ToString();
 
         StartNextSequence();
     }

@@ -9962,6 +9962,7 @@ MonoBehaviour:
   SequenceCompletionVfx: {fileID: 5371240853745892848, guid: 5db762f99b9af164eb5b8e344ba7c973, type: 3}
   LevelWinVfx: {fileID: 8914446511636700241, guid: cad7f08905ab1fb43ab34b3ef8ea7874, type: 3}
   SfxVolume: 1
+  StartBtnText: {fileID: 4017840230372816834}
 --- !u!1 &2893276259784922589
 GameObject:
   m_ObjectHideFlags: 0
@@ -15384,7 +15385,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 2353645672607171736}
   tweenActions:
-  - tweenType: 2
+  - TweenDesc: 
+    tweenType: 2
     duration: 0
     delay: 0.5
     targetPosition: {x: 0, y: 0, z: 0}
@@ -16318,7 +16320,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 731882834738515132}
   tweenActions:
-  - tweenType: 2
+  - TweenDesc: 
+    tweenType: 2
     duration: 1
     delay: 2
     targetPosition: {x: 0, y: 0, z: 0}
@@ -16657,6 +16660,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
+--- !u!114 &4017840230372816834 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2439477854663669969, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
+  m_PrefabInstance: {fileID: 1592295464903757587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4091555787917165430 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3373433642766486629, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
@@ -17431,7 +17445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 3613751611581594517}
   tweenActions:
-  - tweenType: 2
+  - TweenDesc: Show Blank and Start Next Sequence
+    tweenType: 2
     duration: 1
     delay: 1
     targetPosition: {x: 0, y: 0, z: 0}
@@ -18856,7 +18871,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 2380689907893462982}
   tweenActions:
-  - tweenType: 0
+  - TweenDesc: 
+    tweenType: 0
     duration: 0
     delay: 0
     targetPosition: {x: 0, y: 0, z: 0}
@@ -18878,7 +18894,8 @@ MonoBehaviour:
       onUpdate:
         m_PersistentCalls:
           m_Calls: []
-  - tweenType: 0
+  - TweenDesc: 
+    tweenType: 0
     duration: 0
     delay: 2
     targetPosition: {x: 0, y: 0, z: 0}
@@ -19097,7 +19114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 7023956280837470340}
   tweenActions:
-  - tweenType: 2
+  - TweenDesc: 
+    tweenType: 2
     duration: 0
     delay: 0
     targetPosition: {x: 0, y: 0, z: 0}

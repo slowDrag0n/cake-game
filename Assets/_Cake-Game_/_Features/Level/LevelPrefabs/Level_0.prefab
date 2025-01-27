@@ -657,7 +657,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 2323569458404528865}
   tweenActions:
-  - tweenType: 2
+  - TweenDesc: 
+    tweenType: 2
     duration: 0
     delay: 0.5
     targetPosition: {x: 0, y: 0, z: 0}
@@ -6615,6 +6616,7 @@ MonoBehaviour:
   SequenceCompletionVfx: {fileID: 5371240853745892848, guid: 5db762f99b9af164eb5b8e344ba7c973, type: 3}
   LevelWinVfx: {fileID: 8914446511636700241, guid: cad7f08905ab1fb43ab34b3ef8ea7874, type: 3}
   SfxVolume: 0.792
+  StartBtnText: {fileID: 7724399117706368389}
 --- !u!1 &3485736558522283041
 GameObject:
   m_ObjectHideFlags: 0
@@ -7060,7 +7062,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 7370629765632692591}
   tweenActions:
-  - tweenType: 0
+  - TweenDesc: 
+    tweenType: 0
     duration: 1
     delay: 0
     targetPosition: {x: 0, y: 6.15, z: 0}
@@ -7130,7 +7133,8 @@ MonoBehaviour:
       onUpdate:
         m_PersistentCalls:
           m_Calls: []
-  - tweenType: 0
+  - TweenDesc: 
+    tweenType: 0
     duration: 1
     delay: 0
     targetPosition: {x: 0, y: 18, z: 0}
@@ -11234,6 +11238,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5739032825513467128, guid: 7015191445e9c00448e4aff0221f0c2c, type: 3}
+      propertyPath: tweenActions.Array.data[2].TweenDesc
+      value: Move Out
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739032825513467128, guid: 7015191445e9c00448e4aff0221f0c2c, type: 3}
       propertyPath: tweenActions.Array.data[2].tweenType
       value: 1
       objectReference: {fileID: 0}
@@ -11292,6 +11300,10 @@ PrefabInstance:
     - target: {fileID: 5739032825513467128, guid: 7015191445e9c00448e4aff0221f0c2c, type: 3}
       propertyPath: tweenActions.Array.data[2].tweenEvents.onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388680037718987314, guid: 7015191445e9c00448e4aff0221f0c2c, type: 3}
+      propertyPath: tweenActions.Array.data[2].TweenDesc
+      value: Move Out
       objectReference: {fileID: 0}
     - target: {fileID: 6388680037718987314, guid: 7015191445e9c00448e4aff0221f0c2c, type: 3}
       propertyPath: tweenActions.Array.data[0].tweenEvents.onStart.m_PersistentCalls.m_Calls.Array.size
@@ -11864,6 +11876,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3373433642766486629, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
   m_PrefabInstance: {fileID: 5397652378450292052}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7724399117706368389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2439477854663669969, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
+  m_PrefabInstance: {fileID: 5397652378450292052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5849539694398678106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15268,7 +15291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetTransform: {fileID: 6830684937280147558}
   tweenActions:
-  - tweenType: 0
+  - TweenDesc: 
+    tweenType: 0
     duration: 0
     delay: 0
     targetPosition: {x: 0, y: 0, z: 0}
@@ -15290,7 +15314,8 @@ MonoBehaviour:
       onUpdate:
         m_PersistentCalls:
           m_Calls: []
-  - tweenType: 0
+  - TweenDesc: 
+    tweenType: 0
     duration: 0
     delay: 2
     targetPosition: {x: 0, y: 0, z: 0}

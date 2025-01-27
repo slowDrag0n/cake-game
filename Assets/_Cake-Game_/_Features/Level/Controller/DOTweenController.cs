@@ -19,6 +19,7 @@ public class DOTweenController : MonoBehaviour
     [System.Serializable]
     public class TweenAction
     {
+        public string TweenDesc;
         public TweenType tweenType;
         public float duration = 1f;
         public float delay = 0f;
