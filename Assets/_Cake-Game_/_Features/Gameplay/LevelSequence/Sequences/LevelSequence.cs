@@ -13,4 +13,10 @@ public class LevelSequence : MonoBehaviour
     {
         OnSequenceStart?.Invoke();
     }
+
+    public void ResetLocalTransform(Transform t)
+    {
+        t.localPosition = Vector3.zero;
+        t.localScale = Vector3.one;
+    }
 }

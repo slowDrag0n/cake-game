@@ -7186,10 +7186,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoAnimate: 1
+  SkipAnimation: 0
   FirstItem: {fileID: 7754569664904178682}
   FirstItemFallDelay: 1.2
   FirstItemFallDuration: 0.35
   FirstItemFallEase: 30
+  FallingItemsEase: 1
   ToppingItems: []
   FallDuration: 0.5
   FallDelayFactor: 0.1
@@ -19671,10 +19673,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoAnimate: 1
+  SkipAnimation: 0
   FirstItem: {fileID: 0}
   FirstItemFallDelay: 0
   FirstItemFallDuration: 0
   FirstItemFallEase: 1
+  FallingItemsEase: 1
   ToppingItems:
   - {fileID: 7589292214581010122}
   - {fileID: 641345220515095802}
@@ -29549,10 +29553,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoAnimate: 1
+  SkipAnimation: 0
   FirstItem: {fileID: 5550644621973875928}
   FirstItemFallDelay: 1.2
   FirstItemFallDuration: 0.35
   FirstItemFallEase: 30
+  FallingItemsEase: 1
   ToppingItems: []
   FallDuration: 0.5
   FallDelayFactor: 0.1
@@ -38982,6 +38988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -50411,6 +50418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -51664,7 +51672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3815639647375732456
 Transform:
   m_ObjectHideFlags: 0
@@ -54402,6 +54410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:

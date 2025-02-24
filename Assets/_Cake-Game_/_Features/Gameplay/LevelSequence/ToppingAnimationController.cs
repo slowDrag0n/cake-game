@@ -11,11 +11,16 @@ public class ToppingAnimationController : MonoBehaviour
     [Header("Play on Start?")]
     public bool AutoAnimate = true;
 
+    [Header("Complete without animating?")]
+    public bool SkipAnimation = false;
+    public void SetSkipAnimation(bool status) { SkipAnimation = status; }
+
     [Header("Topping  Items")]
     public Transform FirstItem;
     public float FirstItemFallDelay = .5f;
     public float FirstItemFallDuration = .25f;
     public Ease FirstItemFallEase = Ease.Linear;
+    public Ease FallingItemsEase = Ease.Linear;
     public Transform[] ToppingItems;
 
     [Header("Anim Options")]
@@ -31,6 +36,26 @@ public class ToppingAnimationController : MonoBehaviour
 
     private void Start()
     {
+        if(SkipAnimation)
+        {
+            if(FirstItem != null)
+            {
+                FirstItem.gameObject.SetActive(false);
+                OnCompleteFirstItem?.Invoke();
+            }
+
+            if(ToppingItems.Length > 0)
+            {
+                foreach(var item in ToppingItems)
+                    item.gameObject.SetActive(false);
+
+                OnCompleteAllOtherItems?.Invoke();
+            }
+
+            gameObject.SetActive(false);
+            return;
+        }
+
         if(AutoAnimate)
             Animate();
     }
@@ -51,6 +76,7 @@ public class ToppingAnimationController : MonoBehaviour
             item.position = new Vector3(item.position.x, 20f, 0f);
     }
 
+    [ContextMenu("Animate")]
     public void Animate()
     {
         ResetTopping();
@@ -70,12 +96,12 @@ public class ToppingAnimationController : MonoBehaviour
         {
             for(int i = 0; i < bottomToTopItems.Length; i++)
             {
-                bottomToTopItems[i].DOMove(_toppingItemTargetPositions[i], FallDuration + (i * FallDelayFactor)).SetEase(Ease.Linear);
+                bottomToTopItems[i].DOMove(_toppingItemTargetPositions[i], FallDuration + (i * FallDelayFactor)).SetEase(FallingItemsEase);
 
                 // invoke oncompleteallitems for last item
                 if(i == bottomToTopItems.Length - 1)
                 {
-                    bottomToTopItems[i].DOMove(_toppingItemTargetPositions[i], FallDuration + (i * FallDelayFactor)).SetEase(Ease.Linear)
+                    bottomToTopItems[i].DOMove(_toppingItemTargetPositions[i], FallDuration + (i * FallDelayFactor)).SetEase(FallingItemsEase)
                                         .OnComplete(delegate
                                         {
                                             Debug.Log("Invoked for completing all items");

@@ -46,6 +46,9 @@ public class Level : MonoBehaviour
 
         StartBtnText.text = "Day " + (Profile.Level + 1).ToString();
 
+        //foreach(var seq in SequencesInLevel)
+        //    seq.gameObject.SetActive(false);
+
         StartNextSequence();
     }
 
@@ -83,7 +86,7 @@ public class Level : MonoBehaviour
 
     public void PlaySound(int soundIndex)
     {
-        SoundController.Instance.PlaySound((SoundType)soundIndex);
+        SoundController.Instance?.PlaySound((SoundType)soundIndex);
     }
 
     public void UpdateAudioMuteStatus()

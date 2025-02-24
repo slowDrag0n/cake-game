@@ -20,9 +20,7 @@ public class InputAnimationController : MonoBehaviour
 
     private void Start()
     {
-        _isAnimating = false;
-        _animatingProgress = 0;
-
+        ResetProgress();
     }
 
     public void Update()
@@ -59,5 +57,11 @@ public class InputAnimationController : MonoBehaviour
     public void StopMixing()
     {
         _isAnimating = false;
+    }
+
+    public void ResetProgress()
+    {
+        _isAnimating = false;
+        _animatingProgress = 0;
     }
 }
