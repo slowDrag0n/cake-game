@@ -11,7 +11,7 @@ public class ToppingAnimationController : MonoBehaviour
     [Header("Play on Start?")]
     public bool AutoAnimate = true;
 
-    [Header("Complete without animating?")]
+    [Header("Complete without animating? Use this to dont apply topping and complete sequence.")]
     public bool SkipAnimation = false;
     public void SetSkipAnimation(bool status) { SkipAnimation = status; }
 

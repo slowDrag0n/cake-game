@@ -9945,7 +9945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TestMode: 0
-  Test_StartIndex: 5
+  Test_StartIndex: 8
   SequencesInLevel:
   - {fileID: 2321006373786953210}
   - {fileID: 4528206404126931187}
@@ -17292,6 +17292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -18021,6 +18022,14 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1702408004800134209, guid: 6c4d7c0f3c87b014c87c5a11df8237ca, type: 3}
+      propertyPath: AutoAnimate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702408004800134209, guid: 6c4d7c0f3c87b014c87c5a11df8237ca, type: 3}
+      propertyPath: SkipAnimation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702408004800134209, guid: 6c4d7c0f3c87b014c87c5a11df8237ca, type: 3}
       propertyPath: OnCompleteFirstItem.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -18461,6 +18470,14 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5701836493229548754, guid: 6c4d7c0f3c87b014c87c5a11df8237ca, type: 3}
+      propertyPath: AutoAnimate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701836493229548754, guid: 6c4d7c0f3c87b014c87c5a11df8237ca, type: 3}
+      propertyPath: SkipAnimation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701836493229548754, guid: 6c4d7c0f3c87b014c87c5a11df8237ca, type: 3}
       propertyPath: OnCompleteAllOtherItems.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -18567,6 +18584,14 @@ PrefabInstance:
     - target: {fileID: 6496518040614097362, guid: 6c4d7c0f3c87b014c87c5a11df8237ca, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6787503209535465218, guid: 6c4d7c0f3c87b014c87c5a11df8237ca, type: 3}
+      propertyPath: AutoAnimate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6787503209535465218, guid: 6c4d7c0f3c87b014c87c5a11df8237ca, type: 3}
+      propertyPath: SkipAnimation
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6787503209535465218, guid: 6c4d7c0f3c87b014c87c5a11df8237ca, type: 3}
       propertyPath: OnCompleteFirstItem.m_PersistentCalls.m_Calls.Array.size
@@ -18957,6 +18982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -19030,6 +19056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:

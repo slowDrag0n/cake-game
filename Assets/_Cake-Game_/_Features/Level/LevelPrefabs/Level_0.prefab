@@ -528,10 +528,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoAnimate: 0
+  SkipAnimation: 0
   FirstItem: {fileID: 8111528665483449219}
   FirstItemFallDelay: 0.5
   FirstItemFallDuration: 0.5
   FirstItemFallEase: 1
+  FallingItemsEase: 1
   ToppingItems:
   - {fileID: 1230119382765266929}
   - {fileID: 8602542569717197561}
@@ -7387,6 +7389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -8592,10 +8595,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoAnimate: 0
+  SkipAnimation: 0
   FirstItem: {fileID: 4961899399462608503}
   FirstItemFallDelay: 0.5
   FirstItemFallDuration: 0.25
   FirstItemFallEase: 1
+  FallingItemsEase: 1
   ToppingItems: []
   FallDuration: 0.5
   FallDelayFactor: 0.1
@@ -9428,10 +9433,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoAnimate: 0
+  SkipAnimation: 0
   FirstItem: {fileID: 6238247995210725642}
   FirstItemFallDelay: 0.5
   FirstItemFallDuration: 0.8
   FirstItemFallEase: 1
+  FallingItemsEase: 1
   ToppingItems:
   - {fileID: 4477328503236768451}
   - {fileID: 825255128181584975}
@@ -11720,6 +11727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -15221,6 +15229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -15394,6 +15403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:

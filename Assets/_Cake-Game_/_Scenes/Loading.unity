@@ -195,7 +195,7 @@ MonoBehaviour:
     intLoadAgainTime: 1
     rewardLoadAgainTime: 3
     debugging: 0
-    testAds: 0
+    testAds: 1
   minMemory: 1024
   OnConsentGathered:
     m_PersistentCalls:
