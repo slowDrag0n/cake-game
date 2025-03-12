@@ -9,7 +9,7 @@ public class CuttingSequence : LevelSequence
 {
     public GameObject FingerController;
     public GameObject HintArrow;
-    public Transform Knife;
+    public Animator KnifeAnimator;
     public Transform Board;
     public Transform[] CuttingItems;
     public Transform ItemUnderKnifePoint;
@@ -28,21 +28,24 @@ public class CuttingSequence : LevelSequence
 
     void SequenceOpening()
     {
+        KnifeAnimator.enabled = false;
         FingerController.SetActive(false);
 
         Board.position += 13f * Vector3.right;
-        Knife.position += -10f * Vector3.right;
+        KnifeAnimator.transform.position += -10f * Vector3.right;
 
         Board.DOMoveX(0f, 1.3f).SetEase(Ease.OutBack)
             .OnStart(delegate { SoundController.Instance.PlaySound(SoundType.ItemComing); })
             .OnComplete(delegate
             {
-                Knife.DOMoveX(0f, .8f).SetEase(Ease.OutBack)
+                KnifeAnimator.transform.DOMoveX(0f, .8f).SetEase(Ease.OutBack)
                     .OnStart(delegate { SoundController.Instance.PlaySound(SoundType.ItemComing); })
                     .OnComplete(delegate
                     {
                         HintArrow.gameObject.SetActive(true);
                         PlaceNextItemForCut(_stepsCompleted);
+
+                        KnifeAnimator.enabled = true;
                     });
             });
     }
@@ -53,7 +56,7 @@ public class CuttingSequence : LevelSequence
         Board.DOMoveX(13f, 1.3f).SetEase(Ease.InBack).SetDelay(1f)
             .OnComplete(delegate
             {
-                Knife.DOMoveX(-10f, .8f).SetEase(Ease.InBack)
+                KnifeAnimator.transform.DOMoveX(-10f, .8f).SetEase(Ease.InBack)
                 .OnStart(delegate { SoundController.Instance.PlaySound(SoundType.ItemComing); })
                 .OnComplete(delegate
                 {
@@ -95,14 +98,15 @@ public class CuttingSequence : LevelSequence
 
         var cuttingItemAc = CuttingItems[_stepsCompleted].GetComponent<Animator>() ;
 
-        Knife.DOMove(KnifeSlicePoint.position, .25f).SetLoops(2, LoopType.Yoyo);
-        DOVirtual.DelayedCall(.25f, delegate
+        //Knife.transform.DOMove(KnifeSlicePoint.position, .25f).SetLoops(2, LoopType.Yoyo);
+        KnifeAnimator.SetTrigger("Slicing");
+        DOVirtual.DelayedCall(.5f, delegate
         {
             cuttingItemAc.SetTrigger("Cutting");
 
             DOVirtual.DelayedCall(SliceAnimDuration, delegate
             {
-                cuttingItemAc.transform.position += .6f * _stepsCompleted * Vector3.up;
+                cuttingItemAc.transform.position += .2f * _stepsCompleted * Vector3.up;
 
                 UpdateStepCount();
             });

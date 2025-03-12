@@ -35,6 +35,7 @@ public class DOTweenController : MonoBehaviour
     public Transform targetTransform;
 
     // Tween actions array to hold multiple tweens
+    public string runningTween;
     public TweenAction[] tweenActions;
 
     // Event handlers exposed to Inspector
@@ -48,7 +49,16 @@ public class DOTweenController : MonoBehaviour
         // Start the first tween
         PlayNextTween();
     }
-    [ContextMenu("PlayTween")]
+
+    private void Update()
+    {
+        if(tweenActions == null || currentTweenIndex >= tweenActions.Length && currentTweenIndex < 0)
+            return;
+
+        runningTween = string.Format(currentTweenIndex.ToString() + " -- " + tweenActions[currentTweenIndex].TweenDesc);
+    }
+
+    [ContextMenu("Play Tween")]
     void PlayNextTween()
     {
         if(currentTweenIndex >= tweenActions.Length)
@@ -111,11 +121,11 @@ public class DOTweenController : MonoBehaviour
     }
 
     // This method can be called to manually trigger the next tween
+    [ContextMenu("Play Next Tween")]
     public void TriggerNextTween()
     {
         KillCurrentTween();
         currentTweenIndex++;
-        Debug.Log($"TriggerNextTween");
         PlayNextTween();
     }
 

@@ -12,7 +12,6 @@ public class OvenSequence : LevelSequence
     [SerializeField] SpriteRenderer BakeCakeImage;
     [SerializeField] Animator Bowlwithhands, Clock, TutHandAnim;
     [SerializeField] DOTweenController Needle, BigBowl;
-    [SerializeField] SpriteChanger TutHand;
     [SerializeField] GameObject[] LineFInger;
     // Start is called before the first frame update
     void Start()

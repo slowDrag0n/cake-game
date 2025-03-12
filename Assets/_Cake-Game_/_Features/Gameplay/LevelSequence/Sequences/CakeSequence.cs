@@ -72,17 +72,17 @@ public class CakeSequence : LevelSequence
 
     public void StartSequence()
     {
-        CakeTray.gameObject.SetActive(true);
+        //CakeTray.gameObject.SetActive(true);
 
-        FinalCakeScratchCard.Card.InputEnabled = false;
-        IcingToolFingerDown.gameObject.SetActive(false);
-        IcingToolFingerUp.gameObject.SetActive(false);
-        IcingToolTranslator.GetComponent<LeanConstrainLocalPosition>().enabled = false;
+        //FinalCakeScratchCard.Card.InputEnabled = false;
+        //IcingToolFingerDown.gameObject.SetActive(false);
+        //IcingToolFingerUp.gameObject.SetActive(false);
+        //IcingToolTranslator.GetComponent<LeanConstrainLocalPosition>().enabled = false;
 
-        IcingCone.gameObject.SetActive(false);
+        //IcingCone.gameObject.SetActive(false);
 
-        foreach(var item in CakeToppings)
-            item.gameObject.SetActive(false);
+        //foreach(var item in CakeToppings)
+        //    item.gameObject.SetActive(false);
     }
 
     public void OnCakeTrayTweenComplete()

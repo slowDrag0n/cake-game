@@ -52,10 +52,10 @@ public class BlendingSequence : LevelSequence
         SugarAnimator.gameObject.SetActive(false);
 
         JuicerAnimator.transform.position += 15 * Vector3.right;
-        JuicerAnimator.transform.DOMoveX(-0.579f, .89f).SetEase(Ease.OutBack)
+        JuicerAnimator.transform.DOMoveX(0.22f, .89f).SetEase(Ease.OutBack)
             .OnComplete(delegate
             {
-                TutHand.transform.position = TutPosForOpenLid.position;
+                //TutHand.transform.position = TutPosForOpenLid.position;
                 TutHand.SetActive(true);
 
                 _fingerDownCurrentAction = OnOpenLid;
@@ -159,7 +159,7 @@ public class BlendingSequence : LevelSequence
             MilkAnimator.SetTrigger("Pouring");
             _fingerDownCurrentAction = null;
 
-            DOVirtual.DelayedCall(4.163f, delegate
+            DOVirtual.DelayedCall(5f, delegate
             {
                 OnDonePouringMilk();
             });
@@ -168,18 +168,18 @@ public class BlendingSequence : LevelSequence
 
     private void OnDonePouringMilk()
     {
-        JuicerContent.SetActive(true);
 
         ResetFingerActions();
 
-        DOVirtual.DelayedCall(1.75f, delegate
-        {
-            MilkAnimator.gameObject.SetActive(false);
+        //DOVirtual.DelayedCall(1.75f, delegate
+        //{
+        //    JuicerContent.SetActive(true);
+        //    MilkAnimator.gameObject.SetActive(false);
 
-            //Instantiate(CompletionVfx, transform);
-            GetComponentInParent<Level>().SpawnCompletionVfx();
-            StartSugar();
-        });
+        //    //Instantiate(CompletionVfx, transform);
+        //    GetComponentInParent<Level>().SpawnCompletionVfx();
+        //    StartSugar();
+        //});
     }
 
     #endregion
@@ -209,15 +209,14 @@ public class BlendingSequence : LevelSequence
     {
         ResetFingerActions();
 
-        //Instantiate(CompletionVfx, transform);
-        GetComponentInParent<Level>().SpawnCompletionVfx();
+        //GetComponentInParent<Level>().SpawnCompletionVfx();
 
-        JuicerAnimator.SetTrigger("CloseLid");
+        //JuicerAnimator.SetTrigger("CloseLid");
 
-        TutHand.transform.position = TutPosForGreen.position;
-        TutHand.SetActive(true);
+        //TutHand.transform.position = TutPosForGreen.position;
+        //TutHand.SetActive(true);
 
-        DOVirtual.DelayedCall(.5f, delegate { _fingerDownCurrentAction = Mixing; });
+        //DOVirtual.DelayedCall(.5f, delegate { _fingerDownCurrentAction = Mixing; });
     }
 
     #endregion

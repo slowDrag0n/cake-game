@@ -14,8 +14,6 @@ public class IcingCreamConeBehaviour : MonoBehaviour
     public float ProgressSpeed = .05f;
     public LeanFingerDown ConeFingerDown;
     public LeanFingerUp ConeFingerUp;
-    [Space]
-    public GameObject TutHand;
 
     public Action OnComplete;
 
@@ -58,11 +56,9 @@ public class IcingCreamConeBehaviour : MonoBehaviour
         _isPainting = false;
         _paintingProgress = 0;
 
-        TutHand.gameObject.SetActive(false);
         ConeFingerDown.gameObject.SetActive(false);
         DOVirtual.DelayedCall(1f, delegate
         {
-            TutHand.gameObject.SetActive(true);
             ConeFingerDown.gameObject.SetActive(true);
         });
 
@@ -72,9 +68,6 @@ public class IcingCreamConeBehaviour : MonoBehaviour
     public void ConeFingerDownHandler()
     {
         _isPainting = true;
-
-        if(TutHand.gameObject.activeSelf)
-            TutHand.gameObject.SetActive(false);
     }
 
     public void ConeFingerUpHandler()
