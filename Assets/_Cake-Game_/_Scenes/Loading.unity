@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &246020855
 Transform:
   m_ObjectHideFlags: 0
@@ -570,7 +570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1166807627
 Transform:
   m_ObjectHideFlags: 0
@@ -906,7 +906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6433103012073571094
 Transform:
   m_ObjectHideFlags: 0
@@ -952,8 +952,6 @@ MonoBehaviour:
     UiPrefab: {fileID: 1639516573801595087, guid: 833f9835009cf6f44b71ef6e5128b02e, type: 3}
   - Type: 1
     UiPrefab: {fileID: 8106229238469379802, guid: 203276a6890326a4bb94da769236a030, type: 3}
-  - Type: 10
-    UiPrefab: {fileID: 7022750577763997910, guid: 3f4808bce16be324fa5aa70da279ba15, type: 3}
 --- !u!114 &7269759129413773441
 MonoBehaviour:
   m_ObjectHideFlags: 0

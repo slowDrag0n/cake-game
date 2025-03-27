@@ -52,7 +52,7 @@ public class DOTweenController : MonoBehaviour
 
     private void Update()
     {
-        if(tweenActions == null || currentTweenIndex >= tweenActions.Length && currentTweenIndex < 0)
+        if(tweenActions == null || currentTweenIndex < 0 || currentTweenIndex >= tweenActions.Length)
             return;
 
         runningTween = string.Format(currentTweenIndex.ToString() + " -- " + tweenActions[currentTweenIndex].TweenDesc);

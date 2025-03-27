@@ -43,6 +43,8 @@ public class CakeMultiPaintSequence : LevelSequence
 
     public void StartSequence()
     {
+        OnSequenceStart?.Invoke();
+
         FinalCakeScratchCard.Card.InputEnabled = false;
         PaintingToolFingerDown.gameObject.SetActive(false);
         PaintingToolFingerUp.gameObject.SetActive(false);
