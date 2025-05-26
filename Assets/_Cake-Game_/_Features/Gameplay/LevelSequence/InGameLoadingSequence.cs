@@ -8,6 +8,9 @@ public class InGameLoadingSequence : LevelSequence
     {
         AdsManager.Ins.HideBannerAd();
         AdsManager.Ins.ShowBigBannerAd(GoogleMobileAds.Api.AdPosition.Center);
+
+        var canvas = GetComponentInChildren<Canvas>(true);
+        canvas.worldCamera = Camera.main;
     }
 
     private void OnDisable()

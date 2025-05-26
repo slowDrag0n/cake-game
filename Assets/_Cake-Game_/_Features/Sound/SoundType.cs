@@ -34,5 +34,6 @@
     SpoonMixing,
     Stirring,
     TaskComplete,
-    WaterPouring
+    WaterPouring,
+    PlayButton,
 }

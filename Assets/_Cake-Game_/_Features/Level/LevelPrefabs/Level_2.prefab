@@ -53330,6 +53330,7 @@ MonoBehaviour:
   EndingCakeHolder: {fileID: 4938301422121310811}
   EndingCakeChildren: []
   EndingSequenceCakeHolder: {fileID: 7220730115965237931}
+  CharImage: {fileID: 0}
 --- !u!114 &7782046943729429229
 MonoBehaviour:
   m_ObjectHideFlags: 0

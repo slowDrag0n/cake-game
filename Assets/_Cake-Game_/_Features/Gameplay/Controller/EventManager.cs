@@ -56,21 +56,9 @@ public static partial class EventManager
 
     #region GAMEPLAY EVENTS
 
-    public delegate void StartRopeRetraction();
-    public static StartRopeRetraction OnStartRopeRetraction;
-    public static void DoFireStartRopeRetraction() => OnStartRopeRetraction?.Invoke();
-
-    public delegate void HighlightRope(bool highlight);
-    public static HighlightRope OnHighlightRope;
-    public static void DoFireHighlightRope(bool highlight) => OnHighlightRope?.Invoke(highlight);
-
-    public delegate void HandleFingerUp();
-    public static HandleFingerUp OnHandleFingerUp;
-    public static void DoFireHandleFingerUp() => OnHandleFingerUp?.Invoke();
-
-    public delegate void ShakeCamera();
-    public static ShakeCamera OnShakeCamera;
-    public static void DoFireShakeCamera() => OnShakeCamera?.Invoke();
+    public delegate LevelCharacter GetLevelCharacter();
+    public static GetLevelCharacter OnGetLevelCharacter;
+    public static LevelCharacter DoFireGetLevelCharacter() => OnGetLevelCharacter?.Invoke();
 
     #endregion
 }

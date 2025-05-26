@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -112,4 +113,11 @@ public class Level : MonoBehaviour
     {
         AdsManager.Ins.QuickAd.RunQuickAd();
     }
+}
+
+[Serializable]
+public class LevelCharacter
+{
+    public Sprite LevelStartPose;
+    public Sprite LevelEndPose;
 }

@@ -52,7 +52,7 @@ public class CuttingSequence : LevelSequence
 
     void SequenceClosing()
     {
-
+        KnifeAnimator.enabled = false;
         Board.DOMoveX(13f, 1.3f).SetEase(Ease.InBack).SetDelay(1f)
             .OnComplete(delegate
             {

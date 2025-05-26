@@ -6,6 +6,7 @@ public class LevelController : MonoBehaviour
     public bool TestMode = false;
     public int TestLevel = 0;
     [Space]
+    public LevelCharacter[] LevelCharacters;
     public Level[] GameLevels;
 
     Level _currentLevel;
@@ -19,6 +20,7 @@ public class LevelController : MonoBehaviour
         EventManager.OnStopGameLevel += EndLevel;
         EventManager.OnWinLevel += OnLevelWin;
         EventManager.OnFailLevel += OnLevelFail;
+        EventManager.OnGetLevelCharacter += GetLevelCharacter;
     }
 
     private void OnDisable()
@@ -28,6 +30,7 @@ public class LevelController : MonoBehaviour
         EventManager.OnStopGameLevel -= EndLevel;
         EventManager.OnWinLevel -= OnLevelWin;
         EventManager.OnFailLevel -= OnLevelFail;
+        EventManager.OnGetLevelCharacter -= GetLevelCharacter;
     }
 
     private void Start()
@@ -115,6 +118,11 @@ public class LevelController : MonoBehaviour
         });
 
         Profile.LevelsFinishedCounter++;
+    }
+
+    LevelCharacter GetLevelCharacter()
+    {
+        return LevelCharacters[Profile.Level % LevelCharacters.Length];
     }
 
 }

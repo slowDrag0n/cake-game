@@ -20,7 +20,11 @@ public class IcingCreamConeBehaviour : MonoBehaviour
     bool _isPainting;
     float _paintingProgress;
 
-
+    private void OnEnable()
+    {
+        var coneAudioSource = GetComponentInChildren<AudioSource>(true);
+        coneAudioSource?.Stop();
+    }
 
     public void Update()
     {
