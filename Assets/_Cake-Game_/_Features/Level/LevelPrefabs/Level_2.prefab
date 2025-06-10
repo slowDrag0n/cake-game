@@ -35078,9 +35078,9 @@ RectTransform:
   - {fileID: 3078722794923319647}
   m_Father: {fileID: 2594490191799780474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 19.5125, y: -12.927}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 32.543, y: 32.543}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &6684830526398775576
@@ -35692,9 +35692,9 @@ RectTransform:
   - {fileID: 7842088400160560999}
   m_Father: {fileID: 2594490191799780474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 41.2555, y: -12.927}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 32.543, y: 32.543}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &683671483494797107
@@ -37559,7 +37559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6108821200680417562
 Transform:
   m_ObjectHideFlags: 0
@@ -50630,6 +50630,9 @@ MonoBehaviour:
   - {fileID: 1849361208327718697}
   - {fileID: 84781625712209920}
   - {fileID: 4145453616052197172}
+  CakeStartingImage: {fileID: 0}
+  CakeHudImage: {fileID: 0}
+  LevelCakeSprites: []
   WinDelay: 1
   SequenceCompletionVfx: {fileID: 5371240853745892848, guid: 5db762f99b9af164eb5b8e344ba7c973, type: 3}
   LevelWinVfx: {fileID: 8914446511636700241, guid: cad7f08905ab1fb43ab34b3ef8ea7874, type: 3}

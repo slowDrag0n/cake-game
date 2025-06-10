@@ -14,6 +14,11 @@ public class Level : MonoBehaviour
 
     public LevelSequence[] SequencesInLevel;
 
+    [Header("Level Cake")]
+    public Image CakeStartingImage;
+    public SpriteRenderer CakeHudImage;
+    public Sprite[] LevelCakeSprites;
+
     [Header("Level Completion")]
     public float WinDelay = 1f;
 
@@ -29,6 +34,7 @@ public class Level : MonoBehaviour
     public TextMeshProUGUI StartBtnText;
 
     int _sequenceIndex = -1;
+    int _selectedCake;
 
     private void Start()
     {
@@ -50,7 +56,20 @@ public class Level : MonoBehaviour
         //foreach(var seq in SequencesInLevel)
         //    seq.gameObject.SetActive(false);
 
+        AssignLevelCake();
+
         StartNextSequence();
+    }
+
+    private void AssignLevelCake()
+    {
+        if(Profile.Level < 2)
+            return;
+
+        _selectedCake = UnityEngine.Random.Range(0, LevelCakeSprites.Length);
+        var selectedCakeSprite = LevelCakeSprites[_selectedCake];
+        CakeStartingImage.sprite = selectedCakeSprite;
+        CakeHudImage.sprite = selectedCakeSprite;
     }
 
     public void StartNextSequence()

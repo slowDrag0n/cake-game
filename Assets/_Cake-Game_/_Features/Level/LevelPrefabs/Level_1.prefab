@@ -7250,6 +7250,18 @@ MonoBehaviour:
               m_StringArgument: RollingPinMoveIn
               m_BoolArgument: 1
             m_CallState: 2
+          - m_Target: {fileID: 6056872203982944556}
+            m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+            m_MethodName: Stop
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: RollingPinMoveIn
+              m_BoolArgument: 1
+            m_CallState: 2
       onKill:
         m_PersistentCalls:
           m_Calls: []
@@ -8450,6 +8462,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 550961061437367620}
+  - component: {fileID: 6704527466596496250}
   m_Layer: 0
   m_Name: CreamBottle
   m_TagString: Untagged
@@ -8473,6 +8486,102 @@ Transform:
   - {fileID: 2998822571214018629}
   m_Father: {fileID: 7023956280837470340}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &6704527466596496250
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132675279297237604}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: fa574572bc646ab4d9e7651c7ee4d133, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.373
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2134535037240564231
 GameObject:
   m_ObjectHideFlags: 0
@@ -9518,7 +9627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TestMode: 0
-  Test_StartIndex: 8
+  Test_StartIndex: 6
   SequencesInLevel:
   - {fileID: 2363301772731325225}
   - {fileID: 4528206404126931187}
@@ -9531,6 +9640,12 @@ MonoBehaviour:
   - {fileID: 8839678518535837058}
   - {fileID: 7590988664095833675}
   - {fileID: 2372808478623481663}
+  CakeStartingImage: {fileID: 4063556871159554595}
+  CakeHudImage: {fileID: 1164986614477744267}
+  LevelCakeSprites:
+  - {fileID: 21300000, guid: 69675ac0b1686eb4fa0960083aa36eaa, type: 3}
+  - {fileID: 21300000, guid: cd70c756247a7de4a8417cc470cf520b, type: 3}
+  - {fileID: 21300000, guid: c76796c3159e9fc43bc8e4eb3c3df6cf, type: 3}
   WinDelay: 1
   SequenceCompletionVfx: {fileID: 5371240853745892848, guid: 5db762f99b9af164eb5b8e344ba7c973, type: 3}
   LevelWinVfx: {fileID: 8914446511636700241, guid: cad7f08905ab1fb43ab34b3ef8ea7874, type: 3}
@@ -13172,6 +13287,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3796151024714061117}
         m_TargetAssemblyTypeName: InputAnimationController, Assembly-CSharp
         m_MethodName: StartMixing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6704527466596496250}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21308,7 +21435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Controller: {fileID: 6633307093017824218}
   AnimationStateName: Rolling
-  ProgressSpeed: 0.1
+  ProgressSpeed: 0.122
   OnStart:
     m_PersistentCalls:
       m_Calls:
@@ -21368,6 +21495,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Stop
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2262582963353288555}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5930114131665670954}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -22872,7 +23023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TEST_MODE: 1
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -23261,7 +23412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TEST_MODE: 1
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -26762,6 +26913,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6704527466596496250}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   ScreenDepth:
     Conversion: 0
     Camera: {fileID: 0}
@@ -27204,6 +27367,18 @@ MonoBehaviour:
           m_StringArgument: ConeMoveOut
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6704527466596496250}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ConeMoveOut
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2575734909917084346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27218,7 +27393,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnBeginMoveIn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6704527466596496250}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1411356844813263251}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 17
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDoneMoveIn:
     m_PersistentCalls:
       m_Calls:
@@ -27242,7 +27441,19 @@ MonoBehaviour:
       m_Calls: []
   OnBeginMoveOut:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1411356844813263251}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 17
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDoneMoveOut:
     m_PersistentCalls:
       m_Calls:
@@ -36983,6 +37194,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4063556871159554595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3349656917736549680, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
+  m_PrefabInstance: {fileID: 1592295464903757587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &4091555787917165430 stripped

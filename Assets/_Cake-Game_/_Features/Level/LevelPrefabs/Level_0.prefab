@@ -6596,7 +6596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TEST_MODE: 1
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -19385,7 +19385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TestMode: 0
-  Test_StartIndex: 5
+  Test_StartIndex: 6
   SequencesInLevel:
   - {fileID: 1843600911995817719}
   - {fileID: 2142652628744191607}
@@ -19397,6 +19397,12 @@ MonoBehaviour:
   - {fileID: 1782425186899287002}
   - {fileID: 310101363548436475}
   - {fileID: 5459203337947707902}
+  CakeStartingImage: {fileID: 7247434215897137252}
+  CakeHudImage: {fileID: 7538057843374826289}
+  LevelCakeSprites:
+  - {fileID: 21300000, guid: 229b2872effcf95428dec763268a2f2d, type: 3}
+  - {fileID: 21300000, guid: 71b57ae80e657704f90e2e44b6c41f4e, type: 3}
+  - {fileID: 21300000, guid: 2fbc522fce1dd0f40958894b16d121b3, type: 3}
   WinDelay: 1
   SequenceCompletionVfx: {fileID: 5371240853745892848, guid: 5db762f99b9af164eb5b8e344ba7c973, type: 3}
   LevelWinVfx: {fileID: 8914446511636700241, guid: cad7f08905ab1fb43ab34b3ef8ea7874, type: 3}
@@ -22227,6 +22233,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 31247277875684707}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Baking
+          m_BoolArgument: 1
+        m_CallState: 2
   ScreenDepth:
     Conversion: 0
     Camera: {fileID: 0}
@@ -22417,7 +22435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8668111728971936666
 Transform:
   m_ObjectHideFlags: 0
@@ -23008,6 +23026,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7879479668241147240}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 13
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -24830,7 +24860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TEST_MODE: 1
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -31958,7 +31988,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnBeginMoveIn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7879479668241147240}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 17
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDoneMoveIn:
     m_PersistentCalls:
       m_Calls:
@@ -31988,10 +32030,34 @@ MonoBehaviour:
         m_CallState: 2
   OnBeginPouring:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7879479668241147240}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 31
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDonePouring:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7879479668241147240}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 17
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnBeginMoveOut:
     m_PersistentCalls:
       m_Calls:
@@ -32003,6 +32069,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7879479668241147240}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 17
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -38225,7 +38303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b553c184a7ac841a1f4f76017745bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TEST_MODE: 1
+  TEST_MODE: 0
   OnRewardSuccess:
     m_PersistentCalls:
       m_Calls:
@@ -41468,6 +41546,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 7879479668241147240}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 13
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -48455,14 +48545,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2419736060568751979, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419736060568751979, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419736060568751979, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7879479668241147240}
@@ -48470,22 +48552,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 7879479668241147240}
-    - target: {fileID: 2419736060568751979, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419736060568751979, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlaySound
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419736060568751979, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: Level, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2419736060568751979, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2439477854663669969, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
       propertyPath: m_text
       value: DAY 1
@@ -48528,7 +48594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848431229975769824, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -48.900024
+      value: -48.899902
       objectReference: {fileID: 0}
     - target: {fileID: 3349656917736549680, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
       propertyPath: m_Sprite
@@ -48707,6 +48773,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3375422962855649697, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
   m_PrefabInstance: {fileID: 5397652378450292052}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7247434215897137252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3349656917736549680, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
+  m_PrefabInstance: {fileID: 5397652378450292052}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7724399117706368389 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2439477854663669969, guid: 86b3ce3f4411aa04f93464f53b35d5dd, type: 3}
@@ -50201,11 +50278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6837025931553259137, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6837025931553259137, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_SortingLayerID
-      value: -758902419
+      value: 119075589
       objectReference: {fileID: 0}
     - target: {fileID: 7107007414337831810, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: speed

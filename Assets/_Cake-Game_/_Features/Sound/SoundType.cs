@@ -36,4 +36,5 @@
     TaskComplete,
     WaterPouring,
     PlayButton,
+    PowderPour
 }

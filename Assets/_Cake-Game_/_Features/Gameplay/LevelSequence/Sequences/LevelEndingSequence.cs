@@ -14,7 +14,7 @@ public class LevelEndingSequence : LevelSequence
     private void Start()
     {
         LevelCharacter levelChar = EventManager.DoFireGetLevelCharacter();
-        CharImage.sprite = levelChar.LevelEndPose;
+        //CharImage.sprite = levelChar.LevelEndPose;
 
         foreach(Transform item in EndingCakeChildren)
         {
@@ -28,5 +28,10 @@ public class LevelEndingSequence : LevelSequence
 
         var canvas = GetComponentInChildren<Canvas>(true);
         canvas.worldCamera = Camera.main;
+
+        foreach(AudioSource src in EndingCakeHolder.GetComponentsInChildren<AudioSource>(true))
+        {
+            src.Stop();
+        }
     }
 }
