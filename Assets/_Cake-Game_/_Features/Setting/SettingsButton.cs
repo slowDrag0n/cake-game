@@ -18,5 +18,6 @@ public class SettingsButton : MonoBehaviour
     private void OnClickSettingsBtn()
     {
         EventManager.DoFireShowUiEvent(UiType.Setting);
+        SoundController.Instance.PlaySound(SoundType.Click);
     }
 }

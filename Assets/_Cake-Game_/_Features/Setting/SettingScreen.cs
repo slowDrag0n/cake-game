@@ -15,6 +15,7 @@ public class SettingScreen : UiPanel
         CloseBtn.onClick.AddListener(delegate
         {
             EventManager.DoFireHideUiEvent(UiType.Setting);
+            SoundController.Instance.PlaySound(SoundType.Click);
 
             //AdsManager.Ins.HideBigBannerAd();
             //AdsManager.Ins.ShowBannerAd(BannerType.Banner);

@@ -186,11 +186,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstAdTimeThreshold: 10
   adUnits:
-    bannerId: ca-app-pub-3940256099942544/6300978111
-    bigBannerId: ca-app-pub-3940256099942544/9214589741
-    intId: ca-app-pub-3940256099942544/1033173712
-    rewardId: ca-app-pub-3940256099942544/5224354917
-    appOpenId: ca-app-pub-3940256099942544/9257395921
+    bannerId: ca-app-pub-6084315612097815/6970175018
+    bigBannerId: ca-app-pub-6084315612097815/3030930006
+    intId: ca-app-pub-6084315612097815/4736594034
+    rewardId: ca-app-pub-6084315612097815/2709196495
+    appOpenId: ca-app-pub-6084315612097815/5106429005
     intLoadAgainTime: 1
     rewardLoadAgainTime: 3
     debugging: 0
@@ -637,6 +637,14 @@ PrefabInstance:
     - target: {fileID: 2336073113638661290, guid: f56633de4d1b55d42b7fa8f3f426e210, type: 3}
       propertyPath: m_Name
       value: SoundController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257019752043908483, guid: f56633de4d1b55d42b7fa8f3f426e210, type: 3}
+      propertyPath: Bgms.Array.data[0].Volume
+      value: 0.697
+      objectReference: {fileID: 0}
+    - target: {fileID: 7257019752043908483, guid: f56633de4d1b55d42b7fa8f3f426e210, type: 3}
+      propertyPath: Sounds.Array.data[13].Volume
+      value: 0.697
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
