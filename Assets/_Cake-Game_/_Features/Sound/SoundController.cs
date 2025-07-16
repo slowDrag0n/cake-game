@@ -1,4 +1,3 @@
-using Lofelt.NiceVibrations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -82,7 +81,6 @@ public class SoundController : MonoBehaviour
     public void PlaySound(SoundType type, float pitch = 1f, bool oneShot = false)
     {
         if(Profile.HapticsEnabled)
-            HapticPatterns.PlayEmphasis(1.0f, 0.0f);
 
         if(_soundData.ContainsKey(type) == false)
         {
@@ -120,7 +118,6 @@ public class SoundController : MonoBehaviour
     public void PlaySound(AudioClip clipToPlay, float volume = 1f, float pitch = 1f, bool oneShot = false)
     {
         if(Profile.HapticsEnabled)
-            HapticPatterns.PlayEmphasis(1.0f, 0.0f);
 
         if(clipToPlay == null)
             return;
