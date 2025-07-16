@@ -47,7 +47,7 @@ public class SliceDropper : MonoBehaviour
         // initial check before start dropping
         if(Slices.Count == 0) return;
 
-        Debug.Log("Slices Left: " + _slicesLeft);
+        // Debug.Log("Slices Left: " + _slicesLeft);
         var sliceSpawn = Slices[_slicesLeft];
         _slicesLeft--;
 

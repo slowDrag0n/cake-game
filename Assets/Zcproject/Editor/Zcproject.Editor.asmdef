@@ -1,0 +1,18 @@
+{
+    "name": "Zcproject.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:790b0baa9b980413db1c68c5c0893066"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

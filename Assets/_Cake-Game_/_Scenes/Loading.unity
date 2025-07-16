@@ -186,11 +186,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstAdTimeThreshold: 10
   adUnits:
-    bannerId: ca-app-pub-6084315612097815/6970175018
-    bigBannerId: ca-app-pub-6084315612097815/3030930006
-    intId: ca-app-pub-6084315612097815/4736594034
-    rewardId: ca-app-pub-6084315612097815/2709196495
-    appOpenId: ca-app-pub-6084315612097815/5106429005
+    bannerId: ca-app-pub-6084315612097815/5595740287
+    bigBannerId: ca-app-pub-6084315612097815/7668467336
+    intId: ca-app-pub-6084315612097815/4328273535
+    rewardId: ca-app-pub-6084315612097815/8165229154
+    appOpenId: ca-app-pub-6084315612097815/5641355201
     intLoadAgainTime: 1
     rewardLoadAgainTime: 3
     debugging: 0
