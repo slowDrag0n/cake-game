@@ -14077,6 +14077,7 @@ GameObject:
   - component: {fileID: 3526476076697605784}
   - component: {fileID: 7907593962445314651}
   - component: {fileID: 3723895356441666147}
+  - component: {fileID: 792658308478036262}
   m_Layer: 0
   m_Name: IcingCone
   m_TagString: Untagged
@@ -14360,6 +14361,23 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
   currentTweenIndex: 0
+--- !u!114 &792658308478036262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960893097594420036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e30ad828a35ec4ea0867984fae00af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderersToToggle:
+  - {fileID: 1661855156410860991}
+  - {fileID: 7149693621902968502}
+  - {fileID: 4216596657318490116}
+  disableForFrames: 5
 --- !u!1 &961140093370130595
 GameObject:
   m_ObjectHideFlags: 0
@@ -34089,6 +34107,7 @@ GameObject:
   - component: {fileID: 6648284897016575330}
   - component: {fileID: 2221299537735360804}
   - component: {fileID: 6480421902663259224}
+  - component: {fileID: 6912042579133648251}
   m_Layer: 0
   m_Name: IcingCone
   m_TagString: Untagged
@@ -34348,6 +34367,23 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
   currentTweenIndex: 0
+--- !u!114 &6912042579133648251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3529343722920424761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e30ad828a35ec4ea0867984fae00af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderersToToggle:
+  - {fileID: 3203356488900005433}
+  - {fileID: 357441263653437254}
+  - {fileID: 1123387718640066057}
+  disableForFrames: 5
 --- !u!1 &3542433655238378824
 GameObject:
   m_ObjectHideFlags: 0
@@ -92185,6 +92221,7 @@ MonoBehaviour:
   PaintingTool1FingerDown: {fileID: 4623862959450690817}
   PaintingTool1FingerUp: {fileID: 5392456608423943385}
   PaintingDragPoint1: {fileID: 7551401170604567315}
+  TutHand1: {fileID: 1001169431031885385}
   Cake2: {fileID: 318049177934763965}
   FinalCakeScratchCard2: {fileID: 8836195266685479136}
   CakePaintProgress2: {fileID: 8878944290223983296}
@@ -92192,12 +92229,14 @@ MonoBehaviour:
   PaintingTool2FingerDown: {fileID: 2455931890320838363}
   PaintingTool2FingerUp: {fileID: 4894154699967300237}
   PaintingDragPoint2: {fileID: 3439093783842404034}
+  TutHand2: {fileID: 1350623484279295086}
   FinalCakeScratchCard: {fileID: 6273460006877989192}
   CakePaintProgress: {fileID: 6239718240862022504}
   PaintingToolTranslator: {fileID: 0}
   PaintingToolFingerDown: {fileID: 0}
   PaintingToolFingerUp: {fileID: 0}
   PaintingDragPoint: {fileID: 0}
+  TutHand: {fileID: 0}
   PaintingToolDragDistanceThreshold: 1
   SpoonRend: {fileID: 965805861004131059}
   CurvyLineImage:
@@ -99887,11 +99926,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3001446602977604077, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.62
+      value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 3001446602977604077, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.64
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 3429360796648718975, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -99919,11 +99958,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8387706639912131702, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6199999
+      value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 8387706639912131702, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.64
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 8575752506095370491, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalScale.x
@@ -100366,7 +100405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4795752259306779298, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6837025931553259137, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_Sprite
@@ -101596,11 +101635,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3001446602977604077, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.62
+      value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 3001446602977604077, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.64
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 3429360796648718975, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -101618,6 +101657,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6181917305524534163, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6837025931553259137, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -101628,11 +101671,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8387706639912131702, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.62
+      value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 8387706639912131702, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.64
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 8575752506095370491, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalScale.x
@@ -103426,11 +103469,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3001446602977604077, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.62
+      value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 3001446602977604077, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.64
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 3429360796648718975, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -103458,11 +103501,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8387706639912131702, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.62
+      value: 2.68
       objectReference: {fileID: 0}
     - target: {fileID: 8387706639912131702, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.6399994
+      value: 4.76
       objectReference: {fileID: 0}
     - target: {fileID: 8575752506095370491, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalScale.x
