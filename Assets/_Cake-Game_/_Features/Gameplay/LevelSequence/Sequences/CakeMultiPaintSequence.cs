@@ -115,7 +115,10 @@ public class CakeMultiPaintSequence : LevelSequence
     {
         CreamConeRenderer.sprite = CakeDataProfiles[type].CreamConeBottle;
         CreamTopRenderer.sprite = CakeDataProfiles[type].CreamTop;
+        CreamTopRenderer.transform.localPosition = CakeDataProfiles[type].TransformData.PosC1;
         CreamDripRenderer.sprite = CakeDataProfiles[type].CreamDrip;
+        CreamDripRenderer.transform.localPosition = CakeDataProfiles[type].TransformData.PosC2;
+        CreamDripRenderer.transform.localScale = CakeDataProfiles[type].TransformData.ScaleC2;
     }
 
 
@@ -187,4 +190,13 @@ public class CakeProfileData
     public Sprite CreamConeBottle;
     public Sprite CreamTop;
     public Sprite CreamDrip;
+    public TransformDataForCakeProfile TransformData;
+}
+
+[Serializable]
+public struct TransformDataForCakeProfile
+{
+    public Vector3 PosC1;
+    public Vector3 PosC2;
+    public Vector3 ScaleC2;
 }

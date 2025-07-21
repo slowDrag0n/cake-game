@@ -6485,7 +6485,7 @@ Transform:
   m_GameObject: {fileID: 1338009647169800916}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.05, y: -4.2629, z: 0}
+  m_LocalPosition: {x: -1.05, y: -4.2629, z: -0.1}
   m_LocalScale: {x: 0.7859241, y: 0.7859241, z: 0.7859241}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -26031,19 +26031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnSequenceStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1411356844813263251}
-        m_TargetAssemblyTypeName: Level, Assembly-CSharp
-        m_MethodName: RunQuickAd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnSequenceDone:
     m_PersistentCalls:
       m_Calls: []
@@ -27273,6 +27261,7 @@ GameObject:
   - component: {fileID: 3796151024714061117}
   - component: {fileID: 2575734909917084346}
   - component: {fileID: 3572137794256190804}
+  - component: {fileID: 7853407873556421541}
   m_Layer: 0
   m_Name: IcingCone
   m_TagString: Untagged
@@ -27532,6 +27521,23 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
   currentTweenIndex: 0
+--- !u!114 &7853407873556421541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7510366559959326737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c511c00ce224174b55f5b030e1e127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderersToToggle:
+  - {fileID: 5635799670750442954}
+  - {fileID: 6140715194308446587}
+  - {fileID: 3128859950552550129}
+  disableForFrames: 5
 --- !u!1 &7540535422986741034
 GameObject:
   m_ObjectHideFlags: 0

@@ -6906,18 +6906,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7879479668241147240}
-        m_TargetAssemblyTypeName: Level, Assembly-CSharp
-        m_MethodName: RunQuickAd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   OnSequenceDone:
     m_PersistentCalls:
       m_Calls: []
@@ -13287,6 +13275,10 @@ MonoBehaviour:
     CreamConeBottle: {fileID: 21300000, guid: d1e7125a484e49c48baad5fabc30dbfe, type: 3}
     CreamTop: {fileID: 21300000, guid: 706f22519ab590e49b245ade994c0d29, type: 3}
     CreamDrip: {fileID: 21300000, guid: c9a21c2d91ed4ef48a7b26d39b09ddc1, type: 3}
+    TransformData:
+      PosC1: {x: 0, y: 1.33, z: 0}
+      PosC2: {x: -0.04, y: -0.585, z: 0}
+      ScaleC2: {x: 0.9989939, y: 1, z: 1}
   - CakeDesc: ChocolateCake
     CakePaint: {fileID: 21300000, guid: 9f5e72fd77b8f77479cb3e8c202f9b23, type: 3}
     PaintSpoon: {fileID: 21300000, guid: 240e6a25ff5ca9b41af29aaa01d82db9, type: 3}
@@ -13294,6 +13286,10 @@ MonoBehaviour:
     CreamConeBottle: {fileID: 21300000, guid: b4430fb975938854e8a257dfd9613024, type: 3}
     CreamTop: {fileID: 21300000, guid: 45bcfb524be062e4a903d7e923ca90a5, type: 3}
     CreamDrip: {fileID: 21300000, guid: 6c47fa05b52e32840ad9f690bce622f6, type: 3}
+    TransformData:
+      PosC1: {x: 0, y: 1.4, z: 0}
+      PosC2: {x: 0.069, y: -0.08, z: 0}
+      ScaleC2: {x: 0.9947, y: 1, z: 1}
   - CakeDesc: PlainCake
     CakePaint: {fileID: 21300000, guid: 6ab88a5f0fc0b5c438d25dbf64685e0b, type: 3}
     PaintSpoon: {fileID: 21300000, guid: 6a6bca746ccab09469325612ab31dd32, type: 3}
@@ -13301,6 +13297,10 @@ MonoBehaviour:
     CreamConeBottle: {fileID: 21300000, guid: 2968233f8c541fc4a963fafca9fdcdf0, type: 3}
     CreamTop: {fileID: 21300000, guid: 2323929e60a310d4c8ff7a21138e8132, type: 3}
     CreamDrip: {fileID: 21300000, guid: c6d96a0577bfb1d4cb25a71596ad0be5, type: 3}
+    TransformData:
+      PosC1: {x: 0, y: 1.39, z: 0}
+      PosC2: {x: -0.0232, y: -0.16, z: 0}
+      ScaleC2: {x: 0.994998, y: 1, z: 1}
   OnPaintingComplete:
     m_PersistentCalls:
       m_Calls:
@@ -46861,15 +46861,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2903340420463198804, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0206041
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2903340420463198804, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0206041
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2903340420463198804, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0206041
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2903340420463198804, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
       propertyPath: m_LocalPosition.x
@@ -46877,7 +46877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2903340420463198804, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 3218695344296143085, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
       propertyPath: m_IsActive
@@ -47065,7 +47065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5473551167295062187, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.14
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 5572719400577088091, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
       propertyPath: m_LocalPosition.x
@@ -47127,6 +47127,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 8596383046948683486}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2527404953518659327, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2629814617775574487}
     - targetCorrespondingSourceObject: {fileID: 3218695344296143085, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9058284967920987722}
@@ -47136,6 +47139,23 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2527404953518659327, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
   m_PrefabInstance: {fileID: 3918443860723748899}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2629814617775574487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545366359548167900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c511c00ce224174b55f5b030e1e127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderersToToggle:
+  - {fileID: 6512204938464178539}
+  - {fileID: 3546740034909068883}
+  - {fileID: 7308460288643721243}
+  disableForFrames: 5
 --- !u!1 &1930357256617359566 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3218695344296143085, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
@@ -47240,6 +47260,11 @@ AudioSource:
 --- !u!4 &3241096880216397210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1917314765585319353, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
+  m_PrefabInstance: {fileID: 3918443860723748899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3546740034909068883 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 529620092474265200, guid: a4c8289b5bc05ca4f99677102a16a228, type: 3}
   m_PrefabInstance: {fileID: 3918443860723748899}
   m_PrefabAsset: {fileID: 0}
 --- !u!212 &5988977096801565229 stripped

@@ -20,6 +20,7 @@ public class CakePaintSequence : LevelSequence
     public LeanFingerDown    PaintingTool1FingerDown;
     public LeanFingerUp      PaintingTool1FingerUp;
     public Transform PaintingDragPoint1;
+    public GameObject TutHand1;
     [Space]
     public GameObject Cake2;
     public ScratchCardManager FinalCakeScratchCard2;
@@ -28,6 +29,7 @@ public class CakePaintSequence : LevelSequence
     public LeanFingerDown    PaintingTool2FingerDown;
     public LeanFingerUp      PaintingTool2FingerUp;
     public Transform PaintingDragPoint2;
+    public GameObject TutHand2;
 
     [Header("Current Cake")]
     [SerializeField] ScratchCardManager FinalCakeScratchCard;
@@ -36,6 +38,7 @@ public class CakePaintSequence : LevelSequence
     [SerializeField] LeanFingerDown    PaintingToolFingerDown;
     [SerializeField] LeanFingerUp      PaintingToolFingerUp;
     [SerializeField] Transform PaintingDragPoint;
+    [SerializeField]  GameObject TutHand;
     [SerializeField] float PaintingToolDragDistanceThreshold = 1f;
     [Space]
     public SpriteRenderer SpoonRend;
@@ -84,6 +87,9 @@ public class CakePaintSequence : LevelSequence
 
         Cake1.gameObject.SetActive(true);
         Cake2.gameObject.SetActive(true);
+
+        TutHand1.SetActive(false);
+        TutHand2.SetActive(false);
     }
 
     public void OnCakeButtonClick(int type)
@@ -99,6 +105,7 @@ public class CakePaintSequence : LevelSequence
             PaintingToolFingerUp = PaintingTool1FingerUp;
             PaintingDragPoint = PaintingDragPoint1;
             Cake2.gameObject.SetActive(false);
+            TutHand = TutHand1;
         }
         else
         {
@@ -109,6 +116,7 @@ public class CakePaintSequence : LevelSequence
             PaintingToolFingerUp = PaintingTool2FingerUp;
             PaintingDragPoint = PaintingDragPoint2;
             Cake1.gameObject.SetActive(false);
+            TutHand = TutHand2;
         }
 
         AssignCakeProperties(type);
@@ -129,7 +137,8 @@ public class CakePaintSequence : LevelSequence
         // activate spoon and animate
         PaintingToolTranslator.gameObject.SetActive(true);
         PaintingToolTranslator.transform.position = paintingToolStartingPos + new Vector2(13f, 0f);
-        PaintingToolTranslator.transform.DOMoveX(paintingToolStartingPos.x, .25f).SetEase(Ease.OutBack);
+        PaintingToolTranslator.transform.DOMoveX(paintingToolStartingPos.x, .25f).SetEase(Ease.OutBack)
+            .OnComplete(delegate { TutHand.SetActive(true); });
     }
 
 
