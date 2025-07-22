@@ -15865,6 +15865,7 @@ GameObject:
   - component: {fileID: 1470571173281679231}
   - component: {fileID: 3132014944892133220}
   - component: {fileID: 6746329982475450899}
+  - component: {fileID: 7229321341553741696}
   m_Layer: 0
   m_Name: Eggs
   m_TagString: Untagged
@@ -16092,6 +16093,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7229321341553741696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309198267987552077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c511c00ce224174b55f5b030e1e127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderersToToggle:
+  - {fileID: 3533987718178534113}
+  - {fileID: 5125963139015585508}
+  - {fileID: 8362697629281911729}
+  - {fileID: 1836126281793442045}
+  - {fileID: 1167399552999648006}
+  disableForFrames: 5
 --- !u!1 &1321295598888240867
 GameObject:
   m_ObjectHideFlags: 0
@@ -98154,6 +98174,7 @@ GameObject:
   - component: {fileID: 6876766802198688256}
   - component: {fileID: 2019453306070755454}
   - component: {fileID: 3669058150921189597}
+  - component: {fileID: 5644865376840773354}
   m_Layer: 0
   m_Name: Eggs
   m_TagString: Untagged
@@ -98369,6 +98390,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5644865376840773354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9077124468125460450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c511c00ce224174b55f5b030e1e127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderersToToggle:
+  - {fileID: 4879750294412921634}
+  - {fileID: 4270067717595331047}
+  - {fileID: 8219989261717183729}
+  - {fileID: 4413450394009444270}
+  - {fileID: 940506816105192061}
+  disableForFrames: 5
 --- !u!1 &9101039499160963508
 GameObject:
   m_ObjectHideFlags: 0

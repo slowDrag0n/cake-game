@@ -6270,18 +6270,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 5996233572090838667}
-        m_TargetAssemblyTypeName: DOTweenController, Assembly-CSharp
-        m_MethodName: TriggerNextTween
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1411356844813263251}
         m_TargetAssemblyTypeName: Level, Assembly-CSharp
         m_MethodName: PlaySound
@@ -6536,7 +6524,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -758902419
   m_SortingLayer: 1
-  m_SortingOrder: 11
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: db9fec11cfde58a479d45e9070c6e284, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8047,6 +8035,7 @@ GameObject:
   - component: {fileID: 9143990855952085938}
   - component: {fileID: 6266207676609472644}
   - component: {fileID: 9113471182475279969}
+  - component: {fileID: 3685216844358303777}
   m_Layer: 0
   m_Name: Sugar
   m_TagString: Untagged
@@ -8068,10 +8057,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6637025813681107359}
-  - {fileID: 4531416631326237254}
   - {fileID: 5338870461120095292}
   - {fileID: 2753699550455355767}
-  m_Father: {fileID: 6744204994352553547}
+  m_Father: {fileID: 8759630496747243939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9143990855952085938
 Animator:
@@ -8109,7 +8097,7 @@ MonoBehaviour:
   targetTransform: {fileID: 1449097320670671871}
   runningTween: 
   tweenActions:
-  - TweenDesc: 
+  - TweenDesc: Reset
     tweenType: 3
     duration: 0
     delay: 0
@@ -8319,7 +8307,19 @@ MonoBehaviour:
         m_CallState: 2
   OnBeginPouring:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8768668532226919803}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnDonePouring:
     m_PersistentCalls:
       m_Calls:
@@ -8353,6 +8353,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3685216844358303777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996619543951255517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c511c00ce224174b55f5b030e1e127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderersToToggle:
+  - {fileID: 8538343655402930823}
+  - {fileID: 2935348779633747622}
+  - {fileID: 4576420487865294897}
+  disableForFrames: 5
 --- !u!1 &2030390105620572939
 GameObject:
   m_ObjectHideFlags: 0
@@ -10711,11 +10728,11 @@ MonoBehaviour:
   targetTransform: {fileID: 2669164449914885074}
   runningTween: 
   tweenActions:
-  - TweenDesc: 
+  - TweenDesc: Reset
     tweenType: 3
     duration: 0
     delay: 0
-    targetPosition: {x: -16, y: -3.7467, z: 0}
+    targetPosition: {x: -16, y: -3.95, z: 0}
     targetRotation: {x: 0, y: 0, z: 0}
     targetScale: {x: 0, y: 0, z: 0}
     easeType: 1
@@ -10727,18 +10744,30 @@ MonoBehaviour:
           m_Calls: []
       onComplete:
         m_PersistentCalls:
-          m_Calls: []
+          m_Calls:
+          - m_Target: {fileID: 5996233572090838667}
+            m_TargetAssemblyTypeName: DOTweenController, Assembly-CSharp
+            m_MethodName: TriggerNextTween
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
       onKill:
         m_PersistentCalls:
           m_Calls: []
       onUpdate:
         m_PersistentCalls:
           m_Calls: []
-  - TweenDesc: 
+  - TweenDesc: Move in
     tweenType: 3
     duration: 0.5
     delay: 0.5
-    targetPosition: {x: 0, y: -3.7467, z: 0}
+    targetPosition: {x: 0, y: -3.95, z: 0}
     targetRotation: {x: 0, y: 0, z: 0}
     targetScale: {x: 0, y: 0, z: 0}
     easeType: 27
@@ -12482,6 +12511,7 @@ GameObject:
   - component: {fileID: 5284556441660691152}
   - component: {fileID: 4521540456617359785}
   - component: {fileID: 1212324985994914025}
+  - component: {fileID: 5686109605680743582}
   m_Layer: 0
   m_Name: BowlWithHands
   m_TagString: Untagged
@@ -12607,7 +12637,7 @@ MonoBehaviour:
   targetTransform: {fileID: 731882834738515132}
   runningTween: 
   tweenActions:
-  - TweenDesc: 
+  - TweenDesc: Blank screen to next sequence
     tweenType: 2
     duration: 1
     delay: 2
@@ -12682,6 +12712,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5686109605680743582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161043774176836543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c511c00ce224174b55f5b030e1e127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderersToToggle:
+  - {fileID: 8809442369159761450}
+  - {fileID: 6152883507064186197}
+  - {fileID: 9006698436996901966}
+  disableForFrames: 4
 --- !u!1 &3184387897918814422
 GameObject:
   m_ObjectHideFlags: 0
@@ -25371,7 +25418,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -758902419
   m_SortingLayer: 1
-  m_SortingOrder: 13
+  m_SortingOrder: 14
   m_Sprite: {fileID: 21300000, guid: 439aca0e255087349b74e78c1c243bb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -25943,7 +25990,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -758902419
   m_SortingLayer: 1
-  m_SortingOrder: 14
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: afdf0a8555aa9e845a8effb0dcb405da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -28738,7 +28785,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -758902419
   m_SortingLayer: 1
-  m_SortingOrder: 14
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 876d067340b985541a167a825993490d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -35286,8 +35333,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4531416631326237254}
   - component: {fileID: 4576420487865294897}
+  - component: {fileID: 7921195797767175821}
+  - component: {fileID: 5124439859615401354}
   m_Layer: 0
-  m_Name: Layer 122
+  m_Name: SugarInBowl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35306,7 +35355,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1449097320670671871}
+  m_Father: {fileID: 8759630496747243939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4576420487865294897
 SpriteRenderer:
@@ -35360,6 +35409,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7921195797767175821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768668532226919803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39da178e8efa3470d960ed0b41f77aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteToFade: {fileID: 0}
+  FadeToValue: 1
+  FadeDuration: 3
+  FadeDelay: 0
+--- !u!114 &5124439859615401354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8768668532226919803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34c511c00ce224174b55f5b030e1e127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderersToToggle:
+  - {fileID: 4576420487865294897}
+  disableForFrames: 5
 --- !u!1 &8788439751945760395
 GameObject:
   m_ObjectHideFlags: 0
@@ -35859,7 +35939,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2875648206946488830}
-  - {fileID: 1449097320670671871}
+  - {fileID: 8759630496747243939}
   m_Father: {fileID: 886113435360063292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1560009713401971510
@@ -35880,6 +35960,39 @@ MonoBehaviour:
   OnSequenceDone:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &8972039421357377841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8759630496747243939}
+  m_Layer: 0
+  m_Name: Sugar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8759630496747243939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972039421357377841}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1449097320670671871}
+  - {fileID: 4531416631326237254}
+  m_Father: {fileID: 6744204994352553547}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9021758854502580437
 GameObject:
   m_ObjectHideFlags: 0
@@ -38193,7 +38306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8575752506095370491, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.14
       objectReference: {fileID: 0}
     - target: {fileID: 8575752506095370491, guid: a57cd5370a74b454a9bbdf87058d09a7, type: 3}
       propertyPath: m_LocalPosition.z

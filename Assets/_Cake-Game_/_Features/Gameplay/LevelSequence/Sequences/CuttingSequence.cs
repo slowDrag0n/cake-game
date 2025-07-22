@@ -10,12 +10,15 @@ public class CuttingSequence : LevelSequence
     public GameObject FingerController;
     public GameObject HintArrow;
     public Animator KnifeAnimator;
+    public SpriteRenderer KnifeRenderer;
     public Transform Board;
     public Transform[] CuttingItems;
+    public int[] KnifeOrderValues;
     public Transform ItemUnderKnifePoint;
     public Transform KnifeSlicePoint;
     public float SliceAnimDuration = .3f;
     public int RequiredSteps = 3;
+    public float SlicePosOffsetAfterCut = .2f;
 
     int _stepsCompleted;
 
@@ -29,6 +32,7 @@ public class CuttingSequence : LevelSequence
     void SequenceOpening()
     {
         KnifeAnimator.enabled = false;
+        KnifeRenderer.sortingOrder = KnifeOrderValues[_stepsCompleted];
         FingerController.SetActive(false);
 
         Board.position += 13f * Vector3.right;
@@ -90,6 +94,7 @@ public class CuttingSequence : LevelSequence
                 {
                     FingerController.SetActive(true);
                 });
+
     }
 
     public void OnCut()
@@ -106,9 +111,10 @@ public class CuttingSequence : LevelSequence
 
             DOVirtual.DelayedCall(SliceAnimDuration, delegate
             {
-                cuttingItemAc.transform.position += .2f * _stepsCompleted * Vector3.up;
+                cuttingItemAc.transform.position += SlicePosOffsetAfterCut * _stepsCompleted * Vector3.down;
 
                 UpdateStepCount();
+                KnifeRenderer.sortingOrder = KnifeOrderValues[_stepsCompleted];
             });
         });
     }
