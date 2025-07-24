@@ -20,7 +20,7 @@ public static partial class Profile
     {
         get
         {
-            return PlayerPrefs.GetInt(FIRST_TIME_FLAG, 0) == 0;
+            return PlayerPrefs.GetInt(FIRST_TIME_FLAG, 1) == 1;
         }
         set
         {

@@ -50,13 +50,6 @@ public class AdsManager : MonoBehaviour
     private void Start()
     {
         InitAds();
-        StartCoroutine(ShowBannerAfterDelayCo());
-    }
-
-    IEnumerator ShowBannerAfterDelayCo()
-    {
-        yield return new WaitForSecondsRealtime(FirstAdTimeThreshold);
-        ShowBannerAd(BannerType.Banner, AdPosition.Bottom);
     }
 
     private void Singleton()
@@ -110,6 +103,11 @@ public class AdsManager : MonoBehaviour
         // When true all events raised by GoogleMobileAds will be raised
         // on the Unity main thread. The default value is false.
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
+#if UNITY_IOS
+        // On Android, Unity is paused when displaying interstitial or rewarded video.
+        // This setting makes iOS behave consistently with Android.
+        MobileAds.SetiOSAppPauseOnBackground(true);
+#endif
 
         ConsentHandling();
     }
@@ -233,20 +231,6 @@ public class AdsManager : MonoBehaviour
 
     #region App Open -------------------------------------------------------------------------------
 
-    private void OnAppStateChanged(AppState state)
-    {
-        Debug.Log("App State changed to : " + state);
-
-        // if the app is Foregrounded and the ad is available, show it.
-        if(state == AppState.Foreground)
-        {
-            if(IsAdAvailable)
-            {
-                ShowAppOpenAd();
-            }
-        }
-    }
-
     public bool IsAdAvailable
     {
         get
@@ -326,6 +310,8 @@ public class AdsManager : MonoBehaviour
         {
             Debug.Log("App open ad full screen content closed.");
             LoadAppOpenAd();
+
+            ShowBannerAd(BannerType.Banner, AdPosition.Bottom);
         };
         // Raised when the ad failed to open full screen content.
         ad.OnAdFullScreenContentFailed += (AdError error) =>
@@ -356,6 +342,33 @@ public class AdsManager : MonoBehaviour
         }
     }
 
+    private bool hasStartedOnce = false;
+    private static bool suppressNextResumeAd = false;
+    private void OnApplicationPause(bool pause)
+    {
+        if(!pause && hasStartedOnce)
+        {
+            // We're resuming — only show if not suppressed by another ad
+            if(!suppressNextResumeAd)
+            {
+                HideBannerAd();
+                HideBigBannerAd();
+
+                ShowAppOpenAd();
+            }
+
+            suppressNextResumeAd = false; // Reset for next resume
+        }
+
+        if(!hasStartedOnce && !pause)
+        {
+            hasStartedOnce = true; // Cold start handled
+        }
+    }
+    public static void SuppressNextAppOpenAd()
+    {
+        suppressNextResumeAd = true;
+    }
     #endregion
 
 
@@ -366,8 +379,8 @@ public class AdsManager : MonoBehaviour
     {
         if(!CanShowAds) return;
 
-        DebugMsg("Banner(Big):" + _bigBannerLoadStatus);
-        if(_bigBannerLoadStatus)
+        DebugMsg("Banner:" + _bannerLoadStatus);
+        if(_bannerLoadStatus)
             return;
 
         DestroyBannerAd();
@@ -433,23 +446,34 @@ public class AdsManager : MonoBehaviour
         };
     }
 
+    public void ShowBannerAdAfterInitDelay()
+    {
+        StartCoroutine(ShowBannerAfterDelayCo());
+    }
+
+    IEnumerator ShowBannerAfterDelayCo()
+    {
+        yield return new WaitForSecondsRealtime(FirstAdTimeThreshold);
+        ShowBannerAd(BannerType.Banner, AdPosition.Bottom);
+    }
+
     #endregion
 
 
 
     #region Big Banner Ad ------------------------------------------------------------------------------
 
-    public void ShowBigBannerAd(AdPosition adPosition = AdPosition.Bottom)
+    public void ShowBigBannerAd(AdPosition adPosition = AdPosition.Top)
     {
         if(!CanShowAds) return;
 
-        DebugMsg("Banner:" + _bannerLoadStatus);
-        if(_bannerLoadStatus)
+        DebugMsg("BigBanner:" + _bigBannerLoadStatus);
+        if(_bigBannerLoadStatus)
             return;
 
         DestroyBigBannerAd();
 
-        string adUnitId = adUnits.testAds ? "ca-app-pub-3940256099942544/9214589741" : adUnits.bannerId;
+        string adUnitId = adUnits.testAds ? "ca-app-pub-3940256099942544/9214589741" : adUnits.bigBannerId;
         DebugMsg("ShowBigBannerAd: " + adUnitId);
         if(string.IsNullOrEmpty(adUnitId)) return;
 
@@ -493,6 +517,17 @@ public class AdsManager : MonoBehaviour
         {
             _bigBannerLoadStatus = false;
         };
+    }
+
+    public void ShowBigBannerAdAfterInitDelay()
+    {
+        StartCoroutine(ShowBigBannerAfterDelayCo());
+    }
+
+    IEnumerator ShowBigBannerAfterDelayCo()
+    {
+        yield return new WaitForSecondsRealtime(FirstAdTimeThreshold);
+        ShowBigBannerAd(GoogleMobileAds.Api.AdPosition.Top);
     }
 
     #endregion
@@ -542,6 +577,8 @@ public class AdsManager : MonoBehaviour
         {
             if(_interAd.CanShowAd())
             {
+                SuppressNextAppOpenAd();
+
                 _intAdCallback = callbackMethod;
                 _interAd.Show();
             }
@@ -632,6 +669,8 @@ public class AdsManager : MonoBehaviour
                 const string rewardMsg = "Rewarded ad rewarded the user. Type: {0}, amount: {1}.";
 
                 IsInAd = true;
+
+                SuppressNextAppOpenAd();
 
                 _rewardAd.Show((Reward reward) =>
                 {

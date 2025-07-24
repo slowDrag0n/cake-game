@@ -27,17 +27,15 @@ public class LoadingController : MonoBehaviour
     {
         StartCoroutine(LoadGameCo());
 
-        if(AppopenAdEnabled == false)
-            return;
-
         if(Profile.FirstTimeFlag)
         {
-            StartCoroutine(ShowBigBannerCo());
             Profile.FirstTimeFlag = false;
+            AdsManager.Ins.ShowBannerAdAfterInitDelay();
             return;
         }
 
-        StartCoroutine(ShowAppopenAdCo());
+        AdsManager.Ins.ShowBannerAdAfterInitDelay();
+        AdsManager.Ins.ShowBigBannerAdAfterInitDelay();
     }
 
 
@@ -50,19 +48,6 @@ public class LoadingController : MonoBehaviour
 
         SceneManager.LoadScene("Gameplay");
 
-        //AdsManager.Ins.HideBigBannerAd();
         EventManager.DoFireHideUiEvent(UiType.Loading);
-    }
-
-    IEnumerator ShowAppopenAdCo()
-    {
-        yield return new WaitForSecondsRealtime(AppopenDelay);
-        //AdsManager.Ins.ShowAppOpenAd();
-    }
-
-    IEnumerator ShowBigBannerCo()
-    {
-        yield return new WaitForSecondsRealtime(AppopenDelay - 1f);
-        //AdsManager.Ins.ShowBigBannerAd();
     }
 }

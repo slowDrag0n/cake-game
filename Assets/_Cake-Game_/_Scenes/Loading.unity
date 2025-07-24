@@ -170,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuickBreakPanel: {fileID: 312999319}
   AutoRunEnabled: 0
-  DelayBeforeNextAd: 20
+  DelayBeforeNextAd: 10
   AdLoadingDelay: 3
 --- !u!114 &246020857
 MonoBehaviour:
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62248e9f3c6a0c408ee4511c7339af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstAdTimeThreshold: 10
+  FirstAdTimeThreshold: 3
   adUnits:
     bannerId: ca-app-pub-6084315612097815/6970175018
     bigBannerId: ca-app-pub-6084315612097815/3030930006
@@ -193,7 +193,7 @@ MonoBehaviour:
     appOpenId: ca-app-pub-6084315612097815/5106429005
     intLoadAgainTime: 1
     rewardLoadAgainTime: 3
-    debugging: 0
+    debugging: 1
     testAds: 0
   minMemory: 1024
   OnConsentGathered:
