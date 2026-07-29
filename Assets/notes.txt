@@ -1,0 +1,7 @@
+ios
+===
+ - game not pausing on full screen ad
+ - banner not working after failed inter
+ - inter not working (first session)
+ - lv2 bunties placement bug
+ - 
