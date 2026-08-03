@@ -1,6 +1,7 @@
 using Firebase;
 using Firebase.Analytics;
-using Firebase.Extensions; // 1. Added missing namespace
+using Firebase.Extensions;
+using Firebase.Crashlytics;
 using UnityEngine;
 
 public class FirebaseAnalyticsManager : Singleton<FirebaseAnalyticsManager>
@@ -8,6 +9,8 @@ public class FirebaseAnalyticsManager : Singleton<FirebaseAnalyticsManager>
     private DependencyStatus dependencyStatus = DependencyStatus.UnavailableOther;
 
     private bool isInitialized;
+
+    private FirebaseApp app;
 
     protected override void Awake()
     {
@@ -29,8 +32,7 @@ public class FirebaseAnalyticsManager : Singleton<FirebaseAnalyticsManager>
             }
             else
             {
-                Debug.LogError(
-                  "Could not resolve all Firebase dependencies: " + dependencyStatus);
+                Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
             }
         });
     }
@@ -38,34 +40,43 @@ public class FirebaseAnalyticsManager : Singleton<FirebaseAnalyticsManager>
     // Initialize the Firebase Analytics
     void InitializeFirebase()
     {
+        app = FirebaseApp.DefaultInstance;
+
         FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
+
+        Crashlytics.ReportUncaughtExceptionsAsFatal = true;
+
         isInitialized = true;
     }
 
     // Log an event with no parameters
     public void LogEvent(string eventName)
     {
-        FirebaseAnalytics.LogEvent(eventName);
+        if(isInitialized)
+            FirebaseAnalytics.LogEvent(eventName);
     }
 
     // Log an event with one string parameter
     public void LogEvent(string eventName, string paramName, string paramValue)
     {
-        FirebaseAnalytics.LogEvent(eventName,
+        if(isInitialized)
+            FirebaseAnalytics.LogEvent(eventName,
             new Parameter(paramName, paramValue));
     }
 
     // Log a level start event
     public void LogLevelStart(int levelNum)
     {
-        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelStart,
+        if(isInitialized)
+            FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelStart,
                                     new Parameter(FirebaseAnalytics.ParameterLevel, levelNum.ToString()));
     }
 
     // Log a level end event
     public void LogLevelEnd(int levelNum, bool success)
     {
-        FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelEnd,
+        if(isInitialized)
+            FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLevelEnd,
                                     new Parameter(FirebaseAnalytics.ParameterLevel, levelNum.ToString()),
                                     new Parameter(FirebaseAnalytics.ParameterSuccess, success.ToString()));
     }
