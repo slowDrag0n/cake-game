@@ -6,7 +6,7 @@ public class InGameLoadingSequence : LevelSequence
 {
     private void Start()
     {
-        AdsManager.Ins.ShowBigBannerAd(GoogleMobileAds.Api.AdPosition.Top);
+        //AdsManager.Ins.ShowBigBannerAd(GoogleMobileAds.Api.AdPosition.Top);
 
         var canvas = GetComponentInChildren<Canvas>(true);
         canvas.worldCamera = Camera.main;
@@ -14,7 +14,6 @@ public class InGameLoadingSequence : LevelSequence
 
     private void OnDisable()
     {
-        AdsManager.Ins.HideBigBannerAd();
-        //AdsManager.Ins.ShowBannerAd(BannerType.Banner);
+        //AdsManager.Ins.HideBigBannerAd();
     }
 }

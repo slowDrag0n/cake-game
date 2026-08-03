@@ -9,21 +9,18 @@ public class SettingScreen : UiPanel
 
     private void OnEnable()
     {
-        AdsManager.Ins.ShowBigBannerAd(GoogleMobileAds.Api.AdPosition.Top);
+        //AdsManager.Ins.ShowBigBannerAd(GoogleMobileAds.Api.AdPosition.Top);
 
         CloseBtn.onClick.AddListener(delegate
         {
             EventManager.DoFireHideUiEvent(UiType.Setting);
             SoundController.Instance.PlaySound(SoundType.Click);
-
-            //AdsManager.Ins.HideBigBannerAd();
-            //AdsManager.Ins.ShowBannerAd(BannerType.Banner);
         });
     }
 
     private void OnDisable()
     {
-        AdsManager.Ins.HideBigBannerAd();
+        //AdsManager.Ins.HideBigBannerAd();
         CloseBtn.onClick.RemoveAllListeners();
     }
 }

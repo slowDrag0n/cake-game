@@ -19,23 +19,23 @@ public class LoadingController : MonoBehaviour
 
     private void Start()
     {
-        if(WaitForConsent == false)
-            StartLoading();
+        //if(WaitForConsent == false)
+        StartLoading();
     }
 
     public void StartLoading()
     {
         StartCoroutine(LoadGameCo());
 
-        if(Profile.FirstTimeFlag)
-        {
-            Profile.FirstTimeFlag = false;
-            AdsManager.Ins.ShowBannerAdAfterInitDelay();
-            return;
-        }
+        //if(Profile.FirstTimeFlag)
+        //{
+        //    Profile.FirstTimeFlag = false;
+        //    //AdsManager.Ins.ShowBannerAdAfterInitDelay();
+        //    return;
+        //}
 
-        AdsManager.Ins.ShowBannerAdAfterInitDelay();
-        AdsManager.Ins.ShowBigBannerAdAfterInitDelay();
+        //AdsManager.Ins.ShowBannerAdAfterInitDelay();
+        //AdsManager.Ins.ShowBigBannerAdAfterInitDelay();
     }
 
 

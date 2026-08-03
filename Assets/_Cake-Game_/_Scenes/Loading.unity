@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -42,8 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -66,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -131,7 +128,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 246020855}
-  - component: {fileID: 246020857}
   - component: {fileID: 246020856}
   m_Layer: 0
   m_Name: Ads
@@ -168,55 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f57469689875714f8fac6a2ec2d7801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuickBreakPanel: {fileID: 312999319}
-  AutoRunEnabled: 0
-  DelayBeforeNextAd: 10
-  AdLoadingDelay: 3
---- !u!114 &246020857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246020854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b62248e9f3c6a0c408ee4511c7339af8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FirstAdTimeThreshold: 3
-  adUnits:
-    bannerId: ca-app-pub-6084315612097815/6970175018
-    bigBannerId: ca-app-pub-6084315612097815/3030930006
-    intId: ca-app-pub-6084315612097815/4736594034
-    rewardId: ca-app-pub-6084315612097815/2709196495
-    appOpenId: ca-app-pub-6084315612097815/5106429005
-    intLoadAgainTime: 1
-    rewardLoadAgainTime: 3
-    debugging: 1
-    testAds: 0
-  minMemory: 1024
-  OnConsentGathered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1166807628}
-        m_TargetAssemblyTypeName: LoadingController, Assembly-CSharp
-        m_MethodName: StartLoading
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnIntersititialFailed:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRewardClosed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &312999317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -333,11 +280,6 @@ PrefabInstance:
 --- !u!224 &312999318 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2623466018649192496, guid: fa9feae5bbeb4d2459ff517d8e1518d7, type: 3}
-  m_PrefabInstance: {fileID: 312999317}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &312999319 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4847932431268269021, guid: fa9feae5bbeb4d2459ff517d8e1518d7, type: 3}
   m_PrefabInstance: {fileID: 312999317}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &533065882

@@ -36,9 +36,9 @@ public class RewardAdButton : MonoBehaviour
             return;
         }
 
-        AdsManager.Ins?.ShowRewardAd(() =>
-        {
-            OnRewardSuccess?.Invoke();
-        });
+        //AdsManager.Ins?.ShowRewardAd(() =>
+        //{
+        //    OnRewardSuccess?.Invoke();
+        //});
     }
 }

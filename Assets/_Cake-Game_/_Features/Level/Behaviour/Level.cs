@@ -130,7 +130,7 @@ public class Level : MonoBehaviour
 
     public void RunQuickAd()
     {
-        AdsManager.Ins.QuickAd.RunQuickAd();
+        //AdsManager.Ins.QuickAd.RunQuickAd();
     }
 }
 

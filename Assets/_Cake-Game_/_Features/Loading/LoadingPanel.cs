@@ -12,14 +12,14 @@ public class LoadingPanel : UiPanel
 
     private void OnEnable()
     {
-        if(!Profile.FirstTimeFlag)
-            AdsManager.Ins.ShowBigBannerAdAfterInitDelay();
+        //if(!Profile.FirstTimeFlag)
+            //AdsManager.Ins.ShowBigBannerAdAfterInitDelay();
     }
 
     private void OnDisable()
     {
-        if(!Profile.FirstTimeFlag)
-            AdsManager.Ins.HideBigBannerAd();
+        //if(!Profile.FirstTimeFlag)
+            //AdsManager.Ins.HideBigBannerAd();
     }
 
     private void Start()
