@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "326722433055",
+    "project_id": "cake-game-kw",
+    "storage_bucket": "cake-game-kw.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326722433055:android:0f18d4a6b807a85062252a",
+        "android_client_info": {
+          "package_name": "com.ppd.cake.making.games"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtCIhZwR3YPbNfnZLMzhN56i93WiSbvJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
