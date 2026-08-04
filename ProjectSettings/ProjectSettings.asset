@@ -873,7 +873,7 @@ PlayerSettings:
   webWasm2023: 0
   webEnableSubmoduleStrippingCompatibility: 0
   scriptingDefineSymbols:
-    Android: DOTWEEN;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;ADMOB_SDK;MAX_SDK
+    Android: DOTWEEN;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;ADMOB_SDK;MAX_SDK;gameanalytics_max_enabled;gameanalytics_admob_enabled
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN
@@ -888,7 +888,7 @@ PlayerSettings:
     WebGL: DOTWEEN
     Windows Store Apps: DOTWEEN
     XboxOne: DOTWEEN
-    iPhone: DOTWEEN;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED
+    iPhone: DOTWEEN;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;gameanalytics_max_enabled;gameanalytics_admob_enabled
     tvOS: DOTWEEN
   additionalCompilerArguments: {}
   platformArchitecture: {}
