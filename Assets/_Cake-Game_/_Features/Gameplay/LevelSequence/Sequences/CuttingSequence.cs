@@ -1,4 +1,5 @@
 using DG.Tweening;
+using GameAnalyticsSDK;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ public class CuttingSequence : LevelSequence
 
     int _stepsCompleted;
 
-    private void Start()
+    protected override void Start()
     {
         _stepsCompleted = 0;
 
@@ -46,6 +47,7 @@ public class CuttingSequence : LevelSequence
                         PlaceNextItemForCut(_stepsCompleted);
 
                         KnifeAnimator.enabled = true;
+
                     });
             });
     }
@@ -89,6 +91,12 @@ public class CuttingSequence : LevelSequence
                 .OnComplete(delegate
                 {
                     FingerController.SetActive(true);
+
+                    // Log GA Event
+                    var levelName = EventManager.DoFireGetLevelName();
+                    var eventString = $"{SequenceId}_Fruit{stepsCompleted.ToString()}Started";
+                    //Debug.Log($" >>>>>>>>> Log GA Progression Status - Start, {levelName}:{eventString}");
+                    GAManager.Instance.LogProgressionEvent(GAProgressionStatus.Start, levelName, eventString);
                 });
     }
 

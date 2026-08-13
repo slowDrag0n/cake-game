@@ -1,4 +1,5 @@
 using DG.Tweening;
+using GameAnalyticsSDK;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -96,6 +97,12 @@ public class BlendingSequence : LevelSequence
                 DropperHand.Mover.enabled = true;
 
                 SliceDropTut.gameObject.SetActive(true);
+
+                // Log GA Event
+                var levelName = EventManager.DoFireGetLevelName();
+                var eventString = $"{SequenceId}_DropFruitStarted";
+                //Debug.Log($" >>>>>>>>> Log GA Progression Status - Start, {levelName}:{eventString}");
+                GAManager.Instance.LogProgressionEvent(GAProgressionStatus.Start, levelName, eventString);
             });
     }
 
@@ -119,6 +126,12 @@ public class BlendingSequence : LevelSequence
             {
                 DropperHand.gameObject.SetActive(false);
                 StartCoroutine(StartMilk());
+
+                // Log GA Event
+                var levelName = EventManager.DoFireGetLevelName();
+                var eventString = $"{SequenceId}_DropFruitCompleted";
+                //Debug.Log($" >>>>>>>>> Log GA Progression Status - Complete, {levelName}:{eventString}");
+                GAManager.Instance.LogProgressionEvent(GAProgressionStatus.Complete, levelName, eventString);
             });
     }
 

@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TestMode: 0
-  TestLevel: 2
+  TestLevel: 12
   LevelCharacters:
   - LevelStartPose: {fileID: 21300000, guid: cd172a74c319eec498ab8fa84e3b00c1, type: 3}
     LevelEndPose: {fileID: 21300000, guid: 4be66565ec758b240b657644a7630113, type: 3}

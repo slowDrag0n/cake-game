@@ -1,4 +1,5 @@
 using DG.Tweening;
+using GameAnalyticsSDK;
 using JetBrains.Annotations;
 using Lean.Common;
 using Lean.Touch;
@@ -179,6 +180,7 @@ public class CakePaintSequence : LevelSequence
     bool startedPainting = false;
     Vector2 paintingToolStartingPos = Vector2.zero;
     Tween moveBackPaintingToolTween;
+    bool hasLoggedIcingPaintAnalytics = false;
 
     public void PaintingToolFingerDownHandler(LeanFinger finger)
     {
@@ -197,6 +199,16 @@ public class CakePaintSequence : LevelSequence
                 moveBackPaintingToolTween.Kill();
         }
 
+        // log analytics event for icing paint only once per level sequence
+        if(!hasLoggedIcingPaintAnalytics)
+        {
+            var levelName = EventManager.DoFireGetLevelName();
+            var eventString = $"{SequenceId}_CakePaintStarted";
+            //Debug.Log($" >>>>>>>>> Log GA Progression Status - Start, {levelName}:{eventString}");
+            GAManager.Instance.LogProgressionEvent(GAProgressionStatus.Start, levelName, eventString);
+
+            hasLoggedIcingPaintAnalytics = true;
+        }
     }
 
     public void PaintingToolFingerUpHandler(LeanFinger finger)

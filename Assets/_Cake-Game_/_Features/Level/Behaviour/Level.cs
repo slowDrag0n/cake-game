@@ -11,7 +11,7 @@ public class Level : MonoBehaviour
     public bool TestMode;
     public int Test_StartIndex;
     [Space]
-
+    public string LevelName = "Level";
     public LevelSequence[] SequencesInLevel;
 
     [Header("Level Cake")]

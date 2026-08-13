@@ -1,4 +1,5 @@
 using DG.Tweening;
+using GameAnalyticsSDK;
 using Lean.Touch;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,6 +18,8 @@ public class InputAnimationController : MonoBehaviour
     bool _hasStarted;
     bool _isAnimating;
     float _animatingProgress;
+
+    bool hasLoggedConeAnalytics = false;
 
     private void Start()
     {
@@ -38,6 +41,12 @@ public class InputAnimationController : MonoBehaviour
             _isAnimating = false;
 
             DOVirtual.DelayedCall(OnCompleteDelay, delegate { OnComplete?.Invoke(); });
+
+            //var levelName = EventManager.DoFireGetLevelName();
+            //var seq = GetComponentInParent<LevelSequence>();
+            //var eventString = $"{seq.SequenceId}_HandAnimCompleted";
+            ////Debug.Log($" >>>>>>>>> Log GA Progression Status - Complete, {levelName}:{eventString}");
+            //GAManager.Instance.LogProgressionEvent(GAProgressionStatus.Start, levelName, eventString);
         }
     }
 
@@ -52,6 +61,18 @@ public class InputAnimationController : MonoBehaviour
         {
             OnStart?.Invoke(); _hasStarted = true;
         }
+
+        //// log analytics event for icing paint only once per level sequence
+        //if(!hasLoggedConeAnalytics)
+        //{
+        //    var levelName = EventManager.DoFireGetLevelName();
+        //    var seq = GetComponentInParent<LevelSequence>();
+        //    var eventString = $"{seq.SequenceId}_HandAnimStarted";
+        //    //Debug.Log($" >>>>>>>>> Log GA Progression Status - Start, {levelName}:{eventString}");
+        //    GAManager.Instance.LogProgressionEvent(GAProgressionStatus.Start, levelName, eventString);
+
+        //    hasLoggedConeAnalytics = true;
+        //}
     }
 
     public void StopMixing()

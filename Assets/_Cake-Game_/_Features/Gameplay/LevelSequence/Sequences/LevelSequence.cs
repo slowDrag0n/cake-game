@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class LevelSequence : MonoBehaviour
 {
+    public string SequenceId = "";
+    [Space(15)]
     public UnityEvent OnSequenceStart;
     public UnityEvent OnSequenceDone;
 

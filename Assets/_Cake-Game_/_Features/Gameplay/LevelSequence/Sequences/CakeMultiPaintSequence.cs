@@ -1,4 +1,5 @@
 using DG.Tweening;
+using GameAnalyticsSDK;
 using JetBrains.Annotations;
 using Lean.Common;
 using Lean.Touch;
@@ -52,6 +53,9 @@ public class CakeMultiPaintSequence : LevelSequence
 
         //PaintingToolTranslator.gameObject.SetActive(false);
         FinalCakeScratchCard.gameObject.SetActive(false);
+
+        //Reset analytics event logging
+        hasLoggedIcingPaintAnalytics = false;
     }
 
     public void OnCakeButtonClick(int type)
@@ -127,13 +131,14 @@ public class CakeMultiPaintSequence : LevelSequence
     bool startedPainting = false;
     Vector2 paintingToolStartingPos = Vector2.zero;
     Tween moveBackPaintingToolTween;
+    bool hasLoggedIcingPaintAnalytics = false;
 
     public void PaintingToolFingerDownHandler(LeanFinger finger)
     {
         var fingerPos = Camera.main.ScreenToWorldPoint(finger.ScreenPosition);
         var paintingToolPos = PaintingDragPoint.position;
         var fingerDistance = Vector2.Distance(fingerPos, paintingToolPos);
-        Debug.Log("Finger Distance: " + fingerDistance);
+        //Debug.Log("Finger Distance: " + fingerDistance);
 
         startedPainting = true;
         PaintingToolTranslator.GetComponent<LeanConstrainLocalPosition>().enabled = true;
@@ -145,6 +150,16 @@ public class CakeMultiPaintSequence : LevelSequence
                 moveBackPaintingToolTween.Kill();
         }
 
+        // log analytics event for icing paint only once per level sequence
+        if(!hasLoggedIcingPaintAnalytics)
+        {
+            var levelName = EventManager.DoFireGetLevelName();
+            var eventString = $"{SequenceId}_CakePaintStarted";
+            //Debug.Log($" >>>>>>>>> Log GA Progression Status - Start, {levelName}:{eventString}");
+            GAManager.Instance.LogProgressionEvent(GAProgressionStatus.Start, levelName, eventString);
+
+            hasLoggedIcingPaintAnalytics = true;
+        }
     }
 
     public void PaintingToolFingerUpHandler(LeanFinger finger)

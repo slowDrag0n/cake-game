@@ -11,8 +11,10 @@ public class LevelEndingSequence : LevelSequence
 
     public Image CharImage;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         LevelCharacter levelChar = EventManager.DoFireGetLevelCharacter();
         //CharImage.sprite = levelChar.LevelEndPose;
 

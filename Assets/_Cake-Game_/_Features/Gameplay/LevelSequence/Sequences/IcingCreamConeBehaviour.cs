@@ -1,6 +1,8 @@
 using DG.Tweening;
+using GameAnalyticsSDK;
 using Lean.Touch;
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IcingCreamConeBehaviour : MonoBehaviour
@@ -19,6 +21,8 @@ public class IcingCreamConeBehaviour : MonoBehaviour
 
     bool _isPainting;
     float _paintingProgress;
+
+    bool hasLoggedConeAnalytics = false;
 
     private void OnEnable()
     {
@@ -67,11 +71,34 @@ public class IcingCreamConeBehaviour : MonoBehaviour
         });
 
         OnComplete = onComplete;
+
+        //Reset analytics event logging
+        hasLoggedConeAnalytics = false;
+        OnComplete += delegate
+        {
+            var levelName = EventManager.DoFireGetLevelName();
+            var seq = GetComponentInParent<LevelSequence>();
+            var eventString = $"{seq.SequenceId}_CakeConeCompleted";
+            //Debug.Log($" >>>>>>>>> Log GA Progression Status - Complete, {levelName}:{eventString}");
+            GAManager.Instance.LogProgressionEvent(GAProgressionStatus.Complete, levelName, eventString);
+        };
     }
 
     public void ConeFingerDownHandler()
     {
         _isPainting = true;
+
+        // log analytics event for icing paint only once per level sequence
+        if(!hasLoggedConeAnalytics)
+        {
+            var levelName = EventManager.DoFireGetLevelName();
+            var seq = GetComponentInParent<LevelSequence>();
+            var eventString = $"{seq.SequenceId}_CakeConeStarted";
+            //Debug.Log($" >>>>>>>>> Log GA Progression Status - Start, {levelName}:{eventString}");
+            GAManager.Instance.LogProgressionEvent(GAProgressionStatus.Start, levelName, eventString);
+
+            hasLoggedConeAnalytics = true;
+        }
     }
 
     public void ConeFingerUpHandler()

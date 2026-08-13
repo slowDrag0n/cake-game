@@ -1,4 +1,5 @@
 using DG.Tweening;
+using GameAnalyticsSDK;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
@@ -21,6 +22,7 @@ public class LevelController : MonoBehaviour
         EventManager.OnWinLevel += OnLevelWin;
         EventManager.OnFailLevel += OnLevelFail;
         EventManager.OnGetLevelCharacter += GetLevelCharacter;
+        EventManager.OnGetLevelName += GetLevelName;
     }
 
     private void OnDisable()
@@ -31,6 +33,7 @@ public class LevelController : MonoBehaviour
         EventManager.OnWinLevel -= OnLevelWin;
         EventManager.OnFailLevel -= OnLevelFail;
         EventManager.OnGetLevelCharacter -= GetLevelCharacter;
+        EventManager.OnGetLevelName -= GetLevelName;
     }
 
     private void Start()
@@ -66,16 +69,13 @@ public class LevelController : MonoBehaviour
 
         StartLevel();
 
-        //AnalyticsManager.Instance.LogLevelStart(levelIndex);
+        GAManager.Instance.LogLevelStart(Profile.Level+1);
     }
 
     void StartLevel()
     {
         if(_currentLevel == null)
             return;
-
-        //EventManager.DoFireHideAllUi();
-        //EventManager.DoFireShowUiEvent(UiType.Hud, Profile.Level);
 
         _currentLevel.gameObject.SetActive(true);
     }
@@ -94,6 +94,8 @@ public class LevelController : MonoBehaviour
             return;
 
         _gameOver = true;
+
+        GAManager.Instance.LogLevelEnd(Profile.Level+1, true);
 
         Profile.Level += 1;
         LoadLevel(Profile.Level);
@@ -123,6 +125,11 @@ public class LevelController : MonoBehaviour
     LevelCharacter GetLevelCharacter()
     {
         return LevelCharacters[Profile.Level % LevelCharacters.Length];
+    }
+
+    string GetLevelName()
+    {
+        return $"Level_{Profile.Level + 1}";
     }
 
 }

@@ -60,5 +60,9 @@ public static partial class EventManager
     public static GetLevelCharacter OnGetLevelCharacter;
     public static LevelCharacter DoFireGetLevelCharacter() => OnGetLevelCharacter?.Invoke();
 
+    public delegate string GetLevelName();
+    public static GetLevelName OnGetLevelName;
+    public static string DoFireGetLevelName() => OnGetLevelName?.Invoke();
+
     #endregion
 }
