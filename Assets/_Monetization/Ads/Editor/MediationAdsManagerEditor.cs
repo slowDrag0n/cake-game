@@ -159,6 +159,11 @@ public class MediationAdsManagerEditor : Editor
                 DrawMaxSection(showAppOpen: false, showBannerMrec: true);
                 DrawAdMobAOAOnlySection();
                 break;
+
+            case AdProvider.AppLovinWithAdMobAOAAndMREC:
+                DrawMaxSection(showAppOpen: false, showBannerMrec: false, showBannerOnly: true);
+                DrawAdMobAOAAndMrecSection();
+                break;
         }
 
         serializedObject.ApplyModifiedProperties();
@@ -207,7 +212,25 @@ public class MediationAdsManagerEditor : Editor
         }
     }
 
-    void DrawMaxSection(bool showAppOpen, bool showBannerMrec)
+    void DrawAdMobAOAAndMrecSection()
+    {
+        EditorGUILayout.Space(6);
+        DrawColoredHeader("  AdMob — App Open & MREC", ColAdMob);
+        using (new EditorGUILayout.VerticalScope(_boxStyle))
+        {
+            EditorGUILayout.LabelField(
+                "AdMob handles App Open and MREC.\nBanner, Interstitial, and Rewarded are handled by AppLovin MAX above.",
+                _noteStyle);
+            EditorGUILayout.Space(4);
+            DrawSubHeader("Display");
+            EditorGUILayout.PropertyField(_admobMrecId, new GUIContent("MREC"));
+            EditorGUILayout.Space(4);
+            DrawSubHeader("App Open");
+            EditorGUILayout.PropertyField(_admobAppOpenId, new GUIContent("App Open ID"));
+        }
+    }
+
+    void DrawMaxSection(bool showAppOpen, bool showBannerMrec, bool showBannerOnly = false)
     {
         DrawColoredHeader("  AppLovin MAX — Ad Unit IDs", ColMax);
         using (new EditorGUILayout.VerticalScope(_boxStyle))
@@ -221,12 +244,13 @@ public class MediationAdsManagerEditor : Editor
             EditorGUILayout.PropertyField(_maxStaticInterstitialId, new GUIContent("Static Interstitial"));
             EditorGUILayout.PropertyField(_maxRewardedId,           new GUIContent("Rewarded"));
 
-            if (showBannerMrec)
+            if (showBannerMrec || showBannerOnly)
             {
                 EditorGUILayout.Space(4);
                 DrawSubHeader("Display");
                 EditorGUILayout.PropertyField(_maxBannerId, new GUIContent("Banner"));
-                EditorGUILayout.PropertyField(_maxMrecId,   new GUIContent("MREC"));
+                if (showBannerMrec)
+                    EditorGUILayout.PropertyField(_maxMrecId, new GUIContent("MREC"));
             }
 
             if (showAppOpen)
@@ -264,6 +288,9 @@ public class MediationAdsManagerEditor : Editor
 
             AdProvider.AppLovinWithAdMobAOA =>
                 "AppLovin MAX handles Banner, MREC, Interstitial, and Rewarded.\nAdMob handles App Open Ads only.\nBoth SDK keys required.",
+
+            AdProvider.AppLovinWithAdMobAOAAndMREC =>
+                "AppLovin MAX handles Banner, Interstitial, and Rewarded.\nAdMob handles App Open Ads and MREC.\nBoth SDK keys required.",
 
             _ => ""
         };

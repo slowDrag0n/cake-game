@@ -69,14 +69,15 @@ All core systems are **Singletons** (`SexyDevs.Utils.Singleton<T>`) — one inst
 
 Set the **Ad Provider** field on `MediationAdsManager` in the Inspector:
 
-| Scenario | Banner / Inter / Rewarded | App Open Ad |
-|---|---|---|
-| `AdMobOnly` | Google AdMob | Google AdMob |
-| `AppLovinOnly` | AppLovin MAX | AppLovin MAX |
-| `AppLovinWithAdMobAOA` | AppLovin MAX | Google AdMob |
+| Scenario | Banner / Inter / Rewarded | MREC | App Open Ad |
+|---|---|---|---|
+| `AdMobOnly` | Google AdMob | Google AdMob | Google AdMob |
+| `AppLovinOnly` | AppLovin MAX | AppLovin MAX | AppLovin MAX |
+| `AppLovinWithAdMobAOA` | AppLovin MAX | AppLovin MAX | Google AdMob |
+| `AppLovinWithAdMobAOAAndMREC` | AppLovin MAX | Google AdMob | Google AdMob |
 
 > **To enable AppLovin scenarios:** import the AppLovin MAX Unity plugin, then add `MAX_SDK` to **Edit → Project Settings → Player → Scripting Define Symbols**.
-
+> **AdMob scenarios** also need `ADMOB_SDK` (the Setup Wizard adds both defines automatically on Apply).
 ---
 
 ## Core Systems & API
@@ -256,8 +257,9 @@ Located in `Assets/_Monetization/Ads/Scripts/Providers/`
 | `IAppOpenProvider.cs` | Interface every AOA backend implements |
 | `AdMobProvider.cs` | AdMob — plain single-unit loading, Adjust revenue tracking |
 | `AppLovinProvider.cs` | AppLovin MAX (compiled only with `MAX_SDK` define) |
-| `AdMobAppOpenProvider.cs` | AdMob AOA — Scenarios 1 & 3 |
-| `AppLovinAppOpenProvider.cs` | MAX AOA — Scenario 2 (requires `MAX_SDK`) |
+| `AppLovinWithAdMobMrecProvider.cs` | Hybrid — MAX for Banner/Inter/Rewarded, AdMob for MREC |
+| `AdMobAppOpenProvider.cs` | AdMob AOA — AdMobOnly, AppLovinWithAdMobAOA, AppLovinWithAdMobAOAAndMREC |
+| `AppLovinAppOpenProvider.cs` | MAX AOA — AppLovinOnly (requires `MAX_SDK`) |
 
 ---
 
@@ -366,12 +368,13 @@ Imported as compiled assemblies — not tracked in `manifest.json`:
 6. **Fire** `MonetizationEvents.Gameplay` events from your game — the SDK handles ads automatically
 7. **Call** `AppOpenAdManager.Instance.ShowAdIfReady()` from `OnApplicationFocus`
 
-### Enabling AppLovin MAX (Scenarios 1 & 2)
+### Enabling AppLovin MAX
 
 1. Import the AppLovin MAX Unity plugin from the AppLovin dashboard
-2. **Edit → Project Settings → Player → Scripting Define Symbols** → add `MAX_SDK`
-3. `AppLovinProvider` and `AppLovinAppOpenProvider` activate automatically — no other changes needed
+2. **Edit → Project Settings → Player → Scripting Define Symbols** → add `MAX_SDK` (and `ADMOB_SDK` for hybrid / AdMob scenarios)
+3. Providers activate automatically — no other code changes needed
 
+Use scenario `AppLovinWithAdMobAOAAndMREC` when you want MAX for Banner/Inter/Rewarded and AdMob for App Open + MREC.
 ---
 
 ## File Structure
@@ -400,6 +403,7 @@ Assets/
     │   │       ├── IAppOpenProvider.cs
     │   │       ├── AdMobProvider.cs
     │   │       ├── AppLovinProvider.cs         ← requires MAX_SDK define
+    │   │       ├── AppLovinWithAdMobMrecProvider.cs ← MAX + AdMob MREC hybrid
     │   │       ├── AdMobAppOpenProvider.cs
     │   │       └── AppLovinAppOpenProvider.cs  ← requires MAX_SDK define
     │   └── SO/

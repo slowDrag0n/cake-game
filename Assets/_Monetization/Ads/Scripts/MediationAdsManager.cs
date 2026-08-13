@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Central ad manager. Public API is identical across all three scenarios.
+/// Central ad manager. Public API is identical across all four scenarios.
 ///
 /// DEVELOPER SETUP — three steps only:
 ///   1. Set AdProvider in the Inspector to your scenario.
@@ -39,8 +39,8 @@ public class MediationAdsManager : Singleton<MediationAdsManager>
     [Tooltip("Enable interval gating. Use TryShowInterstitial() to respect the timers.")]
     [SerializeField] private bool useAdTimer = true;
 
-    // ── AdMob IDs  [Scenarios 1 & 3] ─────────────────────────────────────
-    [Header("AdMob IDs  [Scenarios 1 & 3]")]
+    // ── AdMob IDs  [AdMobOnly | AppLovinWithAdMobAOA | AppLovinWithAdMobAOAAndMREC] ──
+    [Header("AdMob IDs")]
     [SerializeField] private string admobInterstitialId;
     [SerializeField] private string admobStaticInterstitialId;
     [SerializeField] private string admobRewardedId;
@@ -48,8 +48,8 @@ public class MediationAdsManager : Singleton<MediationAdsManager>
     [SerializeField] private string admobMrecId;
     [SerializeField] private string admobAppOpenId;
 
-    // ── AppLovin MAX IDs  [Scenarios 1 & 2] ──────────────────────────────
-    [Header("AppLovin MAX IDs  [Scenarios 1 & 2]")]
+    // ── AppLovin MAX IDs  [AppLovinOnly | AppLovinWithAdMobAOA | AppLovinWithAdMobAOAAndMREC] ──
+    [Header("AppLovin MAX IDs")]
     [SerializeField] private string maxSdkKey;
     [SerializeField] private string maxInterstitialId;
     [SerializeField] private string maxStaticInterstitialId;
@@ -188,6 +188,11 @@ public class MediationAdsManager : Singleton<MediationAdsManager>
 
         _adProvider = adProvider switch
         {
+            AdProvider.AppLovinWithAdMobAOAAndMREC =>
+                new AppLovinWithAdMobMrecProvider(
+                    maxSdkKey, maxInterstitialId, maxStaticInterstitialId,
+                    maxRewardedId, maxBannerId, admobMrecId),
+
             AdProvider.AppLovinWithAdMobAOA or AdProvider.AppLovinOnly =>
                 new AppLovinProvider(maxSdkKey, maxInterstitialId, maxStaticInterstitialId,
                                      maxRewardedId, maxBannerId, maxMrecId),
@@ -201,7 +206,9 @@ public class MediationAdsManager : Singleton<MediationAdsManager>
         };
 
 #if ADMOB_SDK
-        if (adProvider is AdProvider.AdMobOnly or AdProvider.AppLovinWithAdMobAOA)
+        if (adProvider is AdProvider.AdMobOnly
+            or AdProvider.AppLovinWithAdMobAOA
+            or AdProvider.AppLovinWithAdMobAOAAndMREC)
         {
             TryGetComponent<GoogleMobileAdsConsentController>(out var consent);
             consent?.GatherConsent(err =>
@@ -465,7 +472,9 @@ public enum AdProvider
     /// <summary>AppLovin MAX for everything including App Open.</summary>
     AppLovinOnly,
     /// <summary>AdMob for everything including App Open.</summary>
-    AdMobOnly
+    AdMobOnly,
+    /// <summary>AppLovin MAX for Banner/Inter/Rewarded. AdMob for App Open and MREC.</summary>
+    AppLovinWithAdMobAOAAndMREC
 }
 
 public enum AdType  { Interstitial, InterstitialStatic, Rewarded }

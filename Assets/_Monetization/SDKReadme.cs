@@ -31,11 +31,12 @@ public class SDKReadme : ScriptableObject
     [Header("── AD PROVIDER SCENARIOS ────────────────────────────────────")]
     // ─────────────────────────────────────────────────────────────────────
 
-    [TextArea(5, 5)]
+    [TextArea(6, 6)]
     public string scenarios =
-        "AdMobOnly            — AdMob handles everything incl. App Open\n" +
-        "AppLovinOnly         — AppLovin MAX handles everything incl. App Open\n" +
-        "AppLovinWithAdMobAOA — MAX for Banner/Inter/Rewarded, AdMob for App Open\n\n" +
+        "AdMobOnly                   — AdMob handles everything incl. App Open\n" +
+        "AppLovinOnly                — AppLovin MAX handles everything incl. App Open\n" +
+        "AppLovinWithAdMobAOA        — MAX for Banner/MREC/Inter/Rewarded, AdMob for App Open\n" +
+        "AppLovinWithAdMobAOAAndMREC — MAX for Banner/Inter/Rewarded, AdMob for App Open + MREC\n\n" +
         "To enable AppLovin: import MAX plugin → add MAX_SDK scripting define symbol";
 
     // ─────────────────────────────────────────────────────────────────────

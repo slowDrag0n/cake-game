@@ -4,7 +4,7 @@ using SexyDevs.Ads;
 
 /// <summary>
 /// IAppOpenProvider backed by AppLovin MAX App Open Ads.
-/// Used in Scenario 2 (AppLovin plain — MAX handles AOA natively).
+/// Used when AdProvider = AppLovinOnly (MAX handles AOA natively).
 ///
 /// NOTE: Guarded by #if MAX_SDK. Add the MAX_SDK scripting define
 /// once the AppLovin MAX plugin is imported into the project.

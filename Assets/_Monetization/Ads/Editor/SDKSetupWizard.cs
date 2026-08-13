@@ -26,7 +26,7 @@ public class SDKSetupWizard : EditorWindow
     public static void Open()
     {
         var w = GetWindow<SDKSetupWizard>(true, "SDK For Ads — Setup Wizard", true);
-        w.minSize = new Vector2(540, 640);
+        w.minSize = new Vector2(540, 720);
         w.maxSize = new Vector2(540, 900);
         w.Show();
     }
@@ -407,6 +407,14 @@ public class SDKSetupWizard : EditorWindow
             "AppLovin MAX for Banner, MREC, Interstitial, and Rewarded.\nAdMob for App Open Ads only.",
             "Both MAX and AdMob IDs required.",
             Purple);
+
+        GUILayout.Space(5);
+
+        DrawScenarioOption(AdProvider.AppLovinWithAdMobAOAAndMREC,
+            "AppLovin MAX + AdMob App Open, MREC",
+            "AppLovin MAX for Banner, Interstitial, and Rewarded.\nAdMob for App Open Ads and MREC.",
+            "Both MAX and AdMob IDs required.",
+            new Color(0.72f, 0.28f, 0.72f));
     }
 
     private void DrawScenarioOption(AdProvider scenario, string title, string desc, string note, Color accent)
@@ -456,9 +464,10 @@ public class SDKSetupWizard : EditorWindow
         EditorGUILayout.LabelField("Enter Ad Unit IDs", new GUIStyle(_titleStyle) { fontSize = 16 });
         GUILayout.Space(4);
 
-        bool needsAdMob = _scenario is AdProvider.AdMobOnly or AdProvider.AppLovinWithAdMobAOA;
-        bool needsMax   = _scenario is AdProvider.AppLovinOnly or AdProvider.AppLovinWithAdMobAOA;
-        bool aoaOnly    = _scenario == AdProvider.AppLovinWithAdMobAOA;
+        bool needsAdMob = NeedsAdMob(_scenario);
+        bool needsMax   = NeedsMax(_scenario);
+        bool admobAoaOnly = _scenario == AdProvider.AppLovinWithAdMobAOA;
+        bool admobAoaAndMrec = _scenario == AdProvider.AppLovinWithAdMobAOAAndMREC;
 
         // ── SDK presence checks for this scenario ─────────────────────────
         if (needsAdMob && !HasAdMob())
@@ -545,9 +554,14 @@ public class SDKSetupWizard : EditorWindow
         {
             DrawCard(() =>
             {
-                DrawSectionLabel(aoaOnly ? "AdMob — App Open Only" : "AdMob — Ad Unit IDs", Blue);
+                string sectionTitle = admobAoaOnly
+                    ? "AdMob — App Open Only"
+                    : admobAoaAndMrec
+                        ? "AdMob — App Open & MREC"
+                        : "AdMob — Ad Unit IDs";
+                DrawSectionLabel(sectionTitle, Blue);
                 GUILayout.Space(4);
-                if (!aoaOnly)
+                if (!admobAoaOnly && !admobAoaAndMrec)
                 {
                     EditorGUILayout.LabelField("Full-screen", EditorStyles.miniBoldLabel);
                     _admobInter  = IDField("Interstitial",        _admobInter);
@@ -557,6 +571,12 @@ public class SDKSetupWizard : EditorWindow
                     EditorGUILayout.LabelField("Display", EditorStyles.miniBoldLabel);
                     _admobBanner = IDField("Banner", _admobBanner);
                     _admobMrec   = IDField("MREC",   _admobMrec);
+                    GUILayout.Space(6);
+                }
+                else if (admobAoaAndMrec)
+                {
+                    EditorGUILayout.LabelField("Display", EditorStyles.miniBoldLabel);
+                    _admobMrec = IDField("MREC", _admobMrec);
                     GUILayout.Space(6);
                 }
                 EditorGUILayout.LabelField("App Open", EditorStyles.miniBoldLabel);
@@ -582,8 +602,9 @@ public class SDKSetupWizard : EditorWindow
                 GUILayout.Space(6);
                 EditorGUILayout.LabelField("Display", EditorStyles.miniBoldLabel);
                 _maxBanner = IDField("Banner", _maxBanner);
-                _maxMrec   = IDField("MREC",   _maxMrec);
-                if (!aoaOnly)
+                if (!admobAoaAndMrec)
+                    _maxMrec = IDField("MREC", _maxMrec);
+                if (!admobAoaOnly && !admobAoaAndMrec)
                 {
                     GUILayout.Space(6);
                     EditorGUILayout.LabelField("App Open", EditorStyles.miniBoldLabel);
@@ -664,8 +685,8 @@ public class SDKSetupWizard : EditorWindow
         {
             DrawSectionLabel("Summary", Purple);
             GUILayout.Space(4);
-            bool _needsAdMob = _scenario is AdProvider.AdMobOnly or AdProvider.AppLovinWithAdMobAOA;
-            bool _needsMax   = _scenario is AdProvider.AppLovinOnly or AdProvider.AppLovinWithAdMobAOA;
+            bool _needsAdMob = NeedsAdMob(_scenario);
+            bool _needsMax   = NeedsMax(_scenario);
 
             EditorGUILayout.LabelField($"Scenario:        {ScenarioLabel(_scenario)}", _bodyStyle);
             if (_needsAdMob)
@@ -712,9 +733,10 @@ public class SDKSetupWizard : EditorWindow
         _errors.Clear();
         _warnings.Clear();
 
-        bool needsAdMob = _scenario is AdProvider.AdMobOnly or AdProvider.AppLovinWithAdMobAOA;
-        bool needsMax   = _scenario is AdProvider.AppLovinOnly or AdProvider.AppLovinWithAdMobAOA;
-        bool aoaOnly    = _scenario == AdProvider.AppLovinWithAdMobAOA;
+        bool needsAdMob = NeedsAdMob(_scenario);
+        bool needsMax   = NeedsMax(_scenario);
+        bool admobAoaOnly = _scenario == AdProvider.AppLovinWithAdMobAOA;
+        bool admobAoaAndMrec = _scenario == AdProvider.AppLovinWithAdMobAOAAndMREC;
 
         // Scene check — MediationAdsManager is auto-created on Apply if missing, so this is a notice, not a blocker
         if (FindFirstObjectByType<MediationAdsManager>() == null)
@@ -741,13 +763,17 @@ public class SDKSetupWizard : EditorWindow
         if (needsAdMob)
         {
             if (!HasAdMob()) _errors.Add("Google Mobile Ads SDK not found. Import it from the AdMob dashboard.");
-            if (!aoaOnly)
+            if (!admobAoaOnly && !admobAoaAndMrec)
             {
                 if (Empty(_admobInter))  _errors.Add("AdMob Interstitial ID is empty.");
                 if (Empty(_admobRew))    _errors.Add("AdMob Rewarded ID is empty.");
                 if (Empty(_admobBanner)) _warnings.Add("AdMob Banner ID is empty — banner ads won't show.");
                 if (Empty(_admobMrec))   _warnings.Add("AdMob MREC ID is empty — MREC won't show.");
                 if (Empty(_admobStatic)) _warnings.Add("AdMob Static Interstitial ID is empty.");
+            }
+            else if (admobAoaAndMrec)
+            {
+                if (Empty(_admobMrec)) _warnings.Add("AdMob MREC ID is empty — MREC won't show.");
             }
             if (Empty(_admobAOA)) _warnings.Add("AdMob App Open ID is empty — App Open Ads won't show.");
         }
@@ -765,8 +791,10 @@ public class SDKSetupWizard : EditorWindow
             if (Empty(_maxInter))  _errors.Add("AppLovin MAX Interstitial ID is empty.");
             if (Empty(_maxRew))    _errors.Add("AppLovin MAX Rewarded ID is empty.");
             if (Empty(_maxBanner)) _warnings.Add("AppLovin MAX Banner ID is empty — banner ads won't show.");
-            if (Empty(_maxMrec))   _warnings.Add("AppLovin MAX MREC ID is empty — MREC won't show.");
-            if (!aoaOnly && Empty(_maxAOA)) _warnings.Add("AppLovin MAX App Open ID is empty.");
+            if (!admobAoaAndMrec && Empty(_maxMrec))
+                _warnings.Add("AppLovin MAX MREC ID is empty — MREC won't show.");
+            if (!admobAoaOnly && !admobAoaAndMrec && Empty(_maxAOA))
+                _warnings.Add("AppLovin MAX App Open ID is empty.");
         }
     }
 
@@ -850,8 +878,8 @@ public class SDKSetupWizard : EditorWindow
         }
 
         // Sync scripting defines with chosen scenario
-        bool applyNeedsAdMob = _scenario is AdProvider.AdMobOnly or AdProvider.AppLovinWithAdMobAOA;
-        bool applyNeedsMax   = _scenario is AdProvider.AppLovinOnly or AdProvider.AppLovinWithAdMobAOA;
+        bool applyNeedsAdMob = NeedsAdMob(_scenario);
+        bool applyNeedsMax   = NeedsMax(_scenario);
 
         if (applyNeedsAdMob) AddDefine("ADMOB_SDK"); else RemoveDefine("ADMOB_SDK");
         if (applyNeedsMax)   AddDefine("MAX_SDK");   else RemoveDefine("MAX_SDK");
@@ -994,12 +1022,23 @@ public class SDKSetupWizard : EditorWindow
 
     private static string Filled(string v) => Empty(v) ? "✕  empty" : "✓  set";
 
+    private static bool NeedsAdMob(AdProvider p) =>
+        p is AdProvider.AdMobOnly
+            or AdProvider.AppLovinWithAdMobAOA
+            or AdProvider.AppLovinWithAdMobAOAAndMREC;
+
+    private static bool NeedsMax(AdProvider p) =>
+        p is AdProvider.AppLovinOnly
+            or AdProvider.AppLovinWithAdMobAOA
+            or AdProvider.AppLovinWithAdMobAOAAndMREC;
+
     private static string ScenarioLabel(AdProvider p) => p switch
     {
-        AdProvider.AdMobOnly            => "AdMob Only",
-        AdProvider.AppLovinOnly         => "AppLovin MAX Only",
-        AdProvider.AppLovinWithAdMobAOA => "AppLovin MAX + AdMob App Open",
-        _                               => p.ToString()
+        AdProvider.AdMobOnly                   => "AdMob Only",
+        AdProvider.AppLovinOnly                => "AppLovin MAX Only",
+        AdProvider.AppLovinWithAdMobAOA        => "AppLovin MAX + AdMob App Open",
+        AdProvider.AppLovinWithAdMobAOAAndMREC => "AppLovin MAX + AdMob App Open, MREC",
+        _                                      => p.ToString()
     };
 }
 #endif

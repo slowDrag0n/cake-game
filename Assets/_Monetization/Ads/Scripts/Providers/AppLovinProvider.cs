@@ -11,7 +11,7 @@ using SexyDevs.Ads;
 ///   1. Import the AppLovin MAX Unity plugin.
 ///   2. In AppLovin dashboard, create ad units and copy their IDs.
 ///   3. On the MediationAdsManager prefab, fill in the AppLovin ID fields.
-///   4. Set AdProvider = AppLovinOnly (or AppLovinWithAdMobAOA).
+///   4. Set AdProvider = AppLovinOnly, AppLovinWithAdMobAOA, or AppLovinWithAdMobAOAAndMREC.
 ///   That's it — no code changes needed.
 ///
 /// NOTE: This class wraps MaxSdk calls behind #if MAX_SDK guards so the

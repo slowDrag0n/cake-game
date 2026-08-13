@@ -7,7 +7,7 @@ using SexyDevs.Ads;
 
 /// <summary>
 /// IAppOpenProvider backed by AdMob App Open Ads.
-/// Used in Scenario 1 (AppLovin + AdMob AOA) and Scenario 3 (AdMob plain).
+/// Used in AppLovinWithAdMobAOA, AppLovinWithAdMobAOAAndMREC, and AdMobOnly.
 /// </summary>
 public class AdMobAppOpenProvider : IAppOpenProvider
 {
