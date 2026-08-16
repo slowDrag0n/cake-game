@@ -1403,7 +1403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edcae6172f8fdfa4bbe4601eb10bb684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adProvider: 0
+  adProvider: 3
   loadingADPanel: {fileID: 7516195117701382422}
   bannerBgImg: {fileID: 5349472478077258194}
   useAdTimer: 1
@@ -1411,7 +1411,7 @@ MonoBehaviour:
   admobStaticInterstitialId: 
   admobRewardedId: 
   admobBannerId: 
-  admobMrecId: 
+  admobMrecId: ca-app-pub-5036550218341905/5595454485
   admobAppOpenId: ca-app-pub-5036550218341905/5005115905
   maxSdkKey: 77uiPT4cq5bp3ZKOKVdtWG0WBRWoJ1tQBAmhr-3mp-h_HvUgXfe1v1Qc6oirIklUr1fxfPbru1ps1nzErdTfy0
   maxInterstitialId: e12648c17f53ceea
