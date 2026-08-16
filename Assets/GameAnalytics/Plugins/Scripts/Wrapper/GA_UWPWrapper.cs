@@ -7,7 +7,6 @@ using System.Runtime.InteropServices;
 
 namespace GameAnalyticsSDK.Wrapper
 {
-    /*
     public partial class GA_Wrapper
     {
 
@@ -273,5 +272,4 @@ namespace GameAnalyticsSDK.Wrapper
         }
 #endif
     }
-    */
 }

@@ -36,6 +36,7 @@ public class LoadingController : MonoBehaviour
 
         //AdsManager.Ins.ShowBannerAdAfterInitDelay();
         //AdsManager.Ins.ShowBigBannerAdAfterInitDelay();
+
     }
 
 

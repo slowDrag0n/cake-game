@@ -104,7 +104,7 @@ namespace GameAnalyticsSDK.Wrapper
         [DllImport ("__Internal")]
         private static extern void setEventSubmission(bool enabled);
 
-        [DllImport ("__Internal", EntryPoint = "setEventSubmissionWithCaching")]
+        [DllImport ("__Internal")]
         private static extern void setEventSubmission(bool enabled, bool doCache);
 
         [DllImport ("__Internal")]
@@ -155,6 +155,9 @@ namespace GameAnalyticsSDK.Wrapper
         [DllImport ("__Internal")]
         [return: MarshalAs(UnmanagedType.LPStr)]
         public static extern string getExternalUserId();
+
+        [DllImport ("__Internal")]
+        public static extern void useRandomizedId(bool flag);
 
         [DllImport ("__Internal")]
         public static extern void enableSDKInitEvent(bool flag);
