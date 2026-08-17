@@ -2,7 +2,7 @@
 using GoogleMobileAds.Api;
 using UnityEngine;
 using UnityEngine.Events;
-//using AdjustSdk;
+using AdjustSdk;
 
 public class Rewarded
 {
@@ -83,12 +83,12 @@ public class Rewarded
     private void TrackRevenue(AdValue adValue)
     {
         if(adValue.Value <= 0) return;
-        //var adj = new AdjustAdRevenue("admob_sdk");
-        //adj.SetRevenue(adValue.Value / 1_000_000d, adValue.CurrencyCode);
-        //adj.AdRevenueNetwork   = "google_admob";
-        //adj.AdRevenueUnit      = _adUnitId;
-        //adj.AdRevenuePlacement = "rewarded";
-        //Adjust.TrackAdRevenue(adj);
+        var adj = new AdjustAdRevenue("admob_sdk");
+        adj.SetRevenue(adValue.Value / 1_000_000d, adValue.CurrencyCode);
+        adj.AdRevenueNetwork = "google_admob";
+        adj.AdRevenueUnit = _adUnitId;
+        adj.AdRevenuePlacement = "rewarded";
+        Adjust.TrackAdRevenue(adj);
     }
 
     private void Dispose()

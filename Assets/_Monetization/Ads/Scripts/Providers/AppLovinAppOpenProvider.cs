@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-//using AdjustSdk;
+using AdjustSdk;
 using SexyDevs.Ads;
 
 /// <summary>
@@ -103,11 +103,11 @@ public class AppLovinAppOpenProvider : IAppOpenProvider
         MaxSdkCallbacks.AppOpen.OnAdRevenuePaidEvent += (id, info) =>
         {
             if(id != _adUnitId || info.Revenue <= 0) return;
-            //var adj = new AdjustAdRevenue("applovin_max_sdk");
-            //adj.SetRevenue(info.Revenue, "USD");
-            //adj.AdRevenueNetwork   = info.NetworkName;
-            //adj.AdRevenuePlacement = "app_open";
-            //Adjust.TrackAdRevenue(adj);
+            var adj = new AdjustAdRevenue("applovin_max_sdk");
+            adj.SetRevenue(info.Revenue, "USD");
+            adj.AdRevenueNetwork = info.NetworkName;
+            adj.AdRevenuePlacement = "app_open";
+            Adjust.TrackAdRevenue(adj);
         };
     }
 #endif

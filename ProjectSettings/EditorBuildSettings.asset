@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Monetization/Scenes/DemoScene.unity
-    guid: d86c23b7dc24fe64d9fdf20ceb2ece4b
-  - enabled: 1
     path: Assets/_Cake-Game_/_Scenes/Loading.unity
     guid: e0c3d663bcacaf94abc1504b69a3fea0
   - enabled: 1

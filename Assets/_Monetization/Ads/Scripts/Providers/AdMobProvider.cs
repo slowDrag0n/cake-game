@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using GoogleMobileAds.Api;
-//using AdjustSdk;
+using AdjustSdk;
 using SexyDevs.Ads;
 
 /// <summary>
@@ -182,11 +182,11 @@ public class AdMobProvider : IAdProvider
     {
         if(adValue.Value <= 0) return;
         double revenue = adValue.Value / 1_000_000d;
-        //var adj = new AdjustAdRevenue("admob_sdk");
-        //adj.SetRevenue(revenue, adValue.CurrencyCode);
-        //adj.AdRevenueNetwork   = "google_admob";
-        //adj.AdRevenuePlacement = placement;
-        //Adjust.TrackAdRevenue(adj);
+        var adj = new AdjustAdRevenue("admob_sdk");
+        adj.SetRevenue(revenue, adValue.CurrencyCode);
+        adj.AdRevenueNetwork = "google_admob";
+        adj.AdRevenuePlacement = placement;
+        Adjust.TrackAdRevenue(adj);
     }
 }
 #endif

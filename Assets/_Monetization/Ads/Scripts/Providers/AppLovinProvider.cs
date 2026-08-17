@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-//using AdjustSdk;
+using AdjustSdk;
 using SexyDevs.Ads;
 
 /// <summary>
@@ -363,11 +363,11 @@ public class AppLovinProvider : IAdProvider
     {
         double revenue = info.Revenue;
         if(revenue <= 0) return;
-        //var adj = new AdjustAdRevenue("applovin_max_sdk");
-        //adj.SetRevenue(revenue, "USD");
-        //adj.AdRevenueNetwork   = info.NetworkName;
-        //adj.AdRevenuePlacement = placement;
-        //Adjust.TrackAdRevenue(adj);
+        var adj = new AdjustAdRevenue("applovin_max_sdk");
+        adj.SetRevenue(revenue, "USD");
+        adj.AdRevenueNetwork = info.NetworkName;
+        adj.AdRevenuePlacement = placement;
+        Adjust.TrackAdRevenue(adj);
     }
 #endif
 }

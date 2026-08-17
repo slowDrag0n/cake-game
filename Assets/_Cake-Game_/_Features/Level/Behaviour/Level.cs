@@ -130,6 +130,9 @@ public class Level : MonoBehaviour
 
     public void RunQuickAd()
     {
+        // TODO - Interstitial ad here...
+        MediationAdsManager.Instance.ShowInterstitial(state => { });
+
         //AdsManager.Ins.QuickAd.RunQuickAd();
     }
 }

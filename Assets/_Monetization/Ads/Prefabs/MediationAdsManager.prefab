@@ -1300,6 +1300,7 @@ GameObject:
   - component: {fileID: 6526122753960409437}
   - component: {fileID: 6633854631606117013}
   - component: {fileID: 5003587233321107274}
+  - component: {fileID: 2867673434904084100}
   m_Layer: 5
   m_Name: MediationAdsManager
   m_TagString: Untagged
@@ -1406,7 +1407,7 @@ MonoBehaviour:
   adProvider: 3
   loadingADPanel: {fileID: 7516195117701382422}
   bannerBgImg: {fileID: 5349472478077258194}
-  useAdTimer: 1
+  useAdTimer: 0
   admobInterstitialId: 
   admobStaticInterstitialId: 
   admobRewardedId: 
@@ -1415,7 +1416,7 @@ MonoBehaviour:
   admobAppOpenId: ca-app-pub-5036550218341905/5005115905
   maxSdkKey: 77uiPT4cq5bp3ZKOKVdtWG0WBRWoJ1tQBAmhr-3mp-h_HvUgXfe1v1Qc6oirIklUr1fxfPbru1ps1nzErdTfy0
   maxInterstitialId: e12648c17f53ceea
-  maxStaticInterstitialId: 
+  maxStaticInterstitialId: e12648c17f53ceea
   maxRewardedId: e1e7b0d90dba13cb
   maxBannerId: 'd27cb519d8e661cf '
   maxMrecId: 
@@ -1449,6 +1450,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canShowAD: 1
+--- !u!114 &2867673434904084100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533429534600899867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f97ac57d4a28f514aa50f5ecb20f7788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentGameObject
 --- !u!1 &9072458801669474006
 GameObject:
   m_ObjectHideFlags: 0
