@@ -65,6 +65,7 @@ public class AdCaller : MonoBehaviour
         time = 0;
         isadshow = false;
         adloadingPanel.SetActive(false);
+        Debug.Log(" >>>>>>>>>>>>>>>>>> Reset Time <<<<<<<<<<<<<<<<<<");
     }
     public GameObject adloadingPanel;
     public TextMeshProUGUI loadingtxt;

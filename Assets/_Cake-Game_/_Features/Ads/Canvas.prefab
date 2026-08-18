@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 3051886854001140469}
   - component: {fileID: 2650130365933159376}
   - component: {fileID: 2637015481299597943}
-  - component: {fileID: 5473997960330667017}
   m_Layer: 5
   m_Name: CountingText
   m_TagString: Untagged
@@ -213,19 +212,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5473997960330667017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1298341906958455356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3e82acedf247f44298e3f8cd5a1b210, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialCountdownValue: 3
 --- !u!1 &4568769692881509525
 GameObject:
   m_ObjectHideFlags: 0

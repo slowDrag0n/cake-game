@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "emulator-5554",
     "m_SelectedProcess": {
-        "deviceId": "emulator-5554",
-        "name": "com.ppd.cake.making.games",
-        "processId": 4043,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -24,6 +24,24 @@
             "deviceId": "emulator-5554",
             "name": "com.ppd.cake.making.games",
             "processId": 4043,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.ldmnq.launcher3",
+            "processId": 2317,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.ppd.cake.making.games",
+            "processId": 3900,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.ldmnq.launcher3",
+            "processId": 2326,
             "exited": false
         }
     ],
@@ -35,7 +53,7 @@
             },
             {
                 "m_Name": "No Filter",
-                "m_Selected": true
+                "m_Selected": false
             },
             {
                 "m_Name": "",
@@ -51,7 +69,7 @@
             },
             {
                 "m_Name": "Unity",
-                "m_Selected": false
+                "m_Selected": true
             },
             {
                 "m_Name": "CRASH",
@@ -81,7 +99,7 @@
         "AutoCapture": true
     },
     "m_FilterOptions": {
-        "m_Filter": "",
+        "m_Filter": ">>>>>",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },

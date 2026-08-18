@@ -117,7 +117,7 @@ public class AdsManager : MonoBehaviour
         if (PlayerPrefs.GetInt("RemoveAds") == 0)
         {
             if (!MaxSdk.IsInterstitialReady(InterstitialAdUnitId))
-                LoadInterstitial();
+                LoadMaxInterstitial();
         }
     }
     public void RequestVideo()
@@ -147,9 +147,9 @@ public class AdsManager : MonoBehaviour
         MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += AdRevenuePaidEvent;
         // Load the first interstitial
 
-        LoadInterstitial();
+        LoadMaxInterstitial();
     }
-    private void LoadInterstitial()
+    private void LoadMaxInterstitial()
     {
         if (!isMaxInitialized)
             return;
@@ -171,7 +171,7 @@ public class AdsManager : MonoBehaviour
         if (interRequestTime >= 3)
             return;
         interRequestTime += 1;
-        Invoke(nameof(LoadInterstitial), 5f);
+        Invoke(nameof(LoadMaxInterstitial), 5f);
         Time.timeScale = 1;
     }
     private void OnInterstitialAdFailedToDisplayEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo, MaxSdkBase.AdInfo adInfo)
@@ -180,14 +180,14 @@ public class AdsManager : MonoBehaviour
         if (interRequestTime >= 3)
             return;
         interRequestTime += 1;
-        Invoke(nameof(LoadInterstitial), 5f);
+        Invoke(nameof(LoadMaxInterstitial), 5f);
         Time.timeScale = 1;
     }
     private void OnInterstitialHiddenEvent(string adUnitId, MaxSdkBase.AdInfo adInfo)
     {
         // Interstitial ad is hidden. Pre-load the next ad.
         Debug.Log("Interstitial ad is dismissed=>");
-        Invoke(nameof(LoadInterstitial), 0.5f);
+        Invoke(nameof(LoadMaxInterstitial), 0.5f);
         Time.timeScale = 1;
         AdCaller.ins.resetTime();
 
@@ -246,7 +246,7 @@ public class AdsManager : MonoBehaviour
             else
             {
                 Debug.Log("Interstitial is not loaded");
-                LoadInterstitial();
+                LoadMaxInterstitial();
                 if (AdmobIntilization._instance.HasAdmobInterstialAvaible())
                 {
                     isPausedDuetoAd = true;

@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply from: '../shared/keepUnitySymbols.gradle'
+apply from: '../shared/common.gradle'
 **APPLY_PLUGINS**
 
 dependencies {
@@ -8,17 +9,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:12
     implementation 'androidx.fragment:fragment:1.7.1' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:22
     implementation 'androidx.lifecycle:lifecycle-process:2.6.2' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:17
-    implementation 'com.android.support:customtabs:28.+' // Assets/MaxSdk/Mediation/InMobi/Editor/Dependencies.xml:7
-    implementation 'com.android.support:recyclerview-v7:28.+' // Assets/MaxSdk/Mediation/InMobi/Editor/Dependencies.xml:6
-    implementation 'com.applovin.mediation:bidmachine-adapter:3.7.1.0' // Assets/MaxSdk/Mediation/BidMachine/Editor/Dependencies.xml:8
-    implementation 'com.applovin.mediation:bigoads-adapter:5.10.1.0' // Assets/MaxSdk/Mediation/BigoAds/Editor/Dependencies.xml:4
-    implementation 'com.applovin.mediation:bytedance-adapter:8.1.0.5.0' // Assets/MaxSdk/Mediation/ByteDance/Editor/Dependencies.xml:8
-    implementation 'com.applovin.mediation:fyber-adapter:8.4.6.0' // Assets/MaxSdk/Mediation/Fyber/Editor/Dependencies.xml:4
-    implementation 'com.applovin.mediation:google-adapter:[25.4.0.0]' // Assets/MaxSdk/Mediation/Google/Editor/Dependencies.xml:5
-    implementation 'com.applovin.mediation:google-ad-manager-adapter:[25.4.0.0]' // Assets/MaxSdk/Mediation/GoogleAdManager/Editor/Dependencies.xml:5
-    implementation 'com.applovin.mediation:inmobi-adapter:11.4.0.0' // Assets/MaxSdk/Mediation/InMobi/Editor/Dependencies.xml:4
-    implementation 'com.applovin.mediation:ironsource-adapter:9.5.0.0.0' // Assets/MaxSdk/Mediation/IronSource/Editor/Dependencies.xml:4
-    implementation 'com.applovin.mediation:vungle-adapter:7.7.6.0' // Assets/MaxSdk/Mediation/Vungle/Editor/Dependencies.xml:4
     implementation 'com.applovin:applovin-sdk:13.6.3' // Assets/MaxSdk/AppLovin/Editor/Dependencies.xml:4
     implementation 'com.google.android.gms:play-services-ads:25.4.0' // Assets/GoogleMobileAds/Editor/GoogleMobileAdsDependencies.xml:7
     implementation 'com.google.android.gms:play-services-appset:16.0.2' // Assets/GameAnalytics/Editor/Android/Dependencies.xml:4
@@ -33,13 +23,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-config-unity:13.14.0' // Assets/Firebase/Editor/RemoteConfigDependencies.xml:23
     implementation 'com.google.firebase:firebase-crashlytics-ndk:20.1.0' // Assets/Firebase/Editor/CrashlyticsDependencies.xml:16
     implementation 'com.google.firebase:firebase-crashlytics-unity:13.14.0' // Assets/Firebase/Editor/CrashlyticsDependencies.xml:23
-    implementation 'com.squareup.picasso:picasso:2.71828' // Assets/MaxSdk/Mediation/InMobi/Editor/Dependencies.xml:5
 // Android Resolver Dependencies End
 **DEPS**}
 
 // Android Resolver Exclusions Start
 android {
-    ndkVersion "**NDKVERSION**"
   packaging {
       exclude ('/lib/armeabi/*' + '*')
       exclude ('/lib/mips/*' + '*')
@@ -52,24 +40,24 @@ android {
 android {
     namespace "com.unity3d.player"
     ndkPath "**NDKPATH**"
-    compileSdkVersion **APIVERSION**
-    buildToolsVersion '**BUILDTOOLS**'
+    ndkVersion "**NDKVERSION**"
+    compileSdk **APIVERSION**
+    buildToolsVersion "**BUILDTOOLS**"
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     defaultConfig {
         minSdk **MINSDK**
         targetSdk **TARGETSDK**
         ndk {
-            debugSymbolLevel **DEBUGSYMBOLLEVEL**
             abiFilters **ABIFILTERS**
+            debugSymbolLevel **DEBUGSYMBOLLEVEL**
         }
-        versionCode **VERSIONCODE**
-        versionName '**VERSIONNAME**'
         consumerProguardFiles 'proguard-unity.txt'**USER_PROGUARD**
+**DEFAULT_CONFIG_SETUP**
     }
 
     lint {

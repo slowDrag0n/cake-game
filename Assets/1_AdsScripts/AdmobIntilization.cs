@@ -104,6 +104,7 @@ public class AdmobIntilization : MonoBehaviour
         interstitialAd.OnAdFullScreenContentClosed += () =>
         {
             RequestInterstitial();
+            AdCaller.ins.resetTime();
         };
        
     }
