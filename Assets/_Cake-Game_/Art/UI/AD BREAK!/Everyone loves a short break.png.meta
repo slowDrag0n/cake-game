@@ -1,0 +1,728 @@
+fileFormatVersion: 2
+guid: 139717b73ac55694c9829881cca30db0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1926715141083509503
+    second: Everyone loves a short break_0
+  - first:
+      213: 7548284374505262014
+    second: Everyone loves a short break_1
+  - first:
+      213: -7305526626581051769
+    second: Everyone loves a short break_2
+  - first:
+      213: 4725006851415167337
+    second: Everyone loves a short break_3
+  - first:
+      213: -5271236269206402593
+    second: Everyone loves a short break_4
+  - first:
+      213: 8467736064065679916
+    second: Everyone loves a short break_5
+  - first:
+      213: 930987626192290373
+    second: Everyone loves a short break_6
+  - first:
+      213: -2625272104829732407
+    second: Everyone loves a short break_7
+  - first:
+      213: 5893826953277742333
+    second: Everyone loves a short break_8
+  - first:
+      213: 7804659591734435957
+    second: Everyone loves a short break_9
+  - first:
+      213: 7221170753791451784
+    second: Everyone loves a short break_10
+  - first:
+      213: 656076294226768505
+    second: Everyone loves a short break_11
+  - first:
+      213: 228042466538609784
+    second: Everyone loves a short break_12
+  - first:
+      213: 7558671782475595810
+    second: Everyone loves a short break_13
+  - first:
+      213: -1733686502599513773
+    second: Everyone loves a short break_14
+  - first:
+      213: 564061580693749187
+    second: Everyone loves a short break_15
+  - first:
+      213: -6381990660067586077
+    second: Everyone loves a short break_16
+  - first:
+      213: -6817993957750298724
+    second: Everyone loves a short break_17
+  - first:
+      213: 9021663398795856529
+    second: Everyone loves a short break_18
+  - first:
+      213: 7544880708346905085
+    second: Everyone loves a short break_19
+  - first:
+      213: 6040264689012987443
+    second: Everyone loves a short break_20
+  - first:
+      213: 6311728442512557568
+    second: Everyone loves a short break_21
+  - first:
+      213: -1879458790218929422
+    second: Everyone loves a short break_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Everyone loves a short break_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74
+        width: 25
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff236af66311dba10800000000000000
+      internalID: 1926715141083509503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 73
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb840665a4e0c860800000000000000
+      internalID: 7548284374505262014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_2
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 73
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7868a7d4d3e8d9a90800000000000000
+      internalID: -7305526626581051769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_3
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 63
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96153eb72b8929140800000000000000
+      internalID: 4725006851415167337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_4
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 73
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd90cc69a8ec8d6b0800000000000000
+      internalID: -5271236269206402593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_5
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 73
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2236661611738570800000000000000
+      internalID: 8467736064065679916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_6
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 73
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 542c97d30588bec00800000000000000
+      internalID: 930987626192290373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_7
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 74
+        width: 14
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c9b1e01ee8219bd0800000000000000
+      internalID: -2625272104829732407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_8
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 73
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc1ebd13641bc150800000000000000
+      internalID: 5893826953277742333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_9
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 73
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5702d2e3c88bf4c60800000000000000
+      internalID: 7804659591734435957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_10
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 73
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 882ed2a8a80c63460800000000000000
+      internalID: 7221170753791451784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_11
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 73
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 972f0fed9e9da1900800000000000000
+      internalID: 656076294226768505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_12
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 73
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87cdcb34a6b2a2300800000000000000
+      internalID: 228042466538609784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2200a3840fbc5e860800000000000000
+      internalID: 7558671782475595810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_14
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 0
+        width: 28
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 359aaa4bf45b0f7e0800000000000000
+      internalID: -1733686502599513773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_15
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cd32b4e403f3d700800000000000000
+      internalID: 564061580693749187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_16
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ef8fc2de4d9e67a0800000000000000
+      internalID: -6381990660067586077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_17
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 0
+        width: 23
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c97a8836e9e9161a0800000000000000
+      internalID: -6817993957750298724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_18
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 0
+        width: 29
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19ace58ff03633d70800000000000000
+      internalID: 9021663398795856529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_19
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 0
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df107bd970dc4b860800000000000000
+      internalID: 7544880708346905085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_20
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 0
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33654f16bb453d350800000000000000
+      internalID: 6040264689012987443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_21
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 006c0b6d393c79750800000000000000
+      internalID: 6311728442512557568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Everyone loves a short break_22
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 0
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fae3072032dae5e0800000000000000
+      internalID: -1879458790218929422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Everyone loves a short break_0: 1926715141083509503
+      Everyone loves a short break_1: 7548284374505262014
+      Everyone loves a short break_10: 7221170753791451784
+      Everyone loves a short break_11: 656076294226768505
+      Everyone loves a short break_12: 228042466538609784
+      Everyone loves a short break_13: 7558671782475595810
+      Everyone loves a short break_14: -1733686502599513773
+      Everyone loves a short break_15: 564061580693749187
+      Everyone loves a short break_16: -6381990660067586077
+      Everyone loves a short break_17: -6817993957750298724
+      Everyone loves a short break_18: 9021663398795856529
+      Everyone loves a short break_19: 7544880708346905085
+      Everyone loves a short break_2: -7305526626581051769
+      Everyone loves a short break_20: 6040264689012987443
+      Everyone loves a short break_21: 6311728442512557568
+      Everyone loves a short break_22: -1879458790218929422
+      Everyone loves a short break_3: 4725006851415167337
+      Everyone loves a short break_4: -5271236269206402593
+      Everyone loves a short break_5: 8467736064065679916
+      Everyone loves a short break_6: 930987626192290373
+      Everyone loves a short break_7: -2625272104829732407
+      Everyone loves a short break_8: 5893826953277742333
+      Everyone loves a short break_9: 7804659591734435957
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

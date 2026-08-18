@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "R58M50YL0TK",
+    "m_SelectedDeviceId": "emulator-5554",
     "m_SelectedProcess": {
-        "deviceId": "R58M50YL0TK",
-        "name": "com.zc.cake.making.games",
-        "processId": 16857,
+        "deviceId": "emulator-5554",
+        "name": "com.ppd.cake.making.games",
+        "processId": 4043,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -18,6 +18,12 @@
             "deviceId": "R58M50YL0TK",
             "name": "com.zc.cake.making.games",
             "processId": 16857,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.ppd.cake.making.games",
+            "processId": 4043,
             "exited": false
         }
     ],

@@ -1,6 +1,7 @@
 <dependencies>
   <packages>
     <package>androidx.constraintlayout:constraintlayout:2.1.4</package>
+    <package>androidx.fragment:fragment:1.7.1</package>
     <package>androidx.lifecycle:lifecycle-process:2.6.2</package>
     <package>com.android.support:customtabs:28.+</package>
     <package>com.android.support:recyclerview-v7:28.+</package>
@@ -14,7 +15,7 @@
     <package>com.applovin.mediation:ironsource-adapter:9.5.0.0.0</package>
     <package>com.applovin.mediation:vungle-adapter:7.7.6.0</package>
     <package>com.applovin:applovin-sdk:13.6.3</package>
-    <package>com.google.android.gms:play-services-ads:25.2.0</package>
+    <package>com.google.android.gms:play-services-ads:25.4.0</package>
     <package>com.google.android.gms:play-services-appset:16.0.2</package>
     <package>com.google.android.gms:play-services-base:18.10.0</package>
     <package>com.google.android.instantapps:instantapps:1.1.0</package>

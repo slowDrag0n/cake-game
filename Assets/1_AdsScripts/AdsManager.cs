@@ -187,9 +187,9 @@ public class AdsManager : MonoBehaviour
     {
         // Interstitial ad is hidden. Pre-load the next ad.
         Debug.Log("Interstitial ad is dismissed=>");
-        Invoke("LoadInterstitial", 0.5f);
+        Invoke(nameof(LoadInterstitial), 0.5f);
         Time.timeScale = 1;
-        AdCaller._inst.resetTime();
+        AdCaller.ins.resetTime();
 
     }
 
@@ -331,7 +331,7 @@ public class AdsManager : MonoBehaviour
         Callback?.Invoke(false);
         Callback = null;
         LoadRewardedAd();
-        AdCaller._inst.resetTime();
+        AdCaller.ins.resetTime();
 
     }
     private void OnRewardedAdDismissedEvent(string adUnitId)
@@ -341,7 +341,7 @@ public class AdsManager : MonoBehaviour
         Callback?.Invoke(false);
         Callback = null;
         LoadRewardedAd();
-        AdCaller._inst.resetTime();
+        AdCaller.ins.resetTime();
 
     }
     private void OnRewardedAdReceivedRewardEvent(string adUnitId, MaxSdk.Reward reward, MaxSdkBase.AdInfo adInfo)
@@ -350,7 +350,7 @@ public class AdsManager : MonoBehaviour
         _rewarded();
         rewardRequestTime = 0;
         LoadRewardedAd();
-        AdCaller._inst.resetTime();
+        AdCaller.ins.resetTime();
 
     }
     public void ShowRewardedAd(Rewarded rewarded)

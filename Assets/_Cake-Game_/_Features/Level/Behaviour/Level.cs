@@ -130,6 +130,9 @@ public class Level : MonoBehaviour
 
     public void RunQuickAd()
     {
+        // TODO - Interstitial ad here...
+        AdCaller.ins.AdBreak();
+
         //AdsManager.Ins.QuickAd.RunQuickAd();
     }
 }

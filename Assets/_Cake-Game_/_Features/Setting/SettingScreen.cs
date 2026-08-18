@@ -9,6 +9,7 @@ public class SettingScreen : UiPanel
 
     private void OnEnable()
     {
+        BigBanner.instance.bannerBigBannerShow();
         //AdsManager.Ins.ShowBigBannerAd(GoogleMobileAds.Api.AdPosition.Top);
 
         CloseBtn.onClick.AddListener(delegate
@@ -20,6 +21,8 @@ public class SettingScreen : UiPanel
 
     private void OnDisable()
     {
+        BigBanner.instance.bannerBigBannerHide();
+
         //AdsManager.Ins.HideBigBannerAd();
         CloseBtn.onClick.RemoveAllListeners();
     }

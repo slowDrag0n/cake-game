@@ -36,6 +36,9 @@ public class RewardAdButton : MonoBehaviour
             return;
         }
 
+        // TODO - Reward ad here calls OnRewardSuccess on completing ad
+        AdsManager.instance.ShowRewardedAd(delegate { OnRewardSuccess?.Invoke(); });
+
         //AdsManager.Ins?.ShowRewardAd(() =>
         //{
         //    OnRewardSuccess?.Invoke();

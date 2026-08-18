@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Security.Permissions;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.UI;
@@ -8,14 +9,14 @@ public class AdCaller : MonoBehaviour
 {
 
 
-    public static AdCaller _inst;
+    public static AdCaller ins;
     public static int _countAds = 0;
     public float time,takeTime;
     Coroutine co;
     private void Awake()
     {
 
-        _inst = this;
+        ins = this;
 
         
     }
@@ -65,7 +66,7 @@ public class AdCaller : MonoBehaviour
         isadshow = false;
     }
     public GameObject adloadingPanel;
-    public Text loadingtxt;
+    public TextMeshProUGUI loadingtxt;
     public IEnumerator _loadingAd()
     {
         Debug.Log("Loading" + isadshow);
@@ -75,12 +76,12 @@ public class AdCaller : MonoBehaviour
             {
                 if (AdmobIntilization._instance.HasAdmobInterstialAvaible() || AdsManager.instance.isMaxReady())
                 {
-                    loadingtxt.text = "03";
+                    loadingtxt.text = "3";
                     adloadingPanel.SetActive(true);
                     yield return new WaitForSeconds(1f);
-                    loadingtxt.text = "02";
+                    loadingtxt.text = "2";
                     yield return new WaitForSeconds(1f);
-                    loadingtxt.text = "01";
+                    loadingtxt.text = "1";
                     yield return new WaitForSeconds(1);
                     adloadingPanel.SetActive(false);
                     callads2();
@@ -88,6 +89,12 @@ public class AdCaller : MonoBehaviour
             }
         }
     }
+
+    public void AdBreak()
+    {
+        StartCoroutine(_loadingAd());
+    }
+
     public static void callads2()
     {
         if (PlayerPrefs.GetInt("NoAds") == 1) return;
