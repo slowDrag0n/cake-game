@@ -8257,7 +8257,19 @@ MonoBehaviour:
       m_Calls: []
   OnSequenceDone:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6906947923327768735}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: RunQuickAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   EndingCakeHolder: {fileID: 6825742051445227595}
   EndingCakeChildren: []
   EndingSequenceCakeHolder: {fileID: 2055358699547993832}
@@ -18413,37 +18425,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1588702816792912812
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4971481124898731951}
-  m_Layer: 0
-  m_Name: '|||||||||||||||||||||||||||||||||||||||||||||||||||||||| (1)'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4971481124898731951
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588702816792912812}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1833856330597483096}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1622732234042456403
 GameObject:
   m_ObjectHideFlags: 0
@@ -19451,6 +19432,9 @@ MonoBehaviour:
   SequenceId: Seq_3
   OnSequenceStart:
     m_PersistentCalls:
+      m_Calls: []
+  OnSequenceDone:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6906947923327768735}
         m_TargetAssemblyTypeName: Level, Assembly-CSharp
@@ -19464,9 +19448,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnSequenceDone:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &4585216494213101564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19760,7 +19741,19 @@ MonoBehaviour:
       m_Calls: []
   OnSequenceDone:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6906947923327768735}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: RunQuickAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   SugarPot: {fileID: 0}
   SugarSpreadInBowl: {fileID: 5061919779890286473}
   LeanFingerHandler: {fileID: 3910608242835910737}
@@ -55188,7 +55181,19 @@ MonoBehaviour:
       m_Calls: []
   OnSequenceDone:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6906947923327768735}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: RunQuickAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1279277016008599866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63999,7 +64004,19 @@ MonoBehaviour:
         m_CallState: 2
   OnSequenceDone:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6906947923327768735}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: RunQuickAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1672699520582296321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65596,7 +65613,19 @@ MonoBehaviour:
         m_CallState: 2
   OnSequenceDone:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6906947923327768735}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: RunQuickAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6608816560427271725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83478,6 +83507,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnSequenceDone:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 6906947923327768735}
         m_TargetAssemblyTypeName: Level, Assembly-CSharp
         m_MethodName: RunQuickAd
@@ -83490,9 +83522,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnSequenceDone:
-    m_PersistentCalls:
-      m_Calls: []
   Stirrer: {fileID: 0}
   FlourStirringImages:
   - {fileID: 0}
@@ -91435,13 +91464,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e42f6bb424f8345a775e4e25fd573c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SequenceId: 
+  SequenceId: Start
   OnSequenceStart:
     m_PersistentCalls:
       m_Calls: []
   OnSequenceDone:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6906947923327768735}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: RunQuickAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6186536859722477891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91922,13 +91963,12 @@ Transform:
   - {fileID: 3287821636366509834}
   - {fileID: 6750876696838299602}
   - {fileID: 3625025586364533712}
-  - {fileID: 4488758111396425553}
   - {fileID: 3389925165635438205}
   - {fileID: 6130482805366734636}
   - {fileID: 4273542477240594228}
   - {fileID: 9038244783727459484}
   - {fileID: 4894482434314995675}
-  - {fileID: 4971481124898731951}
+  - {fileID: 4488758111396425553}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6906947923327768735
@@ -91956,6 +91996,7 @@ MonoBehaviour:
   - {fileID: 6560728641843409902}
   - {fileID: 343887469316667610}
   - {fileID: 5376919436391374108}
+  - {fileID: 5577368741462087073}
   CakeStartingImage: {fileID: 6918770463751505596}
   CakeHudImage: {fileID: 4656582095663119734}
   LevelCakeSprites:
@@ -94253,6 +94294,9 @@ MonoBehaviour:
   SequenceId: Seq_6
   OnSequenceStart:
     m_PersistentCalls:
+      m_Calls: []
+  OnSequenceDone:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6906947923327768735}
         m_TargetAssemblyTypeName: Level, Assembly-CSharp
@@ -94266,9 +94310,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnSequenceDone:
-    m_PersistentCalls:
-      m_Calls: []
   Cake1: {fileID: 21263093992428567}
   FinalCakeScratchCard1: {fileID: 6273460006877989192}
   CakePaintProgress1: {fileID: 6239718240862022504}
@@ -100976,10 +101017,42 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5979374741363321682, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
+      propertyPath: OnSequenceDone.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979374741363321682, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
+      propertyPath: OnSequenceDone.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979374741363321682, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
+      propertyPath: OnSequenceDone.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6906947923327768735}
+    - target: {fileID: 5979374741363321682, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
+      propertyPath: OnSequenceDone.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979374741363321682, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
+      propertyPath: OnSequenceDone.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunQuickAd
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979374741363321682, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
+      propertyPath: OnSequenceDone.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Level, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5979374741363321682, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
+      propertyPath: OnSequenceDone.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7142254219720934769, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
       propertyPath: tweenActions.Array.data[0].tweenEvents.onStart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7142254219720934769, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
+      propertyPath: tweenActions.Array.data[0].tweenEvents.onStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6906947923327768735}
     - target: {fileID: 7142254219720934769, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
       propertyPath: tweenActions.Array.data[0].tweenEvents.onStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartNextSequence
@@ -101002,6 +101075,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2438293805347082658, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
   m_PrefabInstance: {fileID: 2278200137279897331}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5577368741462087073 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5979374741363321682, guid: de78f3d4dedac0f4c9338ca36bdc5a0f, type: 3}
+  m_PrefabInstance: {fileID: 2278200137279897331}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 243fff73527cc8e408e9407f29eace72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2428265535289715176
 PrefabInstance:
   m_ObjectHideFlags: 0

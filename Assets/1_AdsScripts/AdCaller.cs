@@ -64,6 +64,7 @@ public class AdCaller : MonoBehaviour
     {
         time = 0;
         isadshow = false;
+        adloadingPanel.SetActive(false);
     }
     public GameObject adloadingPanel;
     public TextMeshProUGUI loadingtxt;
@@ -83,7 +84,6 @@ public class AdCaller : MonoBehaviour
                     yield return new WaitForSeconds(1f);
                     loadingtxt.text = "1";
                     yield return new WaitForSeconds(1);
-                    adloadingPanel.SetActive(false);
                     callads2();
                 }
             }

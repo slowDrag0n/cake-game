@@ -16,6 +16,12 @@ public class LevelSequence : MonoBehaviour
         OnSequenceStart?.Invoke();
     }
 
+    protected virtual void OnDisable()
+    {
+        OnSequenceDone?.Invoke();
+        Debug.Log("Sequence Done: " + SequenceId);
+    }
+
     public void ResetLocalTransform(Transform t)
     {
         t.localPosition = Vector3.zero;

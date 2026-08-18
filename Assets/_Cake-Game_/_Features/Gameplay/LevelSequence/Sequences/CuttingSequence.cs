@@ -62,7 +62,8 @@ public class CuttingSequence : LevelSequence
                 .OnStart(delegate { SoundController.Instance.PlaySound(SoundType.ItemComing); })
                 .OnComplete(delegate
                 {
-                    OnSequenceDone?.Invoke();
+                    //OnSequenceDone?.Invoke();
+                    gameObject.SetActive(false);
                 });
             });
     }

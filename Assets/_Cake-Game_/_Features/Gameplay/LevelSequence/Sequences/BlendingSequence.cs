@@ -149,10 +149,10 @@ public class BlendingSequence : LevelSequence
             //Instantiate(CompletionVfx, transform);
             GetComponentInParent<Level>().SpawnCompletionVfx();
         });
-        DOVirtual.DelayedCall(5.28f, delegate
-        {
-            OnSequenceDone?.Invoke();
-        });
+        //DOVirtual.DelayedCall(5.28f, delegate
+        //{
+        //    OnSequenceDone?.Invoke();
+        //});
     }
 
     #endregion

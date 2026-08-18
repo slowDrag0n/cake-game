@@ -131,8 +131,11 @@ GameObject:
   - component: {fileID: 246020859}
   - component: {fileID: 246020861}
   - component: {fileID: 246020860}
-  - component: {fileID: 246020858}
   - component: {fileID: 246020857}
+  - component: {fileID: 246020858}
+  - component: {fileID: 246020863}
+  - component: {fileID: 246020862}
+  - component: {fileID: 246020864}
   m_Layer: 0
   m_Name: Ads
   m_TagString: Untagged
@@ -238,6 +241,44 @@ MonoBehaviour:
   BannerAdUnitId: 'd27cb519d8e661cf '
   bannerPosition: 7
   isBannerShowing: 0
+--- !u!114 &246020862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246020854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc0eb070b25c0b47bf5cb375c6b98df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FirebaseHandler
+  jsonValue: 
+  orderLevels: 
+--- !u!114 &246020863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246020854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e939436d81def6045a3a6d9e239ce8b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RewardedVideoAdCaller
+--- !u!114 &246020864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246020854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f588d2da6671b4b8cfd07b74b1e35e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ForCheckDevice
 --- !u!1 &291443746
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,8 +289,6 @@ GameObject:
   m_Component:
   - component: {fileID: 291443747}
   - component: {fileID: 291443750}
-  - component: {fileID: 291443749}
-  - component: {fileID: 291443748}
   m_Layer: 0
   m_Name: Analytics
   m_TagString: Untagged
@@ -272,32 +311,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &291443748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291443746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98f588d2da6671b4b8cfd07b74b1e35e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ForCheckDevice
---- !u!114 &291443749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291443746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcc0eb070b25c0b47bf5cb375c6b98df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FirebaseHandler
-  jsonValue: 
-  orderLevels: 
 --- !u!114 &291443750
 MonoBehaviour:
   m_ObjectHideFlags: 0
