@@ -42,6 +42,18 @@
             "deviceId": "emulator-5554",
             "name": "com.ldmnq.launcher3",
             "processId": 2326,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.ldmnq.launcher3",
+            "processId": 2307,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.ppd.cake.making.games",
+            "processId": 6375,
             "exited": false
         }
     ],
@@ -99,7 +111,7 @@
         "AutoCapture": true
     },
     "m_FilterOptions": {
-        "m_Filter": ">>>>>",
+        "m_Filter": "",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },

@@ -21,15 +21,29 @@ public class AppOpen_Code : MonoBehaviour
     private readonly TimeSpan timeout = TimeSpan.FromHours(4);
     private DateTime expireTime;
 
-    #region Startup
+    #region Resume
 
-    public void CallingAppOpen()
+    private void OnApplicationPause(bool paused)
     {
-        startupRequest = true;
-        resumedFromBackground = false;
+        if(!paused)
+        {
+            if(AdmobIntilization.Instance.isMobileAdsInitialized)
+            {
+                resumedFromBackground = true;
 
-        StartCoroutine(StartSequence());
+                ShowAppOpenAdIfAvailable();
+
+                if(!IsAdAvailable())
+                {
+                    LoadOpenApp();
+                } 
+            }
+        }
     }
+
+    #endregion
+
+    #region Startup
 
     IEnumerator StartSequence()
     {
@@ -61,6 +75,14 @@ public class AppOpen_Code : MonoBehaviour
         }
 
         startupRequest = false;
+    }
+
+    public void CallingAppOpen()
+    {
+        startupRequest = true;
+        resumedFromBackground = false;
+
+        StartCoroutine(StartSequence());
     }
 
     #endregion
@@ -172,25 +194,6 @@ public class AppOpen_Code : MonoBehaviour
 
             LoadOpenApp();
         };
-    }
-
-    #endregion
-
-    #region Resume
-
-    private void OnApplicationPause(bool paused)
-    {
-        if (!paused)
-        {
-            resumedFromBackground = true;
-
-            ShowAppOpenAdIfAvailable();
-
-            if (!IsAdAvailable())
-            {
-                LoadOpenApp();
-            }
-        }
     }
 
     #endregion

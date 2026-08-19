@@ -37,7 +37,7 @@ public class BigBanner : MonoBehaviour
             bannerView.Destroy();
         }
         //AdSize adSize = new AdSize(250, 250);
-        bannerView = new BannerView(AdmobIntilization._instance.isTestIdOn==false?bannerID:test_bannerID, AdSize.MediumRectangle, adsPosition);
+        bannerView = new BannerView(AdmobIntilization.Instance.isTestIdOn==false?bannerID:test_bannerID, AdSize.MediumRectangle, adsPosition);
         ListenToAdEvents(bannerView);
         var adRequest = new AdRequest();
 

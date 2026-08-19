@@ -1,11 +1,12 @@
+using Firebase;
+using Firebase.Analytics;
+using Firebase.Crashlytics;
+using Firebase.Extensions; // REQUIRED: For ContinueWithOnMainThread
+using Firebase.RemoteConfig;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Firebase;
-using Firebase.Analytics;
-using Firebase.RemoteConfig;
-using Firebase.Extensions; // REQUIRED: For ContinueWithOnMainThread
 using UnityEngine;
 
 public class FirebaseHandler : MonoBehaviour
@@ -51,13 +52,16 @@ public class FirebaseHandler : MonoBehaviour
 
     async void InitializeFirebase()
     {
-        Debug.Log("Firebase Initialized");
+        FirebaseApp app = FirebaseApp.DefaultInstance;
 
         FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
+        Crashlytics.ReportUncaughtExceptionsAsFatal = true;
 
         FirebaseAnalytics.SetUserProperty(
             FirebaseAnalytics.UserPropertySignUpMethod,
             "Google");
+
+        Debug.Log("Firebase Initialized");
 
         await InitializeRemoteConfig();
     }

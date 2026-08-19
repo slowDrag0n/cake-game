@@ -128,7 +128,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 246020855}
-  - component: {fileID: 246020865}
   - component: {fileID: 246020859}
   - component: {fileID: 246020861}
   - component: {fileID: 246020860}
@@ -138,7 +137,7 @@ GameObject:
   - component: {fileID: 246020862}
   - component: {fileID: 246020864}
   m_Layer: 0
-  m_Name: Monetization
+  m_Name: Ads
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,33 +279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f588d2da6671b4b8cfd07b74b1e35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForCheckDevice
---- !u!114 &246020865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246020854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb27d4398f7b474db76ae3150705c6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GoogleUMPHandler
-  OnGathered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1166807628}
-        m_TargetAssemblyTypeName: LoadingController, Assembly-CSharp
-        m_MethodName: StartLoading
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &291443746
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf225832a39f0cd42b394e5f0442b9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitForConsent: 0
+  WaitForConsent: 1
   LoadDelay: 5
   AppopenAdEnabled: 0
   AppopenDelay: 7

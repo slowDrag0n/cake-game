@@ -19,8 +19,12 @@ public class LoadingController : MonoBehaviour
 
     private void Start()
     {
-        //if(WaitForConsent == false)
-        StartLoading();
+        // Manual loading when not requiring user consent for ads
+        if(WaitForConsent == false)
+        {
+            AdmobIntilization.Instance.InitializeAdmob();
+            StartLoading();
+        }
     }
 
     public void StartLoading()

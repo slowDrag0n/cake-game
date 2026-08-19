@@ -3,48 +3,63 @@ using UnityEngine;
 using GoogleMobileAds;
 using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
- 
+
 // Example script showing how to invoke the Google Mobile Ads Unity plugin.
 public class AdmobIntilization : MonoBehaviour
 {
+    public static AdmobIntilization Instance;
 
-
+    public bool isTestIdOn;
     static InterstitialAd interstitial;
     static RewardedAd rewardedAd;
-    public bool isTestIdOn;
     string test_interstitialID = "ca-app-pub-3940256099942544/1033173712";
     string test_rewardID = "ca-app-pub-3940256099942544/5224354917";
 
     public string interstitialID = "ca-app-pub-3940256099942544/1033173712";
     public string rewardID = "ca-app-pub-3940256099942544/5224354917";
 
-
     public AdSize adSize;
     public AdPosition adPosition;
 
-
-    public static AdmobIntilization _instance;
     public GameObject callBackObject;
     public AppOpen_Code _ap;
     public Rewarded _rewarded;
 
-    private Action<bool> Callback
-    {
-        get;
-        set;
-    }
+    GoogleUMPHandler umpHandler;
+
+    // Flag to ensure not to initialize the SDK multiple times
+    public bool isMobileAdsInitialized { get; private set; } = false;
+
+    private Action<bool> Callback { get; set; }
+
     private void Awake()
     {
-        if(_instance==null)
-            _instance = this;
+        if(Instance == null)
+            Instance = this;
+
+        umpHandler = GetComponent<GoogleUMPHandler>();
     }
+
     void Start()
     {
         MobileAds.SetiOSAppPauseOnBackground(true);
-        // Initialize the Google Mobile Ads SDK.
+
+        // TODO - Gather consent for admob
+        //umpHandler.GatherConsent(delegate { InitializeAdmob(); });
+
+    }
+
+    public void InitializeAdmob()
+    {
+        if(isMobileAdsInitialized)
+            return;
+
+        isMobileAdsInitialized = true;
+
+        // Initialize the Google Mobile Ads SDK
         MobileAds.Initialize(initStatus =>
         {
-            if (PlayerPrefs.GetInt("RemoveAds") == 0)
+            if(PlayerPrefs.GetInt("RemoveAds") == 0)
             {
                 _ap.CallingAppOpen();
 
@@ -54,12 +69,10 @@ public class AdmobIntilization : MonoBehaviour
         });
     }
 
-    // Event handler for the AdFailedToLoad event
-
     AdRequest interstitialrequest;
     public void RequestInterstitial()
     {
-        if (interstitial != null)
+        if(interstitial != null)
         {
             interstitial.Destroy();
             interstitial = null;
@@ -70,8 +83,8 @@ public class AdmobIntilization : MonoBehaviour
         InterstitialAd.Load(isTestIdOn == false ? interstitialID : test_interstitialID, adRequest,
             (InterstitialAd ad, LoadAdError error) =>
             {
-              // if error is not null, the load request failed.
-              if (error != null || ad == null)
+                // if error is not null, the load request failed.
+                if(error != null || ad == null)
                 {
                     Debug.LogError("interstitial ad failed to load an ad " +
                                    "with error : " + error);
@@ -85,6 +98,7 @@ public class AdmobIntilization : MonoBehaviour
                 InterstitialRegisterEventHandlers(interstitial);
             });
     }
+
     private void InterstitialRegisterEventHandlers(InterstitialAd interstitialAd)
     {
         // Raised when the ad is estimated to have earned money.
@@ -101,12 +115,13 @@ public class AdmobIntilization : MonoBehaviour
         //    AppsFlyerAdRevenue.logAdRevenue("AdMob", AppsFlyerAdRevenueMediationNetworkType.AppsFlyerAdRevenueMediationNetworkTypeGoogleAdMob, adValue.Value / 1000000f, "USD", dic);
         //};
         // Raised when the ad closed full screen content.
+
         interstitialAd.OnAdFullScreenContentClosed += () =>
         {
             RequestInterstitial();
             AdCaller.ins.resetTime();
         };
-       
+
     }
     public void ShowInterstialAd()
     {
@@ -116,7 +131,7 @@ public class AdmobIntilization : MonoBehaviour
     }
     public bool HasAdmobInterstialAvaible()
     {
-        if (!interstitial.CanShowAd())
+        if(!interstitial.CanShowAd())
         {
             RequestInterstitial();
         }
@@ -132,7 +147,7 @@ public class AdmobIntilization : MonoBehaviour
     public void RequesRewardAd()
     {
         // Clean up the old ad before loading a new one.
-        if (rewardedAd != null)
+        if(rewardedAd != null)
         {
             rewardedAd.Destroy();
             rewardedAd = null;
@@ -147,8 +162,8 @@ public class AdmobIntilization : MonoBehaviour
         RewardedAd.Load(isTestIdOn == false ? rewardID : test_rewardID, adRequest,
             (RewardedAd ad, LoadAdError error) =>
             {
-              // if error is not null, the load request failed.
-              if (error != null || ad == null)
+                // if error is not null, the load request failed.
+                if(error != null || ad == null)
                 {
                     Debug.LogError("Rewarded ad failed to load an ad " +
                                    "with error : " + error);
@@ -181,12 +196,12 @@ public class AdmobIntilization : MonoBehaviour
         {
             DelayRequest();
         };
-       
+
     }
     public void ShowRewardAd(Rewarded rewarded)
     {
-  
-        if (rewardedAd.CanShowAd())
+
+        if(rewardedAd.CanShowAd())
         {
             rewardedAd.Show((Reward reward) =>
             {
@@ -207,14 +222,14 @@ public class AdmobIntilization : MonoBehaviour
 
     public bool HasRewardedAvaiable()
     {
-        if (!rewardedAd.CanShowAd())
+        if(!rewardedAd.CanShowAd())
         {
             RequesRewardAd();
         }
         return rewardedAd.CanShowAd();
     }
     #region RewardedAd callback handlers
- 
+
     void DelayRequest()
     {
         RequesRewardAd();
@@ -222,5 +237,5 @@ public class AdmobIntilization : MonoBehaviour
     #endregion
 
     //for destroy
-  
+
 }

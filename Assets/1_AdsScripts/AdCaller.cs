@@ -76,7 +76,7 @@ public class AdCaller : MonoBehaviour
         {
             if (Application.internetReachability != NetworkReachability.NotReachable)
             {
-                if (AdmobIntilization._instance.HasAdmobInterstialAvaible() || AdsManager.instance.isMaxReady())
+                if (AdmobIntilization.Instance.HasAdmobInterstialAvaible() || AdsManager.instance.isMaxReady())
                 {
                     loadingtxt.text = "3";
                     adloadingPanel.SetActive(true);

@@ -19,14 +19,14 @@ public class RewardedVideoAdCaller : MonoBehaviour
         }
         else
         {
-            if (AdmobIntilization._instance != null)
-                AdmobIntilization._instance.ShowRewardAd(VideoWatches);
+            if (AdmobIntilization.Instance != null)
+                AdmobIntilization.Instance.ShowRewardAd(VideoWatches);
         }
     }
     public void CallRewrdedAdmobForTest()
     {
-        if (AdmobIntilization._instance != null)
-            AdmobIntilization._instance.ShowRewardAd(VideoWatches);
+        if (AdmobIntilization.Instance != null)
+            AdmobIntilization.Instance.ShowRewardAd(VideoWatches);
     }   
     public void CallRewrdedMaxForTest()
     {

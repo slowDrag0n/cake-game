@@ -247,10 +247,10 @@ public class AdsManager : MonoBehaviour
             {
                 Debug.Log("Interstitial is not loaded");
                 LoadMaxInterstitial();
-                if (AdmobIntilization._instance.HasAdmobInterstialAvaible())
+                if (AdmobIntilization.Instance.HasAdmobInterstialAvaible())
                 {
                     isPausedDuetoAd = true;
-                    AdmobIntilization._instance.ShowInterstialAd();
+                    AdmobIntilization.Instance.ShowInterstialAd();
                     Debug.Log("AdmobAd");
                 }
             }
@@ -367,7 +367,7 @@ public class AdsManager : MonoBehaviour
         else
         {
             LoadRewardedAd();
-            AdmobIntilization._instance.ShowRewardAd(rewarded);
+            AdmobIntilization.Instance.ShowRewardAd(rewarded);
             isPausedDuetoAd = true;
         }
 
