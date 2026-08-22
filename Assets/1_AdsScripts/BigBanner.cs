@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using GoogleMobileAds.Api;
+﻿using AdjustSdk;
 using GoogleMobileAds;
+using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
+using UnityEngine;
 
 public class BigBanner : MonoBehaviour
 {
@@ -53,8 +54,21 @@ public class BigBanner : MonoBehaviour
         {
             AdsManager.instance.isPausedDuetoAd = true;
         };
-     
+
+        _bannerView.OnAdPaid += Adjust_TrackMrecAdRevenue;
     }
+
+    private static void Adjust_TrackMrecAdRevenue(AdValue adValue)
+    {
+        if(adValue.Value <= 0) return;
+        double revenue = adValue.Value / 1_000_000d;
+        var adj = new AdjustAdRevenue("admob_sdk");
+        adj.SetRevenue(revenue, adValue.CurrencyCode);
+        adj.AdRevenueNetwork = "google_admob";
+        adj.AdRevenuePlacement = "mrec";
+        Adjust.TrackAdRevenue(adj);
+    }
+
     public void bannerBigBannerShow()
     {
         if (FirebaseHandler.isMRecOn == false)

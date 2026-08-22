@@ -1,8 +1,9 @@
-using System;
-using UnityEngine;
+using AdjustSdk;
 using GoogleMobileAds;
 using GoogleMobileAds.Api;
 using GoogleMobileAds.Common;
+using System;
+using UnityEngine;
 
 // Example script showing how to invoke the Google Mobile Ads Unity plugin.
 public class AdmobIntilization : MonoBehaviour
@@ -102,6 +103,9 @@ public class AdmobIntilization : MonoBehaviour
     private void InterstitialRegisterEventHandlers(InterstitialAd interstitialAd)
     {
         // Raised when the ad is estimated to have earned money.
+        interstitialAd.OnAdPaid += Adjust_TrackInterstitialAdRevenue;
+
+        // Raised when the ad is estimated to have earned money.
         //interstitialAd.OnAdPaid += (AdValue adValue) =>
         //{
         //    Debug.Log(String.Format("Interstitial ad paid {0} {1}.",
@@ -174,11 +178,16 @@ public class AdmobIntilization : MonoBehaviour
                           + ad.GetResponseInfo());
 
                 rewardedAd = ad;
+
+                RewardedRegisterEventHandlers(rewardedAd);
             });
     }
     private void RewardedRegisterEventHandlers(RewardedAd ad)
     {
-        // Raised when the ad is estimated to have earned money.
+        //// Raised when the ad is estimated to have earned money.
+        ad.OnAdPaid += Adjust_TrackRewardAdRevenue;
+
+        //// Raised when the ad is estimated to have earned money.
         //ad.OnAdPaid += (AdValue adValue) =>
         //{
         //    Debug.Log(String.Format("Rewarded ad paid {0} {1}.",
@@ -191,11 +200,14 @@ public class AdmobIntilization : MonoBehaviour
 
         //    AppsFlyerAdRevenue.logAdRevenue("AdMob", AppsFlyerAdRevenueMediationNetworkType.AppsFlyerAdRevenueMediationNetworkTypeGoogleAdMob, adValue.Value / 1000000f, "USD", dic);
         //};
-        // Raised when the ad closed full screen content.
-        ad.OnAdFullScreenContentClosed += () =>
-        {
-            DelayRequest();
-        };
+
+
+
+        //// Raised when the ad closed full screen content.
+        //ad.OnAdFullScreenContentClosed += () =>
+        //{
+        //    DelayRequest();
+        //};
 
     }
     public void ShowRewardAd(Rewarded rewarded)
@@ -236,6 +248,30 @@ public class AdmobIntilization : MonoBehaviour
     }
     #endregion
 
-    //for destroy
 
+    #region Adjust tracking
+
+    private void Adjust_TrackRewardAdRevenue(AdValue adValue)
+    {
+        if(adValue.Value <= 0) return;
+        var adj = new AdjustAdRevenue("admob_sdk");
+        adj.SetRevenue(adValue.Value / 1_000_000d, adValue.CurrencyCode);
+        adj.AdRevenueNetwork = "google_admob";
+        adj.AdRevenueUnit = rewardID;
+        adj.AdRevenuePlacement = "rewarded";
+        Adjust.TrackAdRevenue(adj);
+    }
+
+    private void Adjust_TrackInterstitialAdRevenue(AdValue adValue)
+    {
+        if(adValue.Value <= 0) return;
+        var adj = new AdjustAdRevenue("admob_sdk");
+        adj.SetRevenue(adValue.Value / 1_000_000d, adValue.CurrencyCode);
+        adj.AdRevenueNetwork = "google_admob";
+        adj.AdRevenueUnit = interstitialID;
+        adj.AdRevenuePlacement = "interstitial";
+        Adjust.TrackAdRevenue(adj);
+    }
+
+    #endregion
 }

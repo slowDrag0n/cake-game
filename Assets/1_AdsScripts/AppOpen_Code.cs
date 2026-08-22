@@ -1,8 +1,9 @@
+using AdjustSdk;
+using GoogleMobileAds.Api;
 using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using GoogleMobileAds.Api;
 
 public class AppOpen_Code : MonoBehaviour
 {
@@ -194,8 +195,20 @@ public class AppOpen_Code : MonoBehaviour
 
             LoadOpenApp();
         };
+
+        ad.OnAdPaid += Adjust_TrackAppOpenAdRevenue;
     }
 
+    private static void Adjust_TrackAppOpenAdRevenue(AdValue adValue)
+    {
+        if(adValue.Value <= 0) return;
+        double revenue = adValue.Value / 1_000_000d;
+        var adj = new AdjustAdRevenue("admob_sdk");
+        adj.SetRevenue(revenue, "USD");
+        adj.AdRevenueNetwork = "google_admob";
+        adj.AdRevenuePlacement = "app_open";
+        Adjust.TrackAdRevenue(adj);
+    }
     #endregion
 
     #region Helpers

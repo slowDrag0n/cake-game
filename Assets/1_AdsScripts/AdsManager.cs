@@ -1,7 +1,9 @@
 ﻿
+using AdjustSdk;
 using GoogleMobileAds.Api;
 using System;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 public delegate void Rewarded();
 
@@ -42,7 +44,7 @@ public class AdsManager : MonoBehaviour
     {
         get
         {
-            if (!isMaxInitialized || !MaxSdk.IsRewardedAdReady(RewardedAdUnitId))
+            if(!isMaxInitialized || !MaxSdk.IsRewardedAdReady(RewardedAdUnitId))
                 return false;
             else
                 return true;
@@ -52,7 +54,7 @@ public class AdsManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if(instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
@@ -68,8 +70,8 @@ public class AdsManager : MonoBehaviour
 
     private void LoadAds()
     {
-        if (PlayerPrefs.GetInt("NoAds") == 1) return;
-        if (PlayerPrefs.GetInt("MaxAdStop") == 1) return;
+        if(PlayerPrefs.GetInt("NoAds") == 1) return;
+        if(PlayerPrefs.GetInt("MaxAdStop") == 1) return;
 
         //AdSettings.SetDataProcessingOptions(new string[] { "LDU" }, 1, 1000);
 #if UNITY_IPHONE || UNITY_IOS
@@ -87,7 +89,7 @@ public class AdsManager : MonoBehaviour
             // AppLovin SDK is initialized, start loading ads
             Debug.Log("MAX SDK Initialized");
             isMaxInitialized = true;
-            if (PlayerPrefs.GetInt("RemoveAds") == 0)
+            if(PlayerPrefs.GetInt("RemoveAds") == 0)
             {
                 InitializeInterstitialAds();
                 InitializeBannerAds();
@@ -111,20 +113,20 @@ public class AdsManager : MonoBehaviour
     }
     public void RequestInter()
     {
-        if (!isMaxInitialized)
+        if(!isMaxInitialized)
             return;
 
-        if (PlayerPrefs.GetInt("RemoveAds") == 0)
+        if(PlayerPrefs.GetInt("RemoveAds") == 0)
         {
-            if (!MaxSdk.IsInterstitialReady(InterstitialAdUnitId))
+            if(!MaxSdk.IsInterstitialReady(InterstitialAdUnitId))
                 LoadMaxInterstitial();
         }
     }
     public void RequestVideo()
     {
-        if (!isMaxInitialized)
+        if(!isMaxInitialized)
             return;
-        if (!MaxSdk.IsRewardedAdReady(RewardedAdUnitId))
+        if(!MaxSdk.IsRewardedAdReady(RewardedAdUnitId))
             LoadRewardedAd();
     }
     public void MuteAudio()
@@ -137,7 +139,7 @@ public class AdsManager : MonoBehaviour
     #region Interstitial Ad Methods
     public void InitializeInterstitialAds()
     {
-        if (!isMaxInitialized)
+        if(!isMaxInitialized)
             return;
         // Attach callback
         MaxSdkCallbacks.Interstitial.OnAdLoadedEvent += OnInterstitialLoadedEvent;
@@ -145,13 +147,20 @@ public class AdsManager : MonoBehaviour
         MaxSdkCallbacks.Interstitial.OnAdHiddenEvent += OnInterstitialHiddenEvent;
         MaxSdkCallbacks.Interstitial.OnAdDisplayFailedEvent += OnInterstitialAdFailedToDisplayEvent;
         MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += AdRevenuePaidEvent;
-        // Load the first interstitial
+        MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += (id, info) =>
+        {
+            if(id == InterstitialAdUnitId)
+            {
+                TrackRevenue(info, "interstitial");
+            }
+        };
 
+        // Load the first interstitial
         LoadMaxInterstitial();
     }
     private void LoadMaxInterstitial()
     {
-        if (!isMaxInitialized)
+        if(!isMaxInitialized)
             return;
         Debug.Log("Interstitial loading start=>");
         MuteAudio();
@@ -168,7 +177,7 @@ public class AdsManager : MonoBehaviour
         // Interstitial ad failed to load 
         // AppLovin recommends that you retry with exponentially higher delays, up to a maximum delay (in this case 64 seconds)
         print("Interstitial FailedToReceiveAd=>" + errorInfo);
-        if (interRequestTime >= 3)
+        if(interRequestTime >= 3)
             return;
         interRequestTime += 1;
         Invoke(nameof(LoadMaxInterstitial), 5f);
@@ -177,7 +186,7 @@ public class AdsManager : MonoBehaviour
     private void OnInterstitialAdFailedToDisplayEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo, MaxSdkBase.AdInfo adInfo)
     {
         // Interstitial ad failed to display. AppLovin recommends that you load the next ad.
-        if (interRequestTime >= 3)
+        if(interRequestTime >= 3)
             return;
         interRequestTime += 1;
         Invoke(nameof(LoadMaxInterstitial), 5f);
@@ -224,19 +233,29 @@ public class AdsManager : MonoBehaviour
         //    );
     }
 
+    private static void TrackRevenue(MaxSdkBase.AdInfo info, string placement)
+    {
+        double revenue = info.Revenue;
+        if(revenue <= 0) return;
+        var adj = new AdjustAdRevenue("applovin_max_sdk");
+        adj.SetRevenue(revenue, "USD");
+        adj.AdRevenueNetwork = info.NetworkName;
+        adj.AdRevenuePlacement = placement;
+        Adjust.TrackAdRevenue(adj);
+    }
 
     public void ShowInterstitial()
     {
-        if (PlayerPrefs.GetInt("MaxAdStop") == 1) return;
+        if(PlayerPrefs.GetInt("MaxAdStop") == 1) return;
 
-        if (PlayerPrefs.GetInt("RemoveAds") == 1 || !isMaxInitialized)
+        if(PlayerPrefs.GetInt("RemoveAds") == 1 || !isMaxInitialized)
         {
             return;
         }
         else
         {
 
-            if (MaxSdk.IsInterstitialReady(InterstitialAdUnitId))
+            if(MaxSdk.IsInterstitialReady(InterstitialAdUnitId))
             {
                 Debug.Log("Showing interstitial");
                 isPausedDuetoAd = true;
@@ -247,7 +266,7 @@ public class AdsManager : MonoBehaviour
             {
                 Debug.Log("Interstitial is not loaded");
                 LoadMaxInterstitial();
-                if (AdmobIntilization.Instance.HasAdmobInterstialAvaible())
+                if(AdmobIntilization.Instance.HasAdmobInterstialAvaible())
                 {
                     isPausedDuetoAd = true;
                     AdmobIntilization.Instance.ShowInterstialAd();
@@ -258,7 +277,7 @@ public class AdsManager : MonoBehaviour
     }
     public bool isMaxReady()
     {
-        if (MaxSdk.IsInterstitialReady(InterstitialAdUnitId))
+        if(MaxSdk.IsInterstitialReady(InterstitialAdUnitId))
         {
             return true;
         }
@@ -266,9 +285,9 @@ public class AdsManager : MonoBehaviour
     }
     public void ShowMaxInterstitial()
     {
-        if (PlayerPrefs.GetInt("MaxAdStop") == 1) return;
+        if(PlayerPrefs.GetInt("MaxAdStop") == 1) return;
 
-        if (MaxSdk.IsInterstitialReady(InterstitialAdUnitId))
+        if(MaxSdk.IsInterstitialReady(InterstitialAdUnitId))
         {
             Debug.Log("Showing interstitial");
             isPausedDuetoAd = true;
@@ -283,7 +302,7 @@ public class AdsManager : MonoBehaviour
     #region Rewarded Ad Methods
     private void InitializeRewardedAds()
     {
-        if (!isMaxInitialized)
+        if(!isMaxInitialized)
             return;
         // Attach callback
         MaxSdkCallbacks.Rewarded.OnAdLoadedEvent += OnRewardedAdLoadedEvent;
@@ -292,6 +311,14 @@ public class AdsManager : MonoBehaviour
         MaxSdkCallbacks.Rewarded.OnAdDisplayFailedEvent += OnRewardedAdFailedToDisplayEvent;
         MaxSdkCallbacks.Rewarded.OnAdReceivedRewardEvent += OnRewardedAdReceivedRewardEvent;
         MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent += AdRevenuePaidEvent;
+        MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += (id, info) =>
+        {
+            if(id == RewardedAdUnitId)
+            {
+                TrackRevenue(info, "rewarded");
+            }
+        };
+
         // Load the first rewarded ad
         LoadRewardedAd();
     }
@@ -311,7 +338,7 @@ public class AdsManager : MonoBehaviour
         // Rewarded ad failed to load 
         // We recommend retrying with exponentially higher delays up to a maximum delay (in this case 64 seconds)
         print("Rewarded Failed ToReceive with error code" + errorInfo);
-        if (rewardRequestTime >= 3)
+        if(rewardRequestTime >= 3)
             return;
         rewardRequestTime += 1;
         Invoke(nameof(LoadRewardedAd), 5f);
@@ -355,11 +382,11 @@ public class AdsManager : MonoBehaviour
     }
     public void ShowRewardedAd(Rewarded rewarded)
     {
-        if (!isMaxInitialized)
+        if(!isMaxInitialized)
             return;
 
         _rewarded = rewarded;
-        if (MaxSdk.IsRewardedAdReady(RewardedAdUnitId))
+        if(MaxSdk.IsRewardedAdReady(RewardedAdUnitId))
         {
             isPausedDuetoAd = true;
             MaxSdk.ShowRewardedAd(RewardedAdUnitId);
@@ -375,16 +402,16 @@ public class AdsManager : MonoBehaviour
     }
     public void ShowRewardedAdMax(Rewarded rewarded)
     {
-        if (!isMaxInitialized)
+        if(!isMaxInitialized)
             return;
 
         _rewarded = rewarded;
-        if (MaxSdk.IsRewardedAdReady(RewardedAdUnitId))
+        if(MaxSdk.IsRewardedAdReady(RewardedAdUnitId))
         {
             isPausedDuetoAd = true;
             MaxSdk.ShowRewardedAd(RewardedAdUnitId);
         }
- 
+
 
 
     }
@@ -397,7 +424,7 @@ public class AdsManager : MonoBehaviour
 
     public void InitializeBannerAds()
     {
-        if (!isMaxInitialized)
+        if(!isMaxInitialized)
             return;
 
         Debug.Log("Initializing Banner...");
@@ -407,9 +434,17 @@ public class AdsManager : MonoBehaviour
         MaxSdkCallbacks.Banner.OnAdLoadedEvent += OnBannerAdLoadedEvent;
         MaxSdkCallbacks.Banner.OnAdLoadFailedEvent += OnBannerAdLoadFailedEvent;
         MaxSdkCallbacks.Banner.OnAdClickedEvent += OnBannerAdClickedEvent;
-        MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += AdRevenuePaidEvent;
         MaxSdkCallbacks.Banner.OnAdExpandedEvent += OnBannerAdExpandedEvent;
         MaxSdkCallbacks.Banner.OnAdCollapsedEvent += OnBannerAdCollapsedEvent;
+        MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += AdRevenuePaidEvent;
+        MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += (id, info) =>
+        {
+            if(id == BannerAdUnitId)
+            {
+                TrackRevenue(info, "banner");
+            }
+        };
+
 
         var bannerConfig = new MaxSdk.AdViewConfiguration(bannerPosition);
 
@@ -470,17 +505,17 @@ public class AdsManager : MonoBehaviour
 
     public void ShowBanner()
     {
-        if (!isMaxInitialized)
+        if(!isMaxInitialized)
             return;
 
-        if (PlayerPrefs.GetInt("RemoveAds") == 1)
+        if(PlayerPrefs.GetInt("RemoveAds") == 1)
             return;
 
-        if (!FirebaseHandler.isBannerOn)
+        if(!FirebaseHandler.isBannerOn)
             return;
 
         Debug.Log("Show Banner");
-        if (FirebaseHandler.isBannerOn == false)
+        if(FirebaseHandler.isBannerOn == false)
         {
             return;
         }
@@ -489,7 +524,7 @@ public class AdsManager : MonoBehaviour
 
     public void HideBanner()
     {
-        if (!isMaxInitialized)
+        if(!isMaxInitialized)
             return;
 
         Debug.Log("Hide Banner");
